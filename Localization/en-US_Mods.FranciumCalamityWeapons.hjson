@@ -1,0 +1,398 @@
+Buffs: {
+	CosmicScabbardBuff: {
+		DisplayName: Cosmic Ensemble
+		Description: You're probably popular at soup kitchens in alternate dimensions.
+	}
+
+	DesertTwinBuff: {
+		DisplayName: Desert Twin Buff
+		Description: Mods.FranciumCalamityWeapons.Buffs.DesertTwinBuff.Description
+	}
+
+	Supression: {
+		DisplayName: Supression
+		Description: Mods.FranciumCalamityWeapons.Buffs.Supression.Description
+	}
+
+	FracturedPhantomBuff: {
+		DisplayName: Fractured Phantom Buff
+		Description: Mods.FranciumCalamityWeapons.Buffs.FracturedPhantomBuff.Description
+	}
+
+	SandBlindness: {
+		DisplayName: Sand Blindness
+		Description: Sulprous Sand irritates your eyes! You can't see!
+	}
+}
+
+Items: {
+	CosmicSaber: {
+		DisplayName: Cosmic Saber
+		Tooltip: ""
+	}
+
+	GreaterDefiler: {
+		DisplayName: Greater Defiler
+		Tooltip: Releases a nether spine that hooks into enemies and drags them towards you. Dragging them back hard enough into you will create a small explosion.
+	}
+
+	LesserDefiler: {
+		DisplayName: Lesser Defiler
+		Tooltip: Releases a nether spine that hooks into enemies and drags them towards you.
+	}
+
+	NebulousShock: {
+		DisplayName: Nebulous Shock
+		Tooltip: ""
+	}
+
+	WhiteDwarf: {
+		DisplayName: White Dwarf
+		Tooltip: ""
+	}
+
+	CosmicScabbard: {
+		DisplayName: Cosmic Scabbard
+		Tooltip: Unleashes an ensemble of cosmic fury. (DEV NOTE: This item and its minions are being overhauled completely with newer AI and better sprites.)
+	}
+
+	FalseVacuum: {
+		Tooltip: An ingot of unstable energies. Supposedly it can collapse into nothingness at any moment.
+		DisplayName: False Vacuum
+	}
+
+	Deuxième: {
+		DisplayName: Deuxième
+		Tooltip: Swings have a 50% chance of dealing a critical, if a critical is dealt, a special effect is triggered. If it is missed, the hit is nondescript again.
+	}
+
+	VoidBlood: {
+		DisplayName: Void Blood
+		Tooltip: ""
+	}
+
+	EquinoxIngot: {
+		Tooltip: ""
+		DisplayName: Equinox Ingot
+	}
+
+	HeroSword: {
+		Tooltip: ""
+		DisplayName: Hero Sword
+	}
+
+	VictideScepter: {
+		Tooltip: Shoots out dried coral chunks.
+		DisplayName: Victide Scepter
+	}
+
+	IlmerianScepter: {
+		DisplayName: Ilmerian Scepter
+		Tooltip:
+			'''
+			A glimmering scepter fit for an aquatic noble.
+			This scepter shoots a chain of Sea Prisms out linearly that electrify enemies on contact.
+			'''
+	}
+
+	Overlord: {
+		Tooltip:
+			'''
+			As powerful as the serpent is, it could not stop dreaming.
+			Even in its final moments before being humbly executed at your hand, it was thinking about crowning itself the Supreme Ruler of the Cosmos some day soon.
+			The past accomplices of the Serpent; the Engineer and the Tyrant, never truly understood that the serpent was not a blind chaser.
+			One cannot sit on a throne of nothingness and be a ruler. They must have subjects and property to impose their will upon.
+			The Devourer was notably close to having become the ruler of the distortion, and who knows what could have been should they have overthrown the deity of the distortion.
+			This sword, forged of fine cosmilite at a blacksmith located an unknown distance from here and from now, was to be wielded by the devourer's finest subjects. Those whom played the middle men for their operations.
+			Even holding this sword makes you feel atop the world. You feel almost compelled to fulfill the dream you cut so short.
+			Nothing stops you from doing so.
+			~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Swings in a circle around the player. Striking an enemy releases two homing Cosmic Stars that begin to spin when in the vicinity of a target.
+			The Blue Star inflicts Glacial State, and the Pink Star inflicts God Slayer Inferno.
+			Critical hits from the blade inflict Whispering Death.
+			Consecutive Hits from the blade charge a bar. At full charge, a mirage of the devourer will appear to assist you.
+			'''
+		DisplayName: Overlord
+	}
+
+	DustBowlDicers: {
+		DisplayName: Dust Bowl Dicers
+		Tooltip: ""
+	}
+
+	Overlord_Legacy: {
+		DisplayName: Overlord (Legacy Version)
+		Tooltip: ""
+	}
+
+	StolenDawn: {
+		DisplayName: Stolen Dawn
+		Tooltip: ""
+	}
+
+	HeatDeath: {
+		DisplayName: Antimatter
+		Tooltip:
+			'''
+			By attempting to add a shadowspec bar to the false vacuum, you brough it past critial mass and collapsed it into negative space.
+			By all known science, this shouldn't even exist.
+			The negative space houses all the room needed for all of the horrid vice of Shadowspec to fester into seething rage.
+			'''
+	}
+
+	Conquistador: {
+		DisplayName: Conquistador
+		Tooltip:
+			'''
+			Light Bends around this weapon...
+
+			'''
+	}
+
+	IsolationArrow: {
+		DisplayName: Isolation Arrow
+		Tooltip: The arrow is freezing. Light bends around its form.
+	}
+
+	Equivocator: {
+		DisplayName: Equivocator
+		Tooltip:
+			'''
+			Light Bends around this weapon...
+			When the spear reaches its apex, it will spawn a damaging aura that travels in the direction of fire.
+			'''
+	}
+
+	PasserUmbraeSeparatricis: {
+		DisplayName: Passer Umbrae Separatricis
+		Tooltip:
+			'''
+			Light Bends around this weapon...
+			With a luminant plume, this javelin bursts into a spread of 5 feathers on collision with a tile.
+			Stealth Strikes summon a radiant sparrow to sweep away you foes.
+			'''
+	}
+
+	FinalCommand: {
+		DisplayName: Final Command
+		Tooltip: ""
+	}
+
+	Twisted: {
+		DisplayName: Embargo
+		Tooltip: ""
+	}
+
+	TheCrystal: {
+		DisplayName: Eye of the Nirvana
+		Tooltip: ""
+	}
+
+	GazeofNoxus: {
+		Tooltip: ""
+		DisplayName: Gazeof Noxus
+	}
+
+	Lore: {
+		NightmareRoseLore: {
+			DisplayName: Nightmare Rose
+			Lore:
+				'''
+				The Corruption is a truly remarkable thing. Is it not?
+				Both you and I alike thought we had seen the last of that Golgotha, but it always seems to hold new surprises.
+				If my confusion had not made it obvious thus far, I do not know much about what this thing is, let alone why it was there.
+				Perhaps the felling of Fovos awakened new energies in corruption?
+				It is an engima, most definitely.
+				'''
+		}
+
+		WyvernCorpseLore: {
+			DisplayName: Wyvern Corpse
+			Lore:
+				'''
+				What an unfortunate fate for such a meek creature.
+				I had the curiosity to watch it myself, and see just how the crimson works.
+				First, the throny bramble snares their lifeless body against the dirt.
+				Then, the blood crawlers come out from the caverns and gnaw its skin thin, devouring it for sustenance.
+				Then come the Herplings, as you know them by, that feasted on its lesser flesh and organs, tearing all the cartillage and fat and tissue from its skeleton.
+				All that remained were the muscle fibers. Seemingly too tough from the Wyvern's Lifestyle to be a sustainable meal for any creature.
+				It did not stop at that though. I watched as parasites as big as my arm wriggled out from the dirt and into the corpse, traveling into the vacant brain cavity.
+				Ichor boils developed as well, and most of the remaining muscle fibers either decayed and fell off the bones, or, they became petrified into crimstone.
+
+				After all that, it still moved. And it still hungered.
+				For the first time in centuries. I felt a pang of sadness for a lowly creature like a wyvern.
+				Perhaps having watched it was a mistake.
+				'''
+		}
+	}
+
+	LuminousPartisan: {
+		DisplayName: Luminous Partisan
+		Tooltip: ""
+	}
+
+	StellarJaw: {
+		Tooltip: ""
+		DisplayName: Stellar Jaw
+	}
+
+	StarConqueringMaw: {
+		Tooltip: ""
+		DisplayName: Star Conquering Maw
+	}
+
+	IntestinalLacerator: {
+		Tooltip: ""
+		DisplayName: Intestinal Lacerator
+	}
+
+	GodTendril: {
+		Tooltip: ""
+		DisplayName: God Tendril
+	}
+
+	CosmicWrathEnchantment: {
+		DisplayName: Cosmic Wrath Enchantment
+		Tooltip:
+			'''
+			Damage increased by 12%
+			Boost scales with lower health
+			You will survive an attack that would have killed you and be restored to full health and inflicted with God Slayer Inferno
+			Cooldown lasts 1 minute
+			'''
+	}
+
+	ThermalDysregulator: {
+		DisplayName: Thermal Dysregulator
+		Tooltip:
+			'''
+			Fires a spread of magmatic lasers.
+
+			Hold Up Key to fire a spread of superheated water.
+			Hold Down Key to fire a Mine that Explodes after three seconds.
+			Hold your Smart Cursor Keybind to fire a spread of Pyre Flames.
+
+			Despite using mana, the water canister does need to be refilled after each Superheated water attack,
+			as such, at least two Bottled Waters are needed in the inventory to use the Superheated water attack.
+			'''
+	}
+
+	WaterCanister: {
+		Tooltip:
+			'''
+			A simple recepticle for storing about two bottles worth of water. It is warm to the touch.
+			It seems to be part of a greater whole...
+			'''
+		DisplayName: Water Canister
+	}
+
+	Supremacy: {
+		DisplayName: Supremacy
+		Tooltip:
+			'''
+			The dream, the memory, the vision. All of it is gone.
+			Whatever horrid purpose this blade was once destined for is long forgotten, and it has been altered beyond recognition.
+			When you hold it, you feel no inspiration to conquer or ascend. No yearning for power.
+			Only a desire to bask. Bask in the light of the heavens you could lay seige to if you so desired.
+			Bask in your own ego and pride. Bask in the gazes of all around you.
+			~~~~~~~~~~~~~~~~~~~~~
+			Swings in a circle around the player.
+			Hits summon a gilded Antimatter Wyrm to assist you.
+			Only one can be active at once, and the Wyrm cannot be guided by whips.
+			'''
+	}
+
+	ExarchicEnforcer: {
+		Tooltip: ""
+		DisplayName: Exarchic Enforcer
+	}
+
+	SulfurScepter: {
+		DisplayName: Sulfur Scepter
+		Tooltip: ""
+	}
+}
+
+Projectiles: {
+	CosmicBeam.DisplayName: Cosmic Beam
+	NebulousIceDart.DisplayName: Nebulous Ice Dart
+	WhiteDwarfProjectile.DisplayName: White Dwarf Projectile
+	WhiteDwarf.DisplayName: White Dwarf
+	CosmicSaber.DisplayName: Cosmic Saber
+	GreaterDefiler.DisplayName: Greater Defiler
+	LesserDefiler.DisplayName: Lesser Defiler
+	NebulousShock.DisplayName: Nebulous Shock
+	NebulousWinter.DisplayName: Nebulous Winter
+	Overlord.DisplayName: Overlord
+	StarSkeleton.DisplayName: Star Skeleton
+	DeuxièmeSwing.DisplayName: Deuxième Swing
+	HeroSwordLaser.DisplayName: Hero Sword Laser
+	HeroSwordSlash.DisplayName: Hero Sword Slash
+	VictideScepterThrown.DisplayName: Victide Scepter Thrown
+	TealCoral.DisplayName: Teal Coral
+	PinkCoral.DisplayName: Pink Coral
+	PearlChunk.DisplayName: Pearl Chunk
+	SeaPrismChain_Head.DisplayName: Sea Prism Chain_ Head
+	SeaPrismChain_Shaft.DisplayName: Sea Prism Chain_ Shaft
+	IlmerianScepterThrown.DisplayName: Ilmerian Scepter Thrown
+	OverlordSwing.DisplayName: Overlord Swing
+	CosmicStarPink.DisplayName: Cosmic Star Pink
+	CosmicStarBlue.DisplayName: Cosmic Star Blue
+	BoomDrawEntity.DisplayName: Boom Draw Entity
+	OverlordSwing_Legacy.DisplayName: Overlord Swing_ Legacy
+	AmberShiv.DisplayName: Amber Shiv
+	FossilDrake.DisplayName: Fossil Drake
+	NebulousShockThrown.DisplayName: Nebulous Shock Thrown
+	IceDartHoming.DisplayName: Ice Dart Homing
+	LesserDefiler_Flail.DisplayName: Lesser Defiler_ Flail
+	AnchorAreaParticle.DisplayName: Anchor Area Particle
+	GreaterDefiler_Flail.DisplayName: Greater Defiler_ Flail
+	SparkDrawEntity.DisplayName: Spark Draw Entity
+	NightFlameProjectile.DisplayName: Night Flame Projectile
+	IsolationArrowProjectile.DisplayName: Isolation Arrow Projectile
+	EquivocatorAreaParticle.DisplayName: Equivocator Area Particle
+	EquivocatorStab.DisplayName: Equivocator Stab
+	PUSProj.DisplayName: P U S Proj
+	PUSFeather.DisplayName: P U S Feather
+	FinalCommandProj.DisplayName: Final Command Proj
+	FracturedPhantom.DisplayName: Fractured Phantom
+	SoulFireball.DisplayName: Soul Fireball
+	TheCrystalBeam.DisplayName: The Crystal Beam
+	TheCrystalHoldout.DisplayName: The Crystal Holdout
+	SparrowAoE.DisplayName: Sparrow Ao E
+	GazeofNoxusHoldout.DisplayName: Gazeof Noxus Holdout
+	TenebrousChakramIdleScythe.DisplayName: Tenebrous Chakram Idle Scythe
+	RiftStar.DisplayName: Rift Star
+	RiftChakramSawClone.DisplayName: Rift Chakram Saw Clone
+	ChromaDiamond.DisplayName: Chroma Diamond
+	ChromaVortex.DisplayName: Chroma Vortex
+	ChromaStardust.DisplayName: Chroma Stardust
+	PNoctisAoE.DisplayName: P Noctis Ao E
+	LuminousAreaParticle.DisplayName: Luminous Area Particle
+	LuminousPartisanStab.DisplayName: Luminous Partisan Stab
+	IntestinalLaceratorProj.DisplayName: Intestinal Lacerator Proj
+	GodTendrilProj.DisplayName: God Tendril Proj
+	PyreFlame.DisplayName: Pyre Flame
+	HotWater.DisplayName: Hot Water
+	MagmaLaser.DisplayName: Magma Laser
+	PyreMine.DisplayName: Pyre Mine
+	ThermalDysregulatorHoldout.DisplayName: Thermal Dysregulator Holdout
+	SupremacySwing.DisplayName: Supremacy Swing
+	SupremacyWyrmTail.DisplayName: Supremacy Wyrm Tail
+	SupremacyWyrmHead.DisplayName: Supremacy Wyrm Head
+	SupremacyWyrmBody.DisplayName: Supremacy Wyrm Body
+	VoidStar2.DisplayName: Void Star2
+	MiniCruiserHead.DisplayName: Mini Cruiser Head
+	ExarchicEnforcerThrown.DisplayName: Exarchic Enforcer Thrown
+	VoidEye.DisplayName: Void Eye
+	ExarchicEnforcerHoldout.DisplayName: Exarchic Enforcer Holdout
+	CausticShot.DisplayName: Caustic Shot
+	SulfurScepterThrown.DisplayName: Sulfur Scepter Thrown
+	SulfurScepterHoldout.DisplayName: Sulfur Scepter Holdout
+	CausticBlob.DisplayName: Caustic Blob
+	CausticAoE.DisplayName: Caustic Ao E
+	SandBlindnessProjectile.DisplayName: Sand Blindness Projectile
+}
+
+UI.OverlordChargeBar: Overlord Hit Count
+Cooldowns.CosmicWrathCooldown: Cosmic Wrath Enchantment: Rebirth Cooldown

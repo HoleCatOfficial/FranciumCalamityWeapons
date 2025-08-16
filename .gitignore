@@ -1,0 +1,35 @@
+# Build output
+bin/
+obj/
+
+# VSCode stuff
+.vscode/
+
+# User-specific files
+*.user
+*.suo
+
+# Debugging and logs
+*.log
+*.pdb
+
+# OS clutter
+.DS_Store
+Thumbs.db
+
+# Terraria mod build cache
+tModLoader/ModLoader.cache/
+tModLoader/*.tmod
+tModLoader/ModCompile/
+
+# NuGet and other packages (if used)
+packages/
+*.nupkg
+
+# Ignore everything during first push
+# (uncomment this if you're still staging root-only)
+# /*
+# !.gitignore
+# !*.cs
+# !*.json
+# !*.txt
