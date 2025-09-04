@@ -1,5 +1,5 @@
 displayName = HoleCat's Content Mod - Calamity DLC 
 author = HoleCat
-version = 1.32
+version = 1.322
 modReferences = CalamityMod, DestroyerTest, InnoVault
 dependencies = CalamityMod, DestroyerTest, InnoVault

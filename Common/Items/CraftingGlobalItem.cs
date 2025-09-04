@@ -1,4 +1,5 @@
 using System;
+using CalamityMod.Items.Weapons.Melee;
 using FranciumCalamityWeapons.Content.Resources;
 using Terraria;
 using Terraria.Audio;
@@ -18,5 +19,17 @@ namespace FranciumCalamityWeapons.Common.Items
 
             }
         }
+
+        public override void AddRecipes()
+        {
+            foreach (var item in Main.item)
+            {
+                if (item.type == ModContent.ItemType<ElementalLance>())
+                {
+                    
+                }
+            }
+        }
+
     }
 }

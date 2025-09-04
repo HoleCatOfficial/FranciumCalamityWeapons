@@ -311,6 +311,15 @@ Items: {
 		DisplayName: Sulfur Scepter
 		Tooltip: ""
 	}
+
+	Weapons: {
+		Melee: {
+			ELResprite: {
+				DisplayName: E L Resprite
+				Tooltip: ""
+			}
+		}
+	}
 }
 
 Projectiles: {

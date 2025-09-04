@@ -13,9 +13,8 @@ using DestroyerTest.Content.Resources;
 
 using CalamityMod.Tiles.Furniture.CraftingStations;
 
-namespace FranciumCalamityWeapons.Content.Resources;
-
-    
+namespace FranciumCalamityWeapons.Content.Resources
+{
 	public class EquinoxIngot : ModItem
 	{
         public override string Texture => "FranciumCalamityWeapons/Content/Resources/EquinoxIngot";
@@ -56,4 +55,5 @@ namespace FranciumCalamityWeapons.Content.Resources;
 				.Register();
         }
 	}
+}
 
