@@ -196,7 +196,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
                 launchVelocity = launchVelocity.RotatedBy(MathHelper.PiOver4);
 
                 // Spawn a new projectile with the newly rotated velocity, belonging to the original projectile owner. The new projectile will inherit the spawning source of this projectile.
-                Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, launchVelocity * 2.755f, VoidStar1.Type, (int)(Projectile.damage * 0.25f), Projectile.knockBack, Projectile.owner);
+                Projectile.NewProjectile(Projectile.InheritSource(Projectile), Projectile.Center, launchVelocity * 2.75f, VoidStar1.Type, (int)(Projectile.damage * 0.25f), Projectile.knockBack, Projectile.owner);
             }
             base.OnHitNPC(target, hit, damageDone);
         }
