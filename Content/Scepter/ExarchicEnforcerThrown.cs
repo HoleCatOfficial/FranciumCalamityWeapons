@@ -17,6 +17,7 @@ using DestroyerTest.Content.Projectiles;
 using InnoVault.PRT;
 using FranciumCalamityWeapons.Content.Particles;
 using Microsoft.VisualBasic;
+using CalamityMod.Buffs.DamageOverTime;
 
 namespace FranciumCalamityWeapons.Content.Scepter
 {
@@ -73,6 +74,10 @@ namespace FranciumCalamityWeapons.Content.Scepter
                 {
                     VoidStar1 = VS;
                 }
+            }
+            else
+            {
+                VoidStar1 = ModContent.GetModProjectile(ModContent.ProjectileType<VoidStar2>());
             }
 
             if (Main.rand.NextBool(40))
@@ -175,11 +180,16 @@ namespace FranciumCalamityWeapons.Content.Scepter
                     VoidStar1 = VS;
                 }
             }
+            else
+            {
+                target.AddBuff(ModContent.BuffType<GodSlayerInferno>(), 120);
+                VoidStar1 = ModContent.GetModProjectile(ModContent.ProjectileType<VoidStar2>());
+            }
 
             SoundEngine.PlaySound(Hit, target.Center);
 
             Vector2 launchVelocity = new Vector2(-8, 0); // Create a velocity moving the left.
-            for (int i = 0; i < Main.rand.Next(3, 10); i++)
+            for (int i = 0; i < Main.rand.Next(3, 15); i++)
             {
                 // Every iteration, rotate the newly spawned projectile by the equivalent 1/4th of a circle (MathHelper.PiOver4)
                 // (Remember that all rotation in Terraria is based on Radians, NOT Degrees!)

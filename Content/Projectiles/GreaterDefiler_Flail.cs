@@ -1,4 +1,6 @@
 
+using CalamityMod.Buffs.DamageOverTime;
+using CalamityMod.Buffs.StatDebuffs;
 using FranciumCalamityWeapons.Content.Dusts;
 using FranciumCalamityWeapons.Content.Particles;
 using InnoVault.PRT;
@@ -444,34 +446,29 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) {
 			TargetNPC = target;
 			// Flails do a few custom things, you'll want to keep these to have the same feel as vanilla flails.
-			if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod))
-			{
-				if (calamityMod.TryFind("ArmorCrunch", out ModBuff AC))
-				{
-					target.AddBuff(AC.Type, 600);
-				}
-                if (calamityMod.TryFind("GodSlayerInferno", out ModBuff GSI) && SpinningStateTimer >= 24f)
-				{
-					target.AddBuff(GSI.Type, 120);
-				}
-			}
+			target.AddBuff(ModContent.BuffType<ArmorCrunch>(), 600);
+			target.AddBuff(ModContent.BuffType<GodSlayerInferno>(), 300);
 			// Flails do 20% more damage while spinning
-			if (CurrentAIState == AIState.Spinning) {
+			if (CurrentAIState == AIState.Spinning)
+			{
 				modifiers.SourceDamage *= 1.2f;
 			}
 			// Flails do 100% more damage while launched or retracting. This is the damage the item tooltip for flails aim to match, as this is the most common mode of attack. This is why the item has ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
-			else if (CurrentAIState == AIState.Spinning || CurrentAIState == AIState.LaunchingForward || CurrentAIState == AIState.Retracting) {
+			else if (CurrentAIState == AIState.Spinning || CurrentAIState == AIState.LaunchingForward || CurrentAIState == AIState.Retracting)
+			{
 				modifiers.SourceDamage *= 2f;
 				target.Center = Projectile.Center;
 				Locked = true;
-				SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/StabAnchor") with {PitchVariance = 1}, Projectile.position);
-				PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom2>(), Projectile.Center, Vector2.Zero, Color.Pink, 1);
-				TintableSpark spark = ModContent.GetInstance<TintableSpark>().GetTintableSpark();
-				spark.baseColor = new Color(39, 151, 171) /*new Color (255, 100, 0)*/;
-				for (int i = 0; i < 9; i++)
+				SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/StabAnchor") with { PitchVariance = 1 }, Projectile.position);
+				if (CurrentAIState != AIState.Spinning)
 				{
-					Dust.NewDust(Projectile.position, 1, 1, ModContent.DustType<TintableSpark>(), Projectile.velocity.X / 2, Projectile.velocity.Y / 4, 0, default(Color), 1.0f);
+					PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom2>(), Projectile.Center, Vector2.Zero, Color.Pink, 1);
+					for (int e = 0; e < 5; e++)
+					{
+						PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticle>(), target.Center, (Projectile.velocity * 0.08f).RotatedBy(Main.rand.NextFloat(-0.5f, 0.5f)), Color.SkyBlue, 1);
+					}
 				}
+				
 			}
 
 			// The hitDirection is always set to hit away from the player, even if the flail damages the npc while returning
