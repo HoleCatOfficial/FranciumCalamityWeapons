@@ -185,6 +185,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
                 target.AddBuff(ModContent.BuffType<GodSlayerInferno>(), 120);
                 VoidStar1 = ModContent.GetModProjectile(ModContent.ProjectileType<VoidStar2>());
             }
+            
 
             SoundEngine.PlaySound(Hit, target.Center);
 
