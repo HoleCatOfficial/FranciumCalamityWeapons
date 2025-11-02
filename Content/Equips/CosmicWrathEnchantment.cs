@@ -3,19 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using DestroyerTest.Content.Tiles.RiftConfigurator;
-using DestroyerTest.Content.Resources;
-using DestroyerTest.Content.Particles;
-using DestroyerTest.Content.RiftArsenal;
-using DestroyerTest.Content.Magic.ScepterSubclass;
-using DestroyerTest.Content.Equips;
-using DestroyerTest.Common;
 using Microsoft.Xna.Framework;
-using DestroyerTest.Rarity;
-using DestroyerTest.Content.Tiles;
-using DestroyerTest.Content.RangedItems;
-using DestroyerTest.Content.MeleeWeapons;
-using DestroyerTest.Content.Buffs;
 using Terraria.Audio;
 using InnoVault.PRT;
 using CalamityMod.Tiles.Furniture.CraftingStations;
@@ -90,8 +78,9 @@ namespace FranciumCalamityWeapons.Content.Equips
             float lifePercent = (float)player.statLife / player.statLifeMax2;
             float dynamicBonus = MultiplicativeDamageBonus + ((1f - lifePercent) * MultiplicativeDamageBonus * 2);
             player.GetDamage(DamageClass.Generic) *= 1f + (dynamicBonus / 100f);
-
+            /*
             CWPlayer.CosmicWrathEnchantment = true;
+            */
         }
 
         public override void AddRecipes()
@@ -203,6 +192,6 @@ namespace FranciumCalamityWeapons.Content.Equips
             Vector2 ToPlayer = Player.Center - HighInTheSky;
             Projectile.NewProjectile(proj.GetSource_OnHurt(proj), HighInTheSky, ToPlayer, ProjectileID.ManaCloakStar, 200, 1f);
             }
-            }
+        }
     }
 }

@@ -10,27 +10,17 @@
 
 	<!-- References -->
 	<ItemGroup>
-	<None Update="Assets\Shaders\Custom\WavyDeform.xnb">
-    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-  	</None>
-    
-    <Reference Include="CalamityMod">
-      <HintPath>..\..\references\mods\CalamityMod.dll</HintPath>
-    </Reference>
-    <Reference Include="CalamityMod">
-      <HintPath>..\ModAssemblies\CalamityMod_v2.0.5.dll</HintPath>
-    </Reference>
-    <Reference Include="DestroyerTest">
-      <HintPath>..\..\references\mods\DestroyerTest.dll</HintPath>
-    </Reference>
-  	</ItemGroup>
-
-	<ItemGroup>
 	  <Reference Include="DestroyerTest">
-	    <HintPath>..\ModAssemblies\DestroyerTest_v2.1.695.dll</HintPath>
+	    <HintPath>..\ModAssemblies\DestroyerTest_v2.1.697.dll</HintPath>
 	  </Reference>
+	  <Reference Include="CalamityMod">
+      <HintPath>..\ModAssemblies\CalamityMod_v2.0.5.dll</HintPath>
+    	</Reference>
 	  <Reference Include="InnoVault">
 	    <HintPath>..\ModAssemblies\InnoVault_v1.9.26.dll</HintPath>
+	  </Reference>
+	  <Reference Include="OpusLib">
+	    <HintPath>..\ModAssemblies\OpusLib_v0.1.1.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 

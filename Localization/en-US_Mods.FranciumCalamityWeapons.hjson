@@ -405,3 +405,18 @@ Projectiles: {
 
 UI.OverlordChargeBar: Overlord Hit Count
 Cooldowns.CosmicWrathCooldown: Cosmic Wrath Enchantment: Rebirth Cooldown
+
+RogueDescriptions: {
+	TenebrousChakram: Stealh Strikes release stationary scythes as they travel that home in on nearby enemies.
+	GigaCursedHammerWeapon: Stealth Strikes allow the hammer to home in on enemies.
+	Riftmaker: Stealth "Strikes, when thrown, create bursts of homing Rift Stars that home in on enemies and inflict Heliouric Shock."
+	RiftSpine: Stealth "Strikes allow the Riftmaker to home in on enemies."
+	RiftTeardrop: Stealth Strikes allow the Riftmaker to home in on enemies.
+	Chroma: Stealth Strikes, when thrown,summon a vortex and stardust clone of Chroma that converge ahead of the player.
+	RiftChakram: Stealth Strikes summon a riften saw to rip away at enemies.
+	P_Noctis: Stealth Strikes create a phantom starling to deal extra damage. The phantom ignores immunity frames.
+	GalantineLance: Stealth Strikes create X-formations of fallen stars on hit.
+	TemporalLance: Stealth Strike Underway!
+	GalantineKnife: Stealth Strikes leave a trail of stellar flames that pierce infinitely.
+	TenebrisWaraxe: Stealth Strikes deal double damage and create bursts of Shimmmering Flames that home in on enemies.
+}
