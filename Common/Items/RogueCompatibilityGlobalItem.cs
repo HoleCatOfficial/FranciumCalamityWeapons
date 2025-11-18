@@ -60,6 +60,10 @@ namespace FranciumCalamityWeapons.Common.Items
                 {
                     item.DamageType = ModContent.GetInstance<RogueDamageClass>();
                 }
+                if (item.type == ModContent.ItemType<GalantineKnife>())
+                {
+                    item.damage = 30;
+                }
             }
         }
 
