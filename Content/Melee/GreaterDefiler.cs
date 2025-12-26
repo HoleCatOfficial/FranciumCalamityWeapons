@@ -1,4 +1,6 @@
 
+using CalamityMod.Items.Materials;
+using CalamityMod.Tiles.Furniture.CraftingStations;
 using FranciumCalamityWeapons.Common.Rarities;
 using FranciumCalamityWeapons.Content.Projectiles;
 using Microsoft.Xna.Framework;
@@ -33,20 +35,14 @@ namespace FranciumCalamityWeapons.Content.Melee
 			Item.noUseGraphic = true;
 		}
 
-		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
 		public override void AddRecipes() {
-			if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod) && ModLoader.TryGetMod("DestroyerTest", out Mod DestroyerTest))
-			{
-				if (calamityMod.TryFind("CosmiliteBar", out ModItem CB) && calamityMod.TryFind("GalacticaSingularity", out ModItem GS) && calamityMod.TryFind("CosmicAnvil", out ModTile CA))
-				{
-					Recipe recipe = CreateRecipe();
-					recipe.AddIngredient(CB.Type, 12);
-					recipe.AddIngredient(GS.Type, 8);
-                    recipe.AddIngredient<LesserDefiler>();
-					recipe.AddTile(CA.Type);
-					recipe.Register();
-				}
-			}
+			
+			CreateRecipe()
+			.AddIngredient<LesserDefiler>()
+			.AddIngredient<CosmiliteBar>(6)
+			.AddIngredient<AscendantSpiritEssence>(4)
+			.AddTile<CosmicAnvil>()
+			.Register();
 		}
 	}
 }

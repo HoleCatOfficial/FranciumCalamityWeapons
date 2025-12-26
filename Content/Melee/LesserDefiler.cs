@@ -1,5 +1,6 @@
 
 
+using CalamityMod.Items.Materials;
 using FranciumCalamityWeapons.Common.Rarities;
 using FranciumCalamityWeapons.Content.Projectiles;
 using Microsoft.Xna.Framework;
@@ -44,18 +45,12 @@ namespace FranciumCalamityWeapons.Content.Melee
 		
 		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
 		public override void AddRecipes() {
-			if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod) && ModLoader.TryGetMod("DestroyerTest", out Mod DestroyerTest))
-			{
-				if (calamityMod.TryFind("MeldConstrust", out ModItem MC) && calamityMod.TryFind("TwistingNether", out ModItem TN) && DestroyerTest.TryFind("GildingMetal", out ModItem GM))
-				{
-					Recipe recipe = CreateRecipe();
-					recipe.AddIngredient(MC.Type, 8);
-					recipe.AddIngredient(TN.Type, 8);
-					recipe.AddIngredient(GM.Type, 6);
-					recipe.AddTile(TileID.LunarCraftingStation);
-					recipe.Register();
-				}
-			}
+			
+			CreateRecipe()
+			.AddIngredient<MeldConstruct>(8)
+			.AddIngredient<TwistingNether>(8)
+			.AddTile(TileID.LunarCraftingStation)
+			.Register();
 		}
 	}
 }

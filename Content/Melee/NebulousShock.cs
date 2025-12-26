@@ -1,8 +1,14 @@
 
 using System;
+using CalamityMod.Buffs.StatDebuffs;
+using CalamityMod.Items.Materials;
+using CalamityMod.Tiles.Furniture.CraftingStations;
+using DestroyerTest.Content.Particles;
+using DestroyerTest.Content.Resources;
 using FranciumCalamityWeapons.Common.Rarities;
 using FranciumCalamityWeapons.Content.Dusts;
 using FranciumCalamityWeapons.Content.Projectiles;
+using InnoVault.PRT;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -15,14 +21,12 @@ namespace FranciumCalamityWeapons.Content.Melee
 {
     public class NebulousIceDart : ModProjectile
     {
-		public int IceDebuffTime = 360;
         public override string Texture => "FranciumCalamityWeapons/Content/Melee/NebulousIceDart";
         public override void SetDefaults()
         {
-            Projectile.CloneDefaults(ProjectileID.TerraBeam);
             Projectile.width = 80;
             Projectile.height = 80;
-            Projectile.aiStyle = 27; // Terra Beam AI style
+            Projectile.aiStyle = ProjAIStyleID.Beam; // Terra Beam AI style
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.DamageType = DamageClass.Melee;
@@ -33,52 +37,18 @@ namespace FranciumCalamityWeapons.Content.Melee
             Projectile.tileCollide = false;
             Projectile.extraUpdates = 1;
         }
-		public void IceEffects(Player player)
-		{
-			if (player.ZoneSnow)
-					{
-						IceDebuffTime *= 2;
-					}
-		}
+
 		public void OnHitNPC(NPC target, Player player, NPC.HitInfo hit, int damageDone)
 		{
 			SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/IceImpact"));
-			if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod))
-			{
-				if (calamityMod.TryFind("GlacialState", out ModBuff GS))
-				{
-					target.AddBuff(GS.Type, IceDebuffTime);
-					target.AddBuff(BuffID.Frostburn, IceDebuffTime);
-				}
-			}
+			
+			target.AddBuff(ModContent.BuffType<GlacialState>(), 600);
 		}
 
         public override void AI()
         {
-            GenerateDust();
+            PRTLoader.NewParticle(PRTLoader.GetParticleID<SimpleParticle>(), Main.rand.NextVector2FromRectangle(Projectile.Hitbox), Vector2.Zero, Color.White, Main.rand.NextFloat(0.100f, 1.000f));
         }
-
-        private void GenerateDust()
-		{
-			// Adjust the hilt position based on the projectile's position
-			Vector2 SpawnPosition = Projectile.Center;
-
-			// Create the first dust
-			Dust dust = Dust.NewDustPerfect(SpawnPosition, ModContent.DustType<BigSnowflake>(), Vector2.Zero, 120, Color.White, 1.5f);
-			dust.velocity += Projectile.velocity * 0.05f;  // Dust inherits velocity from the projectile
-			dust.velocity *= 0.5f;
-			dust.noGravity = false; // No gravity applied to the dust
-
-			// Create additional dust particles with a loop
-			for (int i = 0; i < 3; i++)  // Adjust for more dust particles
-			{
-				Dust dust2 = Dust.NewDustPerfect(SpawnPosition, ModContent.DustType<Snowcloud>(), Vector2.Zero, 240, Color.White, 1.5f);
-				dust2.alpha += 12;  // Adds transparency to the dust
-				dust2.velocity += Projectile.velocity * 0.05f; // Dust inherits velocity from the projectile
-				dust2.velocity *= 0.5f;  // Slows down the dust
-				dust2.noGravity = true; // No gravity for the dust
-			}
-		}
     }
 	public class NebulousShock : ModItem
 	{
@@ -180,32 +150,17 @@ namespace FranciumCalamityWeapons.Content.Melee
 		//}
 
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
-			if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod))
-			{
-				if (calamityMod.TryFind("GodSlayerInferno", out ModBuff GSI))
-				{
-					target.AddBuff(GSI.Type, 240);
-				}
-			}
+			target.AddBuff(ModContent.BuffType<GlacialState>(), 600);
 		}
 
 		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
 		public override void AddRecipes() {
-			if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod) && ModLoader.TryGetMod("DestroyerTest", out Mod DestroyerTest))
-			{
-				if (calamityMod.TryFind("CosmiliteBar", out ModItem CB)
-                    && calamityMod.TryFind("EndothermicEnergy", out ModItem EE)
-                    && DestroyerTest.TryFind("GildingMetal", out ModItem GM)
-                    && calamityMod.TryFind("CosmicAnvil", out ModTile CA))
-				{
-					Recipe recipe = CreateRecipe();
-					recipe.AddIngredient(CB.Type, 10);
-                    recipe.AddIngredient(EE.Type, 15);
-					recipe.AddIngredient(GM.Type, 3);
-					recipe.AddTile(CA.Type);
-					recipe.Register();
-				}
-			}
+            CreateRecipe()
+            .AddIngredient<CosmiliteBar>(10)
+            .AddIngredient<EndothermicEnergy>(15)
+            .AddIngredient<ShadeParticle>(3)
+            .AddTile<CosmicAnvil>()
+            .Register();
 		}
 	}
 }

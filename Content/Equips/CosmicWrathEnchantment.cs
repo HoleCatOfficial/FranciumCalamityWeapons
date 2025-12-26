@@ -3,7 +3,18 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using DestroyerTest.Content.Tiles.RiftConfigurator;
+using DestroyerTest.Content.Resources;
+using DestroyerTest.Content.Particles;
+using DestroyerTest.Content.RiftArsenal;
+using DestroyerTest.Content.Equips;
+using DestroyerTest.Common;
 using Microsoft.Xna.Framework;
+using DestroyerTest.Rarity;
+using DestroyerTest.Content.Tiles;
+using DestroyerTest.Content.RangedItems;
+using DestroyerTest.Content.MeleeWeapons;
+using DestroyerTest.Content.Buffs;
 using Terraria.Audio;
 using InnoVault.PRT;
 using CalamityMod.Tiles.Furniture.CraftingStations;
@@ -21,12 +32,13 @@ using System;
 using CalamityMod.Projectiles.Typeless;
 using CalamityMod.Projectiles.Magic;
 using CalamityMod.Items.Materials;
+using FranciumMultiCrossMod.Content.Equips;
 
 namespace FranciumCalamityWeapons.Content.Equips
 {
+    [JITWhenModsEnabled("FranciumMultiCrossMod")]
     public class CosmicWrathEnchantment : ModItem
     {
-        // By declaring these here, changing the values will alter the effect, and the tooltip
         public static readonly int MultiplicativeDamageBonus = 12;
         public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(MultiplicativeDamageBonus);
 
@@ -45,31 +57,6 @@ namespace FranciumCalamityWeapons.Content.Equips
             Item.value = Item.sellPrice(platinum: 6);
         }
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
-        {
-            if (ModLoader.TryGetMod("FranciumMultiCrossMod", out Mod MCM) == false)
-            {
-                TooltipLine nameLine = tooltips.FirstOrDefault(line => line.Mod == "Terraria" && line.Name == "ItemName");
-                if (nameLine != null)
-                {
-                    nameLine.Text = "Install the Cross Mod Et Cetera addon to use this item!";
-                }
-            }
-        }
-
-
-        public override void UpdateInventory(Player player)
-        {
-            if (ModLoader.TryGetMod("FranciumMultiCrossMod", out Mod MCM) == false)
-            {
-                Item.accessory = false;
-            }
-            if (MCM == null)
-            {
-                Item.accessory = false;
-            }
-        }
-
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             CosmicWrathEnchantmentPlayer CWPlayer = player.GetModPlayer<CosmicWrathEnchantmentPlayer>();
@@ -78,33 +65,30 @@ namespace FranciumCalamityWeapons.Content.Equips
             float lifePercent = (float)player.statLife / player.statLifeMax2;
             float dynamicBonus = MultiplicativeDamageBonus + ((1f - lifePercent) * MultiplicativeDamageBonus * 2);
             player.GetDamage(DamageClass.Generic) *= 1f + (dynamicBonus / 100f);
-            /*
+
             CWPlayer.CosmicWrathEnchantment = true;
-            */
         }
 
         public override void AddRecipes()
         {
-            if (ModLoader.TryGetMod("FranciumMultiCrossMod", out Mod MCM))
+            if (CrossMod.DTCrossModLoaded)
             {
-                if (MCM.TryFind("HeliciteEnchantment", out ModItem HE))
+                if (CrossMod.DTCrossMod.TryFind("HeliciteEnchantment", out ModItem HE))
                 {
-                    Recipe recipe = CreateRecipe();
-                    recipe.AddIngredient<FalseVacuum>(5);
-                    recipe.AddIngredient<DarksunFragment>(5);
-                    recipe.AddIngredient<Overlord>();
-                    recipe.AddIngredient<NebulousCore>();
-                    recipe.AddIngredient(HE.Type);
-                    recipe.AddTile<CosmicAnvil>();
-                    recipe.Register();
+                    CreateRecipe()
+                    .AddIngredient<FalseVacuum>(5)
+                    .AddIngredient<DarksunFragment>(5)
+                    .AddIngredient<Overlord>()
+                    .AddIngredient<NebulousCore>()
+                    .AddIngredient(HE.Type)
+                    .AddTile<CosmicAnvil>()
+                    .Register();
                 }
             }
         }
 	}
 
-
-    // Some movement effects are not suitable to be modified in ModItem.UpdateAccessory due to how the math is done.
-    // ModPlayer.PostUpdateRunSpeeds is suitable for these modifications.
+    [JITWhenModsEnabled("FranciumMultiCrossMod")]
     public class CosmicWrathEnchantmentPlayer : ModPlayer
     {
         public bool CosmicWrathEnchantment = false;
@@ -135,7 +119,7 @@ namespace FranciumCalamityWeapons.Content.Equips
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        PRTLoader.NewParticle(PRTLoader.GetParticleID<CosmicWrathStarParticle>(), Spawn, ToPlayer * 0.03f, CalCTAUtils.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), Main.rand.NextFloat(0.5f, 1.5f));
+                        PRTLoader.NewParticle(PRTLoader.GetParticleID<SmallShine>(), Spawn, ToPlayer * 0.03f, CalCTAUtils.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), Main.rand.NextFloat(0.5f, 1.5f));
                     }
                    
                 }
@@ -145,7 +129,7 @@ namespace FranciumCalamityWeapons.Content.Equips
             if (currentCooldown == 1)
                 {
                     SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/CosmicWrathEnchantmentRegen"), Player.position);
-                    PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp2>(), Player.Center, Vector2.Zero, CalCTAUtils.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), 3f);
+                    PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp>(), Player.Center, Vector2.Zero, CalCTAUtils.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), 3f);
                 }
         }
 

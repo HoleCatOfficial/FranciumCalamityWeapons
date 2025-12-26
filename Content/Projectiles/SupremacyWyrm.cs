@@ -13,6 +13,7 @@ using Terraria.ModLoader.IO;
 using System.Collections.Generic;
 using InnoVault.PRT;
 using FranciumCalamityWeapons.Content.Particles;
+using DestroyerTest.Common;
 
 namespace FranciumCalamityWeapons.Content.Projectiles
 {
@@ -80,19 +81,8 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             Vector2 Right = Projectile.Center + RightOffset;
 
 
-            int[] types = new int[]
-            {
-                PRTLoader.GetParticleID<BlackFire1>(),
-                PRTLoader.GetParticleID<BlackFire2>(),
-                PRTLoader.GetParticleID<BlackFire3>(),
-                PRTLoader.GetParticleID<BlackFire4>(),
-                PRTLoader.GetParticleID<BlackFire5>(),
-                PRTLoader.GetParticleID<BlackFire6>(),
-                PRTLoader.GetParticleID<BlackFire7>()
-            };
-
-            PRTLoader.NewParticle(types[Main.rand.Next(types.Length)], Left, Vector2.Zero, Color.Black * 0.025f, 0.01f);
-            PRTLoader.NewParticle(types[Main.rand.Next(types.Length)], Right, Vector2.Zero, Color.Black * 0.025f, 0.01f);
+            PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Left, Vector2.Zero, Color.Black * 0.025f, 0.05f, 40, ai2: 1);
+            PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Right, Vector2.Zero, Color.Black * 0.025f, 0.05f, 40, ai2: 1);
 
             float maxDetectRadius = 400f; // The maximum radius at which a projectile can detect a target
 
@@ -274,19 +264,8 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             Vector2 Right = Projectile.Center + RightOffset;
 
             
-            int[] types = new int[]
-            {
-                PRTLoader.GetParticleID<BlackFire1>(),
-                PRTLoader.GetParticleID<BlackFire2>(),
-                PRTLoader.GetParticleID<BlackFire3>(),
-                PRTLoader.GetParticleID<BlackFire4>(),
-                PRTLoader.GetParticleID<BlackFire5>(),
-                PRTLoader.GetParticleID<BlackFire6>(),
-                PRTLoader.GetParticleID<BlackFire7>()
-            };
-
-            PRTLoader.NewParticle(types[Main.rand.Next(types.Length)], Left, Vector2.Zero, Color.Black * 0.025f, 0.01f);
-            PRTLoader.NewParticle(types[Main.rand.Next(types.Length)], Right, Vector2.Zero, Color.Black * 0.025f, 0.01f);
+            PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Left, Vector2.Zero, Color.Black * 0.025f, 0.05f, 40, ai2: 1);
+            PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Right, Vector2.Zero, Color.Black * 0.025f, 0.05f, 40, ai2: 1);
 
         }
     }

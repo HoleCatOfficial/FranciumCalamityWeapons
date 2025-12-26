@@ -100,23 +100,5 @@ namespace FranciumCalamityWeapons.Content.Melee
 				}
 			}
 		}
-
-		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
-		public override void AddRecipes() {
-			if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod) && ModLoader.TryGetMod("DestroyerTest", out Mod DestroyerTest))
-			{
-				if (calamityMod.TryFind("CosmiliteBar", out ModItem CB)
-                    && calamityMod.TryFind("DarkPlasma", out ModItem DP)
-                    && DestroyerTest.TryFind("GildingMetal", out ModItem GM)
-                    && calamityMod.TryFind("CosmicAnvil", out ModTile CA))
-				{
-					Recipe recipe = CreateRecipe();
-					recipe.AddIngredient(CB.Type, 20);
-                    recipe.AddIngredient(DP.Type, 18);
-					recipe.AddTile(CA.Type);
-					recipe.Register();
-				}
-			}
-		}
 	}
 }

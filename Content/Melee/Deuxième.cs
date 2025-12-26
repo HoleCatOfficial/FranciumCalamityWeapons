@@ -61,18 +61,5 @@ namespace FranciumCalamityWeapons.Content.Melee
 		public override bool MeleePrefix() {
 			return true; // return true to allow weapon to have melee prefixes (e.g. Legendary)
 		}
-
-		public override void AddRecipes() {
-			if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod))
-			{
-				if (calamityMod.TryFind("CosmicAnvil", out ModTile CA))
-				{
-					Recipe recipe = CreateRecipe();
-					recipe.AddIngredient<FalseVacuum>(25);
-					recipe.AddTile(CA.Type);
-					recipe.Register();
-				}
-			}
-		}
 	}
 }

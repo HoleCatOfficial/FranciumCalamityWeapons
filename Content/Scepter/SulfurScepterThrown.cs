@@ -14,6 +14,7 @@ using FranciumCalamityWeapons.Content.Particles;
 using CalamityMod.Buffs.StatDebuffs;
 using Microsoft.Build.ObjectModelRemoting;
 using FranciumCalamityWeapons.Content.Projectiles;
+using DestroyerTest.Content.Particles;
 
 namespace FranciumCalamityWeapons.Content.Scepter
 {
@@ -47,7 +48,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
         {
             for (int t = 0; t < 14; t++)
             {
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticle2>(), Projectile.Center, new Vector2(Main.rand.NextFloat(1, -1), -4), new Color(140, 234, 87), Main.rand.NextFloat(0.04f, 1.4f));
+                PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), Projectile.Center, new Vector2(Main.rand.NextFloat(1, -1), -4), new Color(140, 234, 87), Main.rand.NextFloat(0.04f, 1.4f));
             }
             base.OnKill(timeLeft);
         }

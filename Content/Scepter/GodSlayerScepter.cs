@@ -6,7 +6,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using FranciumCalamityWeapons.Content.Scepter;
-using static Terraria.ModLoader.ModContent;
 using System.Collections.Generic;
 using FranciumCalamityWeapons.Content.Projectiles;
 using DestroyerTest.Common;
@@ -16,7 +15,7 @@ using CalamityMod.Tiles.Furniture.CraftingStations;
 
 namespace FranciumCalamityWeapons.Content.Scepter
 {
-	public class ExarchicEnforcer : ModItem
+	public class GodSlayerScepter : ModItem
 	{
         public override void SetStaticDefaults()
         {
@@ -40,7 +39,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
 			Item.autoReuse = true; // This determines whether the weapon has autoswing
 
 			Item.crit = 19; // The critical strike chance the weapon has. The player, by default, has a 4% critical strike chance.ion
-			Item.shoot = ModContent.ProjectileType<ExarchicEnforcerHoldout>(); // The sword as a projectile
+			Item.shoot = ModContent.ProjectileType<GodSlayerScepterHoldout>(); // The sword as a projectile
 			Item.shootSpeed = 12f;
 			Item.noUseGraphic = true; // The sword is actually a "projectile", so the item should not be visible when used
 			Item.damage = 435 + (int)Math.Round(ScepterClassStats.DamageModifier); // The damage of your sword, this is dynamically adjusted in the projectile code.
@@ -61,7 +60,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
                 Item.useTime = 60; // Adjust as needed
                 Item.autoReuse = false;
                 Item.useAnimation = 60; // Adjust as needed
-                Item.shoot = ModContent.ProjectileType<ExarchicEnforcerThrown>(); // The projectile is what makes a shortsword work
+                Item.shoot = ModContent.ProjectileType<GodSlayerScepterThrown>(); // The projectile is what makes a shortsword work
                 Item.shootSpeed = 25.0f; // This value bleeds into the behavior of the projectile as velocity, keep that in mind when tweaking values
                 Item.noUseGraphic = true; // The sword is actually a "projectile", so the item should not be visible when used
                 Item.noMelee = false; // The projectile will do the damage and not the item
@@ -84,7 +83,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
                 Item.knockBack = 0;  // The knockback of your sword, this is dynamically adjusted in the projectile code.
                 Item.autoReuse = true; // This determines whether the weapon has autoswing
                 Item.crit = 19; // The critical strike chance the weapon has. The player, by default, has a 4% critical strike chance.ion
-                Item.shoot = ModContent.ProjectileType<ExarchicEnforcerHoldout>(); // The sword as a projectile
+                Item.shoot = ModContent.ProjectileType<GodSlayerScepterHoldout>(); // The sword as a projectile
                 Item.shootSpeed = 0.01f;
                 Item.noUseGraphic = true; // The sword is actually a "projectile", so the item should not be visible when used
                 Item.damage = 435 + (int)Math.Round(ScepterClassStats.DamageModifier); // The damage of your sword, this is dynamically adjusted in the projectile code.
@@ -148,40 +147,18 @@ namespace FranciumCalamityWeapons.Content.Scepter
 			{
 				Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
 			}
-
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<VoidEye>()] < 1)
-			{
-				if (player.altFunctionUse != 2)
-				{
-					Projectile.NewProjectile(source, Main.MouseWorld, new Vector2(0.001f, 0.001f), ModContent.ProjectileType<VoidEye>(), damage, knockback, player.whoAmI);
-				}
-			}
 			return false; // Prevents vanilla from auto-firing
 		}
 		public override void AddRecipes()
         {
-			if (ModLoader.TryGetMod("CalamityEntropy", out Mod CalamityEntropy))
-		{
-			if (CalamityEntropy.TryFind("VoidBar", out ModItem VB))
-			{
-				CreateRecipe()
-				.AddIngredient<DarkPlasma>(8)
-				.AddIngredient<EndothermicEnergy>(22)
-				.AddIngredient<AscendantSpiritEssence>(14)
-				.AddIngredient(VB.Type, 14)
-				.AddTile<CosmicAnvil>()
-				.Register();
-			}
-			}
-			else
-			{
-				CreateRecipe()
-				.AddIngredient<DarkPlasma>(8)
-				.AddIngredient<EndothermicEnergy>(22)
-				.AddIngredient<AscendantSpiritEssence>(14)
-				.AddTile<CosmicAnvil>()
-				.Register();
-			}
+			
+			CreateRecipe()
+			.AddIngredient<DarkPlasma>(8)
+			.AddIngredient<EndothermicEnergy>(22)
+			.AddIngredient<AscendantSpiritEssence>(14)
+			.AddIngredient<CosmiliteBar>(14)
+			.AddTile<CosmicAnvil>()
+			.Register();
         }
     }
 } 

@@ -1,5 +1,7 @@
 using System;
 using CalamityMod;
+using DestroyerTest.Common;
+using DestroyerTest.Content.Particles;
 using FranciumCalamityWeapons.Content.Particles;
 using InnoVault.PRT;
 using Microsoft.Build.Evaluation;
@@ -83,31 +85,8 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             Vector2 tipOffset = new Vector2(0f, -tex.Height) * Projectile.scale;
             Vector2 swordTip = Main.player[Projectile.owner].MountedCenter + tipOffset.RotatedBy(Projectile.rotation);
 
-            int[] types = new int[]
-            {
-                PRTLoader.GetParticleID<BlackFire1>(),
-                PRTLoader.GetParticleID<BlackFire2>(),
-                PRTLoader.GetParticleID<BlackFire3>(),
-                PRTLoader.GetParticleID<BlackFire4>(),
-                PRTLoader.GetParticleID<BlackFire5>(),
-                PRTLoader.GetParticleID<BlackFire6>(),
-                PRTLoader.GetParticleID<BlackFire7>()
-            };
+           
 
-            PRTLoader.NewParticle(types[Main.rand.Next(types.Length)], swordTip, Vector2.Zero, Color.Black, 1);
-
-            int[] types2 = new int[]
-            {
-                PRTLoader.GetParticleID<ColoredFire1>(),
-                PRTLoader.GetParticleID<ColoredFire2>(),
-                PRTLoader.GetParticleID<ColoredFire3>(),
-                PRTLoader.GetParticleID<ColoredFire4>(),
-                PRTLoader.GetParticleID<ColoredFire5>(),
-                PRTLoader.GetParticleID<ColoredFire6>(),
-                PRTLoader.GetParticleID<ColoredFire7>()
-            };
-
-            PRTLoader.NewParticle(types2[Main.rand.Next(types2.Length)], swordTip, Vector2.Zero, new Color(255, 209, 0), 0.4f);
 
             if (Projectile.ai[0] == 0)
             {
@@ -210,32 +189,10 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             int Radius = 200;
             Vector2 PRTPos = (Projectile.Center + new Vector2(Radius, 0)).RotatedBy(Projectile.rotation);
 
-            int[] types = new int[]
-            {
-                PRTLoader.GetParticleID<BlackFire1>(),
-                PRTLoader.GetParticleID<BlackFire2>(),
-                PRTLoader.GetParticleID<BlackFire3>(),
-                PRTLoader.GetParticleID<BlackFire4>(),
-                PRTLoader.GetParticleID<BlackFire5>(),
-                PRTLoader.GetParticleID<BlackFire6>(),
-                PRTLoader.GetParticleID<BlackFire7>()
-            };
-
             
 
-            int[] types2 = new int[]
-            {
-                PRTLoader.GetParticleID<ColoredFire1>(),
-                PRTLoader.GetParticleID<ColoredFire2>(),
-                PRTLoader.GetParticleID<ColoredFire3>(),
-                PRTLoader.GetParticleID<ColoredFire4>(),
-                PRTLoader.GetParticleID<ColoredFire5>(),
-                PRTLoader.GetParticleID<ColoredFire6>(),
-                PRTLoader.GetParticleID<ColoredFire7>()
-            };
-
-            PRTLoader.NewParticle(types[Main.rand.Next(types.Length)], PRTPos, Vector2.Zero, Color.Black, 1);
-            PRTLoader.NewParticle(types2[Main.rand.Next(types2.Length)], PRTPos, Vector2.Zero, new Color(255, 209, 0), 0.4f);
+            PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], PRTPos, Vector2.Zero, Color.Black, 1, 40, ai2: 1);
+            PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], PRTPos, Vector2.Zero, new Color(255, 209, 0), 0.4f, 40, ai2: 1);
 
 
             Projectile.Center = owner.MountedCenter + owner.gfxOffY * Vector2.UnitY;

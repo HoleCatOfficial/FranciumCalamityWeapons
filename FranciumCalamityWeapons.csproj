@@ -10,18 +10,21 @@
 
 	<!-- References -->
 	<ItemGroup>
-	  <Reference Include="DestroyerTest">
-	    <HintPath>..\ModAssemblies\DestroyerTest_v2.1.697.dll</HintPath>
-	  </Reference>
-	  <Reference Include="CalamityMod">
-      <HintPath>..\ModAssemblies\CalamityMod_v2.0.5.dll</HintPath>
-    	</Reference>
-	  <Reference Include="InnoVault">
-	    <HintPath>..\ModAssemblies\InnoVault_v1.9.26.dll</HintPath>
-	  </Reference>
-	  <Reference Include="OpusLib">
-	    <HintPath>..\ModAssemblies\OpusLib_v0.1.1.dll</HintPath>
-	  </Reference>
+		<Reference Include="DestroyerTest">
+			<HintPath>..\ModAssemblies\DestroyerTest_v2.1.7221.dll</HintPath>
+		</Reference>
+		<Reference Include="OpusLib">
+			<HintPath>..\ModAssemblies\OpusLib_v1.411.dll</HintPath>
+		</Reference>
+		<Reference Include="FranciumMultiCrossMod">
+			<HintPath>..\ModAssemblies\FranciumMultiCrossMod_v1.400.dll</HintPath>
+		</Reference>
+		<Reference Include="CalamityMod">
+			<HintPath>..\ModAssemblies\CalamityMod_v2.0.5.dll</HintPath>
+		</Reference>
+		<Reference Include="InnoVault">
+			<HintPath>..\ModAssemblies\InnoVault_v1.9.78.dll</HintPath>
+		</Reference>
 	</ItemGroup>
 
 </Project>

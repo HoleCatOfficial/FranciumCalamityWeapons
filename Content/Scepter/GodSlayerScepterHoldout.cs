@@ -6,10 +6,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using InnoVault.PRT;
 using Terraria.DataStructures;
+using FranciumCalamityWeapons.Content.Projectiles;
 
 namespace FranciumCalamityWeapons.Content.Scepter
 {
-    public class ExarchicEnforcerHoldout : ModProjectile
+    public class GodSlayerScepterHoldout : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -17,8 +18,8 @@ namespace FranciumCalamityWeapons.Content.Scepter
         }
         public override void SetDefaults()
         {
-            Projectile.width = 148;
-            Projectile.height = 132;
+            Projectile.width = 84;
+            Projectile.height = 84;
             Projectile.friendly = true;
             Projectile.penetrate = -1;
             Projectile.tileCollide = false;
@@ -61,7 +62,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
             Player player = Main.player[Projectile.owner];
 
             // Check if the player is holding the item and channeled
-            if (player.HeldItem.type == ModContent.ItemType<ExarchicEnforcer>() && player.channel)
+            if (player.HeldItem.type == ModContent.ItemType<GodSlayerScepter>() && player.channel)
             {
                 // Lock the projectile's position relative to the player
                 float holdDistance = 100f;
@@ -82,25 +83,33 @@ namespace FranciumCalamityWeapons.Content.Scepter
                     //Projectile.rotation -= MathHelper.Pi; // 180° flip
                 }
 
-                    // Now calculate arm angle with a visually corrected offset
-                    float armAngle = angle;
+                // Now calculate arm angle with a visually corrected offset
+                float armAngle = angle;
 
-                    // Tweak for left/right symmetry
-                    if (player.direction == 1)
-                    {
-                        // Facing right: back off by 1/8 circle
-                        armAngle -= (MathHelper.Pi - MathHelper.PiOver4) ;  // ~22.5°
-                    }
-                    else
-                    {
-                        // Facing left: back off by 1/16 circle
-                        armAngle += MathHelper.Pi / 16f; // ~11.25°
-                        armAngle += MathHelper.Pi + MathHelper.PiOver4; // because of the flip
-                    }
-
-                    player.SetCompositeArmFront(true, Player.CompositeArmStretchAmount.Full, armAngle);
-                    player.SetCompositeArmBack(true, Player.CompositeArmStretchAmount.Full, armAngle);
+                // Tweak for left/right symmetry
+                if (player.direction == 1)
+                {
+                    // Facing right: back off by 1/8 circle
+                    armAngle -= (MathHelper.Pi - MathHelper.PiOver4) ;  // ~22.5°
                 }
+                else
+                {
+                    // Facing left: back off by 1/16 circle
+                    armAngle += MathHelper.Pi / 16f; // ~11.25°
+                    armAngle += MathHelper.Pi + MathHelper.PiOver4; // because of the flip
+                }
+
+                player.SetCompositeArmFront(true, Player.CompositeArmStretchAmount.Full, armAngle);
+                player.SetCompositeArmBack(true, Player.CompositeArmStretchAmount.Full, armAngle);
+
+                Vector2 shotPos = mountedCenter + toCursor * 120;
+                Projectile.ai[0]++;
+                if (Projectile.ai[0] % 10 == 0)
+                {
+                    int PinkOrBlue = Main.rand.NextBool(2) ? ModContent.ProjectileType<CosmicStarPink>() : ModContent.ProjectileType<CosmicStarBlue>();
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), shotPos, toCursor, PinkOrBlue, Projectile.damage, 10, Projectile.owner);
+                }
+            }
             else
             {
                 // Kill the projectile if the item is not being held

@@ -1,5 +1,6 @@
 using CalamityMod;
 using DestroyerTest.Common;
+using DestroyerTest.Content.Particles;
 using DestroyerTest.Content.RogueItems;
 using FranciumCalamityWeapons.Content.Particles;
 using InnoVault.PRT;

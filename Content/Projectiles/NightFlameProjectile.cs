@@ -56,38 +56,11 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 			float t = (sine + 1f) / 2f; // 0 to 1
 			Vector2 StarOffset = Vector2.Lerp(StarOffsetUp, StarOffsetDown, t);
 
-
-			int[] types1 = new int[]
-			{
-				PRTLoader.GetParticleID<BlackFire1>(),
-				PRTLoader.GetParticleID<BlackFire2>(),
-				PRTLoader.GetParticleID<BlackFire3>(),
-				PRTLoader.GetParticleID<BlackFire4>(),
-				PRTLoader.GetParticleID<BlackFire5>(),
-				PRTLoader.GetParticleID<BlackFire6>(),
-				PRTLoader.GetParticleID<BlackFire7>()
-			};
-
-			int[] types2 = new int[]
-			{
-				PRTLoader.GetParticleID<ColoredFire1>(),
-				PRTLoader.GetParticleID<ColoredFire2>(),
-				PRTLoader.GetParticleID<ColoredFire3>(),
-				PRTLoader.GetParticleID<ColoredFire4>(),
-				PRTLoader.GetParticleID<ColoredFire5>(),
-				PRTLoader.GetParticleID<ColoredFire6>(),
-				PRTLoader.GetParticleID<ColoredFire7>()
-			};
-
-			PRTLoader.NewParticle(types1[Main.rand.Next(types1.Length)], Projectile.Center, Vector2.Zero, default, 1);
+			PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Projectile.Center, Vector2.Zero, Color.Black, 1, 60, ai2: 1);
 
 			if (Main.rand.NextBool(3))
-			{// 1 in 3 chance to spawn a streak
-			 // Make the color more pastel by blending with white
-				Color baseColor = new Color(Main.DiscoR / 2, (byte)(Main.DiscoG / 1.25f), (byte)(Main.DiscoB / 1.5f));
-				Color pastelColor = Color.Lerp(baseColor, Color.White, 0.5f); // 0.5f blends halfway to white
-				PRTLoader.NewParticle(types2[Main.rand.Next(types2.Length)], Projectile.Center, Vector2.Zero, pastelColor, 1);
-				PRTLoader.NewParticle(PRTLoader.GetParticleID<StarParticle>(), StarOffset, Vector2.Zero, pastelColor, 1);
+			{
+				PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Projectile.Center, Vector2.Zero, DTColorUtils.Pastel(Main.DiscoColor, 0.4f), 1, 60, ai2: 1);
 			}
 
 			PRTLoader.NewParticle(PRTLoader.GetParticleID<Ember>(), RandPos, Vector2.Zero, new Color(Main.DiscoR / 2, (byte)(Main.DiscoG / 1.25f), (byte)(Main.DiscoB / 1.5f)), 1);

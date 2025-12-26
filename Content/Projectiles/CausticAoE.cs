@@ -1,5 +1,6 @@
 using System;
 using CalamityMod.Buffs.StatDebuffs;
+using DestroyerTest.Content.Particles;
 using FranciumCalamityWeapons.Content.Particles;
 using InnoVault.PRT;
 using Microsoft.Xna.Framework;
@@ -35,7 +36,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
                 PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom3>(), Projectile.Center, Vector2.Zero, new Color(140, 234, 87), 2f);
                 for (int i = 0; i < 5; i++)
                 {
-                    PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticle2>(), Projectile.Center, new Vector2(Main.rand.NextFloat(1, -1), -4), new Color(140, 234, 87), Main.rand.NextFloat(0.04f, 1.4f));
+                    PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), Projectile.Center, new Vector2(Main.rand.NextFloat(1, -1), -4), new Color(140, 234, 87), Main.rand.NextFloat(0.04f, 1.4f));
                 }
                 DidTheThing = true;
             }

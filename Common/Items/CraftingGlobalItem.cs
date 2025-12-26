@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
+using CalamityMod.Items.Materials;
 using CalamityMod.Items.Weapons.Melee;
+using DestroyerTest.Content.Tiles.Riftplate;
 using FranciumCalamityWeapons.Content.Resources;
 using Terraria;
 using Terraria.Audio;
@@ -9,26 +12,18 @@ using Terraria.ModLoader;
 
 namespace FranciumCalamityWeapons.Common.Items
 {
-    public class CraftingGlobalItem : GlobalItem
+    public class CraftingModification : ModSystem
     {
-        public override void OnCreated(Item item, ItemCreationContext context)
-        {
-            if (item.type == ModContent.ItemType<HeatDeath>() && context is RecipeItemCreationContext)
-            {
-                SoundEngine.PlaySound(SoundID.Item4);
-
-            }
-        }
-
+        //Calamity Recipe Code
         public override void AddRecipes()
         {
-            foreach (var item in Main.item)
+            static Func<Recipe, bool> Vanilla(int itemID) => r => r.Mod is null && r.HasResult(itemID);
+            static Func<Recipe, bool> Calamity(int itemID) => r => r.Mod is CalamityMod.CalamityMod && r.HasResult(itemID);
+            static Action<Recipe> AddIngredient(int itemID, int stack = 1) => r => r.AddIngredient(itemID, stack);
+            var edits = new Dictionary<Func<Recipe, bool>, Action<Recipe>>(128)
             {
-                if (item.type == ModContent.ItemType<ElementalLance>())
-                {
-                    
-                }
-            }
+                { Calamity(ModContent.ItemType<LifeAlloy>()), AddIngredient(ModContent.ItemType<Item_Riftplate>(), 1) },
+            };
         }
 
     }

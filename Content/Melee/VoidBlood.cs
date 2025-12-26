@@ -71,20 +71,5 @@ namespace FranciumCalamityWeapons.Content.Melee
 
 			return false;
 		}
-
-		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
-		public override void AddRecipes() {
-			if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod))
-			{
-				if (calamityMod.TryFind("GalactusBlade", out ModItem GB) && calamityMod.TryFind("CosmicAnvil", out ModTile CA))
-				{
-					Recipe recipe = CreateRecipe();
-                    recipe.AddIngredient<FalseVacuum>(12);
-					recipe.AddIngredient(GB.Type, 1);
-					recipe.AddTile(CA.Type);
-					recipe.Register();
-				}
-			}
-		}
 	}
 }

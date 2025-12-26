@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using DestroyerTest.Common;
+using DestroyerTest.Content.Particles;
 using FranciumCalamityWeapons.Content.Particles;
 using InnoVault.PRT;
 using Microsoft.Xna.Framework;
@@ -54,19 +55,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
 
-            int[] types1 = new int[]
-            {
-                PRTLoader.GetParticleID<BlackFire1>(),
-                PRTLoader.GetParticleID<BlackFire2>(),
-                PRTLoader.GetParticleID<BlackFire3>(),
-                PRTLoader.GetParticleID<BlackFire4>(),
-                PRTLoader.GetParticleID<BlackFire5>(),
-                PRTLoader.GetParticleID<BlackFire6>(),
-                PRTLoader.GetParticleID<BlackFire7>()
-            };
-
-            PRTLoader.NewParticle(types1[Main.rand.Next(types1.Length)], Projectile.Center + new Vector2(0, 40).RotatedBy(Projectile.rotation), Vector2.Zero, default, 0.3f);
-            
+            PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Projectile.Center, Vector2.Zero, Main.DiscoColor, 1, 40, ai2: 2);
 
         }
         

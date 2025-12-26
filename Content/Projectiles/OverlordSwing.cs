@@ -1,5 +1,6 @@
 using CalamityMod.Buffs.StatDebuffs;
 using DestroyerTest.Common;
+using DestroyerTest.Content.Particles;
 using FranciumCalamityWeapons.Common;
 using FranciumCalamityWeapons.Content.Melee;
 using FranciumCalamityWeapons.Content.Particles;
@@ -34,9 +35,6 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 		{
 			Spin, //This has no purpose in the code anymore beyond its usage in CurrentAttack.
 		}
-
-		public List<float> TrailIndex = new List<float>();
-		public List<Vector2> TrailIndexPos = new List<Vector2>();
 
 		private enum AttackStage
 		{
@@ -108,17 +106,6 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 		}
 
 		public override void AI() {
-			TrailIndex.Add(Projectile.rotation);
-			TrailIndexPos.Add(Projectile.position);
-
-			if (TrailIndex.Count > 260)
-			{
-				TrailIndex.RemoveAt(0);
-			}
-			if (TrailIndexPos.Count > 260)
-			{
-				TrailIndexPos.RemoveAt(0);
-			}
 
 			Owner.itemAnimation = 2;
 			Owner.itemTime = 2;
@@ -169,60 +156,6 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 			Texture2D texture = TextureAssets.Projectile[Type].Value;
 
 			Main.spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, default, lightColor * Projectile.Opacity, Projectile.rotation + rotationOffset, origin, Projectile.scale, effects, 0);
-
-
-			Vector2 basePoint = Projectile.Center;
-			Vector2 tipPoint = swordTip; // ← your second point
-
-			Vector2 direction = (tipPoint - basePoint).SafeNormalize(Vector2.UnitY);
-			Vector2 normal = direction.RotatedBy(MathHelper.PiOver2); // 90° offset
-
-			float width = 16f;
-
-			Vector2 left = tipPoint + normal * width;
-			Vector2 right = tipPoint - normal * width;
-
-			// Load your trail texture
-			Texture2D trailTex = ModContent.Request<Texture2D>("FranciumCalamityWeapons/Content/Extras/MotionTrail1").Value;
-
-			VertexPositionColorTexture[] verts = new VertexPositionColorTexture[3];
-			Color bladeColor = Color.Red; // leave it white if you want to keep the texture's original colors
-
-			verts[0] = new VertexPositionColorTexture(new Vector3(basePoint, 0f), bladeColor, new Vector2(0.5f, 1f));
-			verts[1] = new VertexPositionColorTexture(new Vector3(left, 0f), bladeColor, new Vector2(0f, 0f));
-			verts[2] = new VertexPositionColorTexture(new Vector3(right, 0f), bladeColor, new Vector2(1f, 0f));
-
-			// Draw
-			Main.spriteBatch.End();
-			Main.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone, null, Main.GameViewMatrix.TransformationMatrix);
-
-			Main.graphics.GraphicsDevice.Textures[0] = trailTex;
-
-			RasterizerState rasterizerState = new RasterizerState { CullMode = CullMode.None };
-			Main.graphics.GraphicsDevice.RasterizerState = rasterizerState;
-
-			BasicEffect effect = new BasicEffect(Main.graphics.GraphicsDevice)
-			{
-				VertexColorEnabled = true,
-				TextureEnabled = true,
-				Texture = trailTex,
-				World = Matrix.Identity,
-				View = Main.GameViewMatrix.TransformationMatrix,
-				Projection = Matrix.CreateOrthographicOffCenter(
-					0, Main.instance.GraphicsDevice.Viewport.Width,
-					Main.instance.GraphicsDevice.Viewport.Height, 0,
-					0, 1)
-			};
-
-			foreach (EffectPass pass in effect.CurrentTechnique.Passes)
-			{
-				pass.Apply();
-				Main.graphics.GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, verts, 0, 1);
-			}
-
-			// Restore SpriteBatch
-			Main.spriteBatch.End();
-			Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.None, rasterizerState, null, Main.GameViewMatrix.TransformationMatrix);
 
 			return false;
 		}

@@ -1,6 +1,7 @@
 
 using CalamityMod.Buffs.DamageOverTime;
 using CalamityMod.Buffs.StatDebuffs;
+using DestroyerTest.Content.Particles;
 using FranciumCalamityWeapons.Content.Dusts;
 using FranciumCalamityWeapons.Content.Particles;
 using InnoVault.PRT;

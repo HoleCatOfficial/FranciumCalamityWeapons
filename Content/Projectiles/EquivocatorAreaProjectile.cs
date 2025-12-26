@@ -1,4 +1,6 @@
 using System;
+using DestroyerTest.Common;
+using DestroyerTest.Content.Particles;
 using FranciumCalamityWeapons.Content.Particles;
 using InnoVault.PRT;
 using Microsoft.Xna.Framework;
@@ -87,18 +89,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
                 }
             }
 
-            int[] types1 = new int[]
-			{
-				PRTLoader.GetParticleID<BlackFire1>(),
-				PRTLoader.GetParticleID<BlackFire2>(),
-				PRTLoader.GetParticleID<BlackFire3>(),
-				PRTLoader.GetParticleID<BlackFire4>(),
-				PRTLoader.GetParticleID<BlackFire5>(),
-				PRTLoader.GetParticleID<BlackFire6>(),
-				PRTLoader.GetParticleID<BlackFire7>()
-			};
-
-            PRTLoader.NewParticle(types1[Main.rand.Next(types1.Length)], Projectile.Center, Vector2.Zero, default, 1);
+            PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Projectile.Center, Vector2.Zero, Color.Black, 1, 40, ai2: 1);
 
             Vector2 RandPos = Main.rand.NextVector2Circular(radius, radius) + Projectile.Center;
 

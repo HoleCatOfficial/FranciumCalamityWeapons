@@ -24,6 +24,7 @@ namespace FranciumCalamityWeapons.Content.Debuffs
 			BuffID.Sets.LongerExpertDebuff[Type] = true; // If this buff is a debuff, setting this to true will make this buff last twice as long on players in expert mode
 		}
 
+		// Allows you to make this buff give certain effects to the given player
 		public override void Update(NPC target, ref int buffIndex) {
 			if (target.TryGetGlobalNPC<SandBlindnessNPC>(out var modNPC)) {
                 modNPC.SandBlindness = true;
@@ -43,9 +44,10 @@ namespace FranciumCalamityWeapons.Content.Debuffs
 
         public override void AI(NPC npc)
         {
+            Player player = Main.player[npc.target];
             if (SandBlindness)
             {
-                npc.confused = true;
+                player.aggro -= 1000;
             }
             base.AI(npc);
         }
