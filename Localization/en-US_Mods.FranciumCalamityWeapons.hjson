@@ -23,6 +23,16 @@ Buffs: {
 		DisplayName: Sand Blindness
 		Description: Sulprous Sand irritates your eyes! You can't see!
 	}
+
+	UltraRegen: {
+		Description: Nature nurses your wounds!
+		DisplayName: Life Energy Blessing
+	}
+
+	SilvaAttendantBuff: {
+		DisplayName: Silva Attendant Buff
+		Description: It works tirelessly to make sure your needs are met.
+	}
 }
 
 Items: {
@@ -322,8 +332,13 @@ Items: {
 	}
 
 	GodSlayerScepter: {
-		DisplayName: God Slayer Scepter
-		Tooltip: ""
+		DisplayName: Fýlakatanalotítheón
+		Tooltip:
+			'''
+			Shoots homing Cosmic Stars that accelerate towards their target.
+			Throwing the scepter will make it follow your cursor if you keep holding down.
+			When thrown, it will release a burst of Cosmic stars when hitting an enemy.
+			'''
 	}
 
 	TarragonMane: {
@@ -334,6 +349,35 @@ Items: {
 			Thrown Scepters release stationary bombs that do not collide with npcs or tiles.
 			Pressing the armor set bonus key will detonate all active bombs at once.
 			If npcs in the blast radius will have their armor broken.-
+			'''
+	}
+
+	VitalBane: {
+		Tooltip:
+			'''
+			Shoots a homing ray of life energy that slashes at enemies on contact.
+			When thrown, the Scepter will create a Life Energy Crsytal.
+			Shooting the crystal 5 times with any friendly projectile will break it, granting a massive life regeneration boost.
+			'''
+		DisplayName: Vital Bane
+	}
+
+	LunarVoltageScepter: {
+		DisplayName: Lunar Voltage Scepter
+		Tooltip:
+			'''
+			Shoots a bouncing arc of lunar electricity that bounces off of tiles up to 10 times and pierces infinitely.
+			When thrown, it will electrify nearby enemies and will shoot lunar flares at the closest enemy.
+			'''
+	}
+
+	SilvaCrown: {
+		DisplayName: Silva Crown
+		Tooltip: ""
+		SetBonus:
+			'''
+			Summons a Silva Attendant.
+			The attendant will shoot out three Silva Hearts to defend you when the armor set bonus key is pressed.
 			'''
 	}
 }
@@ -420,6 +464,13 @@ Projectiles: {
 	GodSlayerScepterHoldout.DisplayName: God Slayer Scepter Holdout
 	GodSlayerScepterThrown.DisplayName: God Slayer Scepter Thrown
 	TarragonManeBomb.DisplayName: Tarragon Mane Bomb
+	VitalBaneThrown.DisplayName: Vital Bane Thrown
+	LifeEnergyCrystal.DisplayName: Life Energy Crystal
+	LunarElectricityArc.DisplayName: Lunar Electricity Arc
+	LunarVoltageScepterThrown.DisplayName: Lunar Voltage Scepter Thrown
+	SilvaAttendant.DisplayName: Silva Attendant
+	SilvaHeart.DisplayName: Silva Heart
+	GodGougerStealthStrikeExplosion.DisplayName: God Gouger Stealth Strike Explosion
 }
 
 UI.OverlordChargeBar: Overlord Hit Count

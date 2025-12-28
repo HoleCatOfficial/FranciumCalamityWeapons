@@ -11,10 +11,10 @@
 	<!-- References -->
 	<ItemGroup>
 		<Reference Include="DestroyerTest">
-			<HintPath>..\ModAssemblies\DestroyerTest_v2.1.7221.dll</HintPath>
+			<HintPath>..\ModAssemblies\DestroyerTest_v2.1.7222.dll</HintPath>
 		</Reference>
 		<Reference Include="OpusLib">
-			<HintPath>..\ModAssemblies\OpusLib_v1.411.dll</HintPath>
+			<HintPath>..\ModAssemblies\OpusLib_v1.412.dll</HintPath>
 		</Reference>
 		<Reference Include="FranciumMultiCrossMod">
 			<HintPath>..\ModAssemblies\FranciumMultiCrossMod_v1.400.dll</HintPath>

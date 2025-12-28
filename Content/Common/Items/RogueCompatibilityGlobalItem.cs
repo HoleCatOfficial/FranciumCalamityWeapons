@@ -18,6 +18,9 @@ using FranciumCalamityWeapons.Content.Projectiles.StealthStrike;
 using DestroyerTest.Content.RiftArsenal;
 using Terraria.Audio;
 using DestroyerTest.Content.Projectiles.Weapon.Rogue;
+using System.Collections.Generic;
+using DestroyerTest.Content.MeleeWeapons;
+using DestroyerTest.Content.Projectiles.Weapon.Magic;
 
 namespace FranciumCalamityWeapons.Common.Items
 {
@@ -30,46 +33,29 @@ namespace FranciumCalamityWeapons.Common.Items
         public Vector2 MouseToPlayer = Main.LocalPlayer.Center - Main.MouseWorld;
 
         public override bool InstancePerEntity => true;
+
+        public static List<int> DTRogues = new List<int>
+        {
+            ModContent.ItemType<Chroma>(),
+            ModContent.ItemType<GalantineKnife>(),
+            ModContent.ItemType<GalantineLance>(),
+            ModContent.ItemType<GigaCursedHammerWeapon>(),
+            ModContent.ItemType<GodGouger>(),
+            ModContent.ItemType<P_Noctis>(),
+            ModContent.ItemType<RiftChakram>(),
+            ModContent.ItemType<RiftMaker>(),
+            ModContent.ItemType<RiftSpine>(),
+            ModContent.ItemType<RiftTeardrop>(),
+            ModContent.ItemType<DestroyerTest.Content.RogueItems.TemporalLance>(),
+            ModContent.ItemType<TenebrisWaraxe>(),
+            ModContent.ItemType<TenebrousChakram>()
+        };
+
         public override void SetDefaults(Item item)
         {
             if (CalamityLoaded)
             {
-                if (item.type == ModContent.ItemType<TenebrousChakram>())
-                {
-                    item.DamageType = ModContent.GetInstance<RogueDamageClass>();
-                }
-
-                if (item.type == ModContent.ItemType<GigaCursedHammerWeapon>())
-                {
-                    item.DamageType = ModContent.GetInstance<RogueDamageClass>();
-                }
-
-                if (item.type == ModContent.ItemType<RiftMaker>())
-                {
-                    item.DamageType = ModContent.GetInstance<RogueDamageClass>();
-                }
-
-                if (item.type == ModContent.ItemType<RiftSpine>())
-                {
-                    item.DamageType = ModContent.GetInstance<RogueDamageClass>();
-                }
-
-                if (item.type == ModContent.ItemType<RiftTeardrop>())
-                {
-                    item.DamageType = ModContent.GetInstance<RogueDamageClass>();
-                }
-
-                if (item.type == ModContent.ItemType<Chroma>())
-                {
-                    item.DamageType = ModContent.GetInstance<RogueDamageClass>();
-                }
-
-                if (item.type == ModContent.ItemType<RiftChakram>())
-                {
-                    item.DamageType = ModContent.GetInstance<RogueDamageClass>();
-                }
-                
-                if (item.type == ModContent.ItemType<P_Noctis>())
+                if (DTRogues.Contains(item.type))
                 {
                     item.DamageType = ModContent.GetInstance<RogueDamageClass>();
                 }
@@ -208,66 +194,31 @@ namespace FranciumCalamityWeapons.Common.Items
 
         public ref float GetDelayTimer(Projectile projectile) => ref projectile.ai[1];
 
+        public List<int> DTRogueDirectProjectiles = new List<int>
+        {
+            ModContent.ProjectileType<Chroma_Projectile>(),
+            ModContent.ProjectileType<GalantineKnifeThrown>(),
+            ModContent.ProjectileType<GalantineLanceFriendly>(),
+            ModContent.ProjectileType<GigaCursedHammerThrown>(),
+            ModContent.ProjectileType<GodGougerThrown>(),
+            ModContent.ProjectileType<P_Noctis_Projectile>(),
+            ModContent.ProjectileType<RiftChakramThrown>(),
+            ModContent.ProjectileType<RiftMaker_Thrown>(),
+            ModContent.ProjectileType<RiftSpine_Thrown>(),
+            ModContent.ProjectileType<RiftTeardrop_Thrown>(),
+            ModContent.ProjectileType<DestroyerTest.Content.Projectiles.Weapon.Rogue.TemporalLance>(),
+            ModContent.ProjectileType<TenebrisWaraxeProjectile>(),
+            ModContent.ProjectileType<TenebrousChakramThrown>(),
+        };
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
             if (!RogueCompatibility.CalamityLoaded || !RogueCompatibility.DestroyerTestLoaded)
                 return;
 
-            if (projectile.type == ModContent.ProjectileType<TenebrousChakramThrown>())
+            if (DTRogueDirectProjectiles.Contains(projectile.type))
             {
                 projectile.DamageType = ModContent.GetInstance<RogueDamageClass>();
 
-                Player owner = Main.player[projectile.owner];
-                if (owner.GetModPlayer<RogueCompatibilityStealthPlayer>().usedStealthStrike)
-                {
-                    IsStealth = true;
-                }
-            }
-
-            if (projectile.type == ModContent.ProjectileType<GigaCursedHammerThrown>())
-            {
-                projectile.DamageType = ModContent.GetInstance<RogueDamageClass>();
-
-                Player owner = Main.player[projectile.owner];
-                if (owner.GetModPlayer<RogueCompatibilityStealthPlayer>().usedStealthStrike)
-                {
-                    IsStealth = true;
-                }
-            }
-
-            if (projectile.type == ModContent.ProjectileType<RiftMaker_Thrown>())
-            {
-                projectile.DamageType = ModContent.GetInstance<RogueDamageClass>();
-                Player owner = Main.player[projectile.owner];
-                if (owner.GetModPlayer<RogueCompatibilityStealthPlayer>().usedStealthStrike)
-                {
-                    IsStealth = true;
-                }
-            }
-
-            if (projectile.type == ModContent.ProjectileType<RiftTeardrop_Thrown>())
-            {
-                projectile.DamageType = ModContent.GetInstance<RogueDamageClass>();
-                Player owner = Main.player[projectile.owner];
-                if (owner.GetModPlayer<RogueCompatibilityStealthPlayer>().usedStealthStrike)
-                {
-                    IsStealth = true;
-                }
-            }
-
-            if (projectile.type == ModContent.ProjectileType<RiftSpine_Thrown>())
-            {
-                projectile.DamageType = ModContent.GetInstance<RogueDamageClass>();
-                Player owner = Main.player[projectile.owner];
-                if (owner.GetModPlayer<RogueCompatibilityStealthPlayer>().usedStealthStrike)
-                {
-                    IsStealth = true;
-                }
-            }
-
-            if (projectile.type == ModContent.ProjectileType<RiftChakramThrown>())
-            {
-                projectile.DamageType = ModContent.GetInstance<RogueDamageClass>();
                 Player owner = Main.player[projectile.owner];
                 if (owner.GetModPlayer<RogueCompatibilityStealthPlayer>().usedStealthStrike)
                 {
@@ -314,8 +265,13 @@ namespace FranciumCalamityWeapons.Common.Items
                 WillRotateToHomingTarget = true;
                 projectile.penetrate = 1;
             }
-            
 
+            if (projectile.type == ModContent.ProjectileType<GalantineKnifeThrown>() && IsStealth)
+            {
+                Projectile.NewProjectile(projectile.GetSource_FromAI(), projectile.Center, projectile.velocity * 0.1f, ModContent.ProjectileType<StellarFlameFriendly>(), projectile.damage / 4, 2, projectile.owner);
+            }
+            
+            
 
 
             if (IsHoming)
@@ -326,7 +282,10 @@ namespace FranciumCalamityWeapons.Common.Items
 
         public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            
+            if (projectile.type == ModContent.ProjectileType<GodGougerThrown>() && IsStealth)
+            {
+                Projectile.NewProjectile(projectile.GetSource_FromAI(), target.Center, Vector2.Zero, ModContent.ProjectileType<GodGougerStealthStrikeExplosion>(), projectile.damage, 2, projectile.owner);
+            }
         }
 
         public void ManageHoming(Projectile projectile)

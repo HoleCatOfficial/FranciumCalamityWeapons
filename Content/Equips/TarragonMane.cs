@@ -37,8 +37,8 @@ namespace FranciumCalamityWeapons.Content.Equips
 		{
 			// If your head equipment should draw hair while drawn, use one of the following:
 			// ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false; // Don't draw the head at all. Used by Space Creature Mask
-			//ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true; // Draw hair as if a hat was covering the top. Used by Wizards Hat
-            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true; // Draw all hair as normal. Used by Mime Mask, Sunglasses
+			ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true; // Draw hair as if a hat was covering the top. Used by Wizards Hat
+            //ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true; // Draw all hair as normal. Used by Mime Mask, Sunglasses
             // ArmorIDs.Head.Sets.DrawsBackHairWithoutHeadgear[Item.headSlot] = true;
 
 		}
@@ -165,7 +165,7 @@ namespace FranciumCalamityWeapons.Content.Equips
         {
             bool Dormant = Projectile.ai[0] == 0;
 
-            Projectile.velocity *= 0.99f;
+            Projectile.velocity *= 0.94f;
             
             if (Dormant)
             {
@@ -183,7 +183,7 @@ namespace FranciumCalamityWeapons.Content.Equips
             Projectile.timeLeft = 5;
             if(Main.rand.NextBool(6))
             {
-                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<AuricBarDust>(), Main.rand.NextFloat(-1, 1), Main.rand.NextFloat(-1, 1), 70, default, 1f);
+                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.RichMahogany, Main.rand.NextFloat(-1, 1), Main.rand.NextFloat(-1, 1), 70, default, 1f);
                 dust.noGravity = true;
             }
         }
@@ -212,7 +212,7 @@ namespace FranciumCalamityWeapons.Content.Equips
 
                 // Spawn a bunch of fire dusts.
                 for (int j = 0; j < 20; j++) {
-                    Dust fireDust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.FireworksRGB, 0f, 0f, 100, Color.Green, 3.5f);
+                    Dust fireDust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.FireworksRGB, 0f, 0f, 100, Color.Green, 1f);
                     fireDust.velocity *= 7f;
                 }
 
