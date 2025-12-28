@@ -9,6 +9,7 @@ using System;
 using DestroyerTest.Common;
 using DestroyerTest.Content.Projectiles;
 using DestroyerTest.Content.Projectiles.ParentClasses;
+using CalamityMod.Buffs.StatDebuffs;
 
 namespace FranciumCalamityWeapons.Content.Scepter
 {
@@ -40,7 +41,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
             {
                 if (hostile.Distance(Projectile.Center) < 200)
                 {
-                    hostile.AddBuff(BuffID.Electrified, 600);
+                    hostile.AddBuff(ModContent.BuffType<GalvanicCorrosion>(), 600);
                 }
             }
 

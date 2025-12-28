@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CalamityMod.Buffs.StatDebuffs;
 using DestroyerTest.Common;
 using DestroyerTest.Content.Buffs;
 using DestroyerTest.Content.Dusts;
@@ -203,7 +204,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(BuffID.Electrified, 600);
+            target.AddBuff(ModContent.BuffType<GalvanicCorrosion>(), 600);
         }
 
 		public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)

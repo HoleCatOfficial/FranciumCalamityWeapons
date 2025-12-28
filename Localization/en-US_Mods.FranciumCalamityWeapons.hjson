@@ -380,6 +380,21 @@ Items: {
 			The attendant will shoot out three Silva Hearts to defend you when the armor set bonus key is pressed.
 			'''
 	}
+
+	ArsenalArrowT3: {
+		Tooltip: ""
+		DisplayName: Arsenal Arrow T3
+	}
+
+	ArsenalArrowT2: {
+		Tooltip: ""
+		DisplayName: Arsenal Arrow T2
+	}
+
+	ArsenalArrowT1: {
+		Tooltip: ""
+		DisplayName: Arsenal Arrow T1
+	}
 }
 
 Projectiles: {
@@ -471,6 +486,9 @@ Projectiles: {
 	SilvaAttendant.DisplayName: Silva Attendant
 	SilvaHeart.DisplayName: Silva Heart
 	GodGougerStealthStrikeExplosion.DisplayName: God Gouger Stealth Strike Explosion
+	ArsenalArrowT3Projectile.DisplayName: Arsenal Arrow T3 Projectile
+	ArsenalArrowT2Projectile.DisplayName: Arsenal Arrow T2 Projectile
+	ArsenalArrowT1Projectile.DisplayName: Arsenal Arrow T1 Projectile
 }
 
 UI.OverlordChargeBar: Overlord Hit Count
