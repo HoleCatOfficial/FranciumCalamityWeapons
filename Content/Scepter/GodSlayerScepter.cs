@@ -45,6 +45,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
 			Item.damage = 435 + (int)Math.Round(ScepterClassStats.DamageModifier); // The damage of your sword, this is dynamically adjusted in the projectile code.
 			Item.DamageType = ModContent.GetInstance<ScepterClass>();
 			Item.channel = true;
+			Item.UseSound = null;
 		}
 
 		
@@ -89,6 +90,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
                 Item.damage = 435 + (int)Math.Round(ScepterClassStats.DamageModifier); // The damage of your sword, this is dynamically adjusted in the projectile code.
                 Item.DamageType = ModContent.GetInstance<ScepterClass>();
                 Item.channel = true;
+				Item.UseSound = null;
             }
 
 			
@@ -126,17 +128,13 @@ namespace FranciumCalamityWeapons.Content.Scepter
 					endAngle = startAngle; // Default case (shouldn't happen unless player.direction is unexpected)
 				}
 
-				// Interpolate between start and end angle
 				float armRotation = MathHelper.Lerp(startAngle, endAngle, progress);
 
-				// If the progress has reached the end, stop the arm from rotating further
 				if (progress == 1.0f)
 				{
-					// Ensure the arm stays at the final angle and doesn't continue animating
 					armRotation = endAngle;
 				}
 
-				// Apply the final rotation to the player's arm
 				player.SetCompositeArmFront(true, Player.CompositeArmStretchAmount.Full, armRotation);
 			}
 		}

@@ -25,11 +25,11 @@ namespace FranciumCalamityWeapons.Content.Scepter
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 16000; // persistent
-            Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = -1;
-            Projectile.netImportant = true;
-			Projectile.netUpdate = true;
+        }
 
+        public override bool? CanHitNPC(NPC target)
+        {
+            return false;
         }
 
         public override bool PreDraw(ref Color lightColor)
@@ -56,7 +56,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
         }
 
         bool flipRotation = false;
-
+        public SoundStyle Shoot = new SoundStyle("FranciumCalamityWeapons/Audio/CosmicStarSpawn") with { MaxInstances = 0, PitchVariance = 0.3f };
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
@@ -106,6 +106,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
                 Projectile.ai[0]++;
                 if (Projectile.ai[0] % 10 == 0)
                 {
+                    SoundEngine.PlaySound(Shoot, Projectile.Center);
                     int PinkOrBlue = Main.rand.NextBool(2) ? ModContent.ProjectileType<CosmicStarPink>() : ModContent.ProjectileType<CosmicStarBlue>();
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), shotPos, toCursor, PinkOrBlue, Projectile.damage, 10, Projectile.owner);
                 }

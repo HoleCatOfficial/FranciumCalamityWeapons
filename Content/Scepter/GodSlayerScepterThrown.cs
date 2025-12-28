@@ -51,38 +51,53 @@ namespace FranciumCalamityWeapons.Content.Scepter
             Projectile.penetrate = -1;
             Projectile.light = 0.5f;
             Projectile.ignoreWater = true;
-            Projectile.timeLeft = 180;
+            Projectile.timeLeft = 600;
             Projectile.DamageType = ModContent.GetInstance<ScepterClass>();
             Projectile.tileCollide = false;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 20;
         }
 
         
-        SoundStyle Rot = new SoundStyle("DestroyerTest/Assets/Audio/SwordSounds/MagicSwing", 3) with { Volume = 0.75f, PitchVariance = 0.8f };
+        SoundStyle Rot = new SoundStyle("DestroyerTest/Assets/Audio/SwordSounds/MagicSwing", 3) with { Volume = 0.75f, PitchVariance = 0.8f, MaxInstances = 0 };
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
             Projectile.rotation += 0.8f * Projectile.direction;
+
+            Vector2 dustPoint = Projectile.Center + new Vector2(0, 40);
+            dustPoint = dustPoint.RotatedBy(Projectile.rotation - MathHelper.PiOver4);
+
+            Rectangle DustRect = Utils.CenteredRectangle(dustPoint, new Vector2(10, 10));
+
+            Dust.NewDust(DustRect.TopLeft(), DustRect.Width, DustRect.Height, DustID.FireworksRGB, 0f, 0f, 0, CosmicBlue, 0.5f);
             
             // Generate flying dust effect
             if (Main.rand.NextBool(3))
             {
                 if (Main.rand.NextBool(2))
                 {
-                    PRTLoader.NewParticle(PRTLoader.GetParticleID<StarParticle>(), Projectile.Center, Projectile.velocity * 0.5f, CosmicBlue, 1f);
+                    PRTLoader.NewParticle(PRTLoader.GetParticleID<StarParticle>(), Projectile.Center, Projectile.velocity * 0.25f, CosmicBlue, 1f);
                 }
                 else
                 {
-                    PRTLoader.NewParticle(PRTLoader.GetParticleID<StarParticle>(), Projectile.Center, Projectile.velocity * 0.5f, CosmicPink, 1f);
+                    PRTLoader.NewParticle(PRTLoader.GetParticleID<StarParticle>(), Projectile.Center, Projectile.velocity * 0.25f, CosmicPink, 1f);
                 }
             }
 
-            if (Main.GameUpdateCount % 15 == 0)
+            if (Main.GameUpdateCount % 10 == 0)
             {
                 SoundEngine.PlaySound(Rot, Projectile.Center);
             }
 
-            if (!returning)
+            if (Projectile.ai[2] > 0)
             {
+                Projectile.ai[2]--;
+            }
+
+            if (player.controlUseTile && !returning)
+            {
+                Projectile.timeLeft = 600;
                 Vector2 toMouse = Main.MouseWorld - Projectile.Center;
                 if (toMouse.Length() > 48f)
                 {
@@ -100,25 +115,25 @@ namespace FranciumCalamityWeapons.Content.Scepter
                 }
             }
 
-            if (Projectile.timeLeft <= 60)
-                {
-                    returning = true;
-                }
+            if (!player.controlUseTile)
+            {
+                returning = true;
+            }
 
             if (returning)
-                {
-                    ArmCatchAnimate(player);
-                    // InPhase: Smooth return using Lerp
-                    Vector2 returnDirection = player.Center - Projectile.Center;
-                    float speed = MathHelper.Lerp(Projectile.velocity.Length(), 15f, 0.08f); // Smooth acceleration
-                    Projectile.velocity = returnDirection.SafeNormalize(Vector2.Zero) * speed;
+            {
+                ArmCatchAnimate(player);
+                // InPhase: Smooth return using Lerp
+                Vector2 returnDirection = player.Center - Projectile.Center;
+                float speed = MathHelper.Lerp(Projectile.velocity.Length(), 15f, 0.08f); // Smooth acceleration
+                Projectile.velocity = returnDirection.SafeNormalize(Vector2.Zero) * speed;
 
-                    // If close enough, remove the projectile
-                    if (Projectile.Distance(player.Center) < 8) // 8 pixels radius
-                    {
-                        Projectile.Kill();
-                    }
+                // If close enough, remove the projectile
+                if (Projectile.Distance(player.Center) < 8) // 8 pixels radius
+                {
+                    Projectile.Kill();
                 }
+            }
         }
 
         public void ArmCatchAnimate(Player player)
@@ -150,9 +165,14 @@ namespace FranciumCalamityWeapons.Content.Scepter
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            SoundEngine.PlaySound(Hit, target.Center);
-            int PinkOrBlue = Main.rand.NextBool(2) ? ModContent.ProjectileType<CosmicStarPink>() : ModContent.ProjectileType<CosmicStarBlue>();
-            Opus.RadialSpreadProjectile(PinkOrBlue, 12, target.Center, Projectile.damage / 4, 0, 8, RandomOffset: false);
+            if (Projectile.ai[2] <= 0)
+            {
+                SoundEngine.PlaySound(Hit, target.Center);
+                PRTLoader.NewParticle(PRTLoader.GetParticleID<SmallShine>(), target.Center, Vector2.Zero, Color.White, 1);
+                int PinkOrBlue = Main.rand.NextBool(2) ? ModContent.ProjectileType<CosmicStarPink>() : ModContent.ProjectileType<CosmicStarBlue>();
+                Opus.RadialSpreadProjectile(PinkOrBlue, 12, target.Center, Projectile.damage / 4, 0, 8, RandomOffset: false);
+                Projectile.ai[2] = 20;
+            }
         }
     }
 }
