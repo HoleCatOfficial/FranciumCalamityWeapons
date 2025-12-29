@@ -107,6 +107,8 @@ namespace FranciumCalamityWeapons.Content.Projectiles.Ammo
                 smokeGore.velocity *= speedMulti;
                 smokeGore.velocity -= Vector2.One;
             }
+
+            Opus.RadialProjectileRandomDir(ModContent.ProjectileType<ArsenalArrowT3Spark>(), 5, Projectile.Center, (int)(Projectile.damage * 0.75f), 0, 5, friendly: true);
 		}
 	}
 }

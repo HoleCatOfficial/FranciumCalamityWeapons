@@ -33,6 +33,11 @@ Buffs: {
 		DisplayName: Silva Attendant Buff
 		Description: It works tirelessly to make sure your needs are met.
 	}
+
+	ArsenalArrowShock: {
+		DisplayName: Frying
+		Description: The Current is cooking you alive!
+	}
 }
 
 Items: {
@@ -489,6 +494,7 @@ Projectiles: {
 	ArsenalArrowT3Projectile.DisplayName: Arsenal Arrow T3 Projectile
 	ArsenalArrowT2Projectile.DisplayName: Arsenal Arrow T2 Projectile
 	ArsenalArrowT1Projectile.DisplayName: Arsenal Arrow T1 Projectile
+	ArsenalArrowT3Spark.DisplayName: Arsenal Arrow T3 Spark
 }
 
 UI.OverlordChargeBar: Overlord Hit Count
