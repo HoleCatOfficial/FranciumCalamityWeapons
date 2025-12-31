@@ -1,336 +1,264 @@
-using System;
-using CalamityMod;
+using CalamityMod.Buffs.StatDebuffs;
 using DestroyerTest.Common;
 using DestroyerTest.Content.Particles;
+using FranciumCalamityWeapons.Common;
+using FranciumCalamityWeapons.Content.Melee;
 using FranciumCalamityWeapons.Content.Particles;
 using InnoVault.PRT;
-using Microsoft.Build.Evaluation;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent;
+using Terraria.GameContent.Drawing;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Social.Base;
 
 namespace FranciumCalamityWeapons.Content.Projectiles
 {
-    /*
-    public class SupremacySwing : ModProjectile
-    {
+	public class SupremacySwing : ModProjectile
+	{
+		private const float SWINGRANGE = 1.67f * (float)Math.PI;
+		private const float SPINRANGE = 4.5f * (float)Math.PI;
+		private const float WINDUP = 0.15f;
+		private const float UNWIND = 0.4f;
+		private const float SPINTIME = 2.0f;
 
+		private enum AttackType
+		{
+			Spin, //This has no purpose in the code anymore beyond its usage in CurrentAttack.
+		}
 
-        public override void SetDefaults()
+		private enum AttackStage
+		{
+			Prepare,
+			Execute,
+			Unwind
+		}
+
+		private AttackType CurrentAttack {
+			get => (AttackType)Projectile.ai[0];
+			set => Projectile.ai[0] = (float)value;
+		}
+
+		private AttackStage CurrentStage {
+			get => (AttackStage)Projectile.localAI[0];
+			set {
+				Projectile.localAI[0] = (float)value;
+				Timer = 0;
+			}
+		}
+
+		private ref float InitialAngle => ref Projectile.ai[1];
+		private ref float Timer => ref Projectile.ai[2];
+		private ref float Progress => ref Projectile.localAI[1];
+		private ref float Size => ref Projectile.localAI[2];
+
+		private float prepTime => 12f / Owner.GetTotalAttackSpeed(Projectile.DamageType);
+		private float execTime => 48f / Owner.GetTotalAttackSpeed(Projectile.DamageType);
+		private float hideTime => 12f / Owner.GetTotalAttackSpeed(Projectile.DamageType);
+		private Player Owner => Main.player[Projectile.owner];
+
+		public override void SetStaticDefaults()
+		{
+			ProjectileID.Sets.HeldProjDoesNotUsePlayerGfxOffY[Type] = true;
+			ProjectileID.Sets.TrailCacheLength[Type] = 15;
+			ProjectileID.Sets.TrailingMode[Type] = 2;
+		}
+
+		public override void SetDefaults() {
+			Projectile.width = 100;
+			Projectile.height = 100;
+			Projectile.friendly = true;
+			Projectile.timeLeft = 10000;
+			Projectile.penetrate = -1;
+			Projectile.tileCollide = false;
+			Projectile.usesLocalNPCImmunity = true;
+			Projectile.localNPCHitCooldown = -1;
+			Projectile.ownerHitCheck = true;
+			Projectile.DamageType = DamageClass.Melee;
+		}
+
+		public override void OnSpawn(IEntitySource source) {
+			Projectile.spriteDirection = Main.MouseWorld.X > Owner.MountedCenter.X ? 1 : -1;
+			float targetAngle = (Main.MouseWorld - Owner.MountedCenter).ToRotation();
+
+			
+			InitialAngle = (float)(-Math.PI / 2 - Math.PI * 1 / 3 * Projectile.spriteDirection);
+			
+		}
+
+		public override void SendExtraAI(BinaryWriter writer) {
+			writer.Write((sbyte)Projectile.spriteDirection);
+		}
+
+		public override void ReceiveExtraAI(BinaryReader reader) {
+			Projectile.spriteDirection = reader.ReadSByte();
+		}
+
+		public override void AI() {
+
+			Owner.itemAnimation = 2;
+			Owner.itemTime = 2;
+
+			if (!Owner.active || Owner.dead || Owner.noItems || Owner.CCed) {
+				Projectile.Kill();
+				return;
+			}
+
+			switch (CurrentStage) {
+				case AttackStage.Prepare:
+					PrepareStrike();
+					break;
+				case AttackStage.Execute:
+					ExecuteStrike();
+					break;
+				default:
+					UnwindStrike();
+					break;
+			}
+
+			SetSwordPosition();
+			Timer++;
+		}
+
+		public Vector2 swordTip;
+
+		public override bool PreDraw(ref Color lightColor)
+		{
+
+			Vector2 origin;
+			float rotationOffset;
+			SpriteEffects effects;
+
+			if (Projectile.spriteDirection > 0)
+			{
+				origin = new Vector2(0, Projectile.height);
+				rotationOffset = MathHelper.ToRadians(45f);
+				effects = SpriteEffects.None;
+			}
+			else
+			{
+				origin = new Vector2(Projectile.width, Projectile.height);
+				rotationOffset = MathHelper.ToRadians(135f);
+				effects = SpriteEffects.FlipHorizontally;
+			}
+
+			Texture2D texture = TextureAssets.Projectile[Type].Value;
+
+			Main.spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, default, lightColor * Projectile.Opacity, Projectile.rotation + rotationOffset, origin, Projectile.scale, effects, 0);
+
+			return false;
+		}
+
+        public override bool PreDrawExtras()
         {
-            Projectile.width = 200;
-            Projectile.height = 200;
-            Projectile.friendly = true;
-            Projectile.penetrate = -1;
-            Projectile.timeLeft = 3600;
-            Projectile.tileCollide = false;
-            Projectile.hide = false; // Optional: hide if just visual
-            Projectile.netImportant = true;
-            Projectile.netUpdate = true;
-            Projectile.owner = Main.LocalPlayer.whoAmI;
-            Projectile.extraUpdates = 3;
+			
+			return false;
         }
 
-        public override bool ShouldUpdatePosition()
-        {
-            return false;
-        }
 
-        public override bool PreDraw(ref Color lightColor)
-        {
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            Texture2D tex = TextureAssets.Projectile[Projectile.type].Value;
+		public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
+		{
+			Vector2 start = Owner.MountedCenter;
+			Vector2 end = start + Projectile.rotation.ToRotationVector2() * ((Projectile.Size.Length()) * Projectile.scale);
+			float collisionPoint = 0f;
+			return Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), start, end, 25f * Projectile.scale, ref collisionPoint);
+		}
 
-            Vector2 origin = new Vector2(0f, tex.Height); // bottom-left
-            Vector2 anchor = Main.player[Projectile.owner].MountedCenter;
-            float angle = Projectile.rotation;  // manually control this
+		public override void CutTiles() {
+			Vector2 start = Owner.MountedCenter;
+			Vector2 end = start + Projectile.rotation.ToRotationVector2() * (Projectile.Size.Length() * Projectile.scale);
+			Utils.PlotTileLine(start, end, 15 * Projectile.scale, DelegateMethods.CutTiles);
+		}
 
-            Main.EntitySpriteDraw(
-                tex,
-                anchor - Main.screenPosition,
-                null,
-                lightColor,
-                angle,
-                origin,
-                Projectile.scale,
-                SpriteEffects.None,
-                0f
-            );
+		public override bool? CanDamage() {
+			if (CurrentStage == AttackStage.Prepare)
+				return false;
+			return base.CanDamage();
+		}
 
+		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) {
+			modifiers.HitDirectionOverride = target.position.X > Owner.MountedCenter.X ? 1 : -1;
+			modifiers.Knockback += 1;
+		}
 
-            return false;
-        }
+		public void SetSwordPosition()
+		{
+			Projectile.rotation = InitialAngle + Projectile.spriteDirection * Progress;
 
-        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
-        {
-            Player Owner = Main.player[Projectile.owner];
-            Vector2 start = Owner.MountedCenter;
-            Vector2 end = start + Projectile.rotation.ToRotationVector2() * ((Projectile.Size.Length()) * Projectile.scale);
-            float collisionPoint = 0f;
-            return Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), start, end, 25f * Projectile.scale, ref collisionPoint);
-        }
-        
-        public float rotSpeed = 0f;
-        public bool Sound = false;
-        public Vector2 swordTip;
-        public override void AI()
-        {
-            Player player = Main.player[Projectile.owner];
-            Texture2D tex = TextureAssets.Projectile[Projectile.type].Value;
-            Vector2 origin = new Vector2(0f, tex.Height); // bottom-left
-            Vector2 tipOffset = new Vector2(0f, -tex.Height) * Projectile.scale;
-            Vector2 swordTip = Main.player[Projectile.owner].MountedCenter + tipOffset.RotatedBy(Projectile.rotation);
-
-           
+			Owner.SetCompositeArmFront(true, Player.CompositeArmStretchAmount.Full, Projectile.rotation - MathHelper.ToRadians(90f));
+			Vector2 armPosition = Owner.GetFrontHandPosition(Player.CompositeArmStretchAmount.Full, Projectile.rotation - (float)Math.PI / 2);
 
 
-            if (Projectile.ai[0] == 0)
-            {
-                Projectile.rotation = -MathHelper.PiOver2 * player.direction; // Start vertical
-                Projectile.direction = player.direction;
-            }
+			armPosition.Y += Owner.gfxOffY;
+			Projectile.Center = armPosition;
+			Projectile.scale = Size * 1.2f * Owner.GetAdjustedItemScale(Owner.HeldItem);
 
-            if (Sound == false)
-            {
-                SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/ThrowWoosh1") with { PitchVariance = 1.5f }, Projectile.Center);
-                Sound = true;
-            }
+			Owner.heldProj = Projectile.whoAmI;
+			swordTip = Projectile.Center + Projectile.rotation.ToRotationVector2() * (Projectile.Size.Length() * Projectile.scale);
+		}
 
-            Projectile.Center = player.MountedCenter;
-            Projectile.rotation += rotSpeed;
-            rotSpeed += 0.004f * player.direction; // tweak for speed
-            Projectile.ai[0]++;
+		public bool TakeoutSoundPlayed = false;
 
+		private void PrepareStrike()
+		{
+			swordTip = Projectile.Center + Projectile.rotation.ToRotationVector2() * (Projectile.Size.Length() * Projectile.scale);
+			Progress = WINDUP * SWINGRANGE * (1f - Timer / prepTime);
+			Size = MathHelper.SmoothStep(0, 1, Timer / prepTime);
+			if (TakeoutSoundPlayed == false)
+			{
+				SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/OverlordTakeout") with { PitchVariance = 1.0f });
+				TakeoutSoundPlayed = true;
+			}
 
-            if (Projectile.ai[0] > 72) // 360° = ~72 frames at 5° per frame
-            {
-                Sound = false;
-                Projectile.Kill();
-            }
+			if (Timer >= prepTime)
+				{
+					SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/MagicSwing", 3) with { PitchVariance = 1.0f });
+					CurrentStage = AttackStage.Execute;
+				}
+		}
 
-            player.SetCompositeArmFront(true, Player.CompositeArmStretchAmount.Full, Projectile.rotation - MathHelper.PiOver2);
-            player.heldProj = Projectile.whoAmI;
-            player.itemTime = 2;
-            player.itemAnimation = 2;
-        }
+		private void ExecuteStrike() {
+			Player player = Main.player[Projectile.owner];
 
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            Player player = Main.player[Projectile.owner];
-            SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/WOTG_RiftOpen") with { PitchVariance = 0.5f }, Projectile.Center);
-            target.velocity *= 0.25f;
-            if (player.ownedProjectileCounts[ModContent.ProjectileType<SupremacyWyrmHead>()] < 1)
-            {
-                Projectile.NewProjectile(Entity.GetSource_FromThis(), Projectile.Center, (target.Center - Projectile.Center) * 0.1f, ModContent.ProjectileType<SupremacyWyrmHead>(), 200, 2, player.whoAmI);
-            }
-            PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom2>(), target.Center, Vector2.Zero, new Color(255, 209, 0), 1);
-        }
-    }
-    */
+			swordTip = Projectile.Center + Projectile.rotation.ToRotationVector2() * (Projectile.Size.Length() * Projectile.scale);
 
-    public class SupremacySwing : ModProjectile
-    {
+			Progress = MathHelper.SmoothStep(0, SPINRANGE, (1f - UNWIND / 2) * Timer / (execTime * SPINTIME));
 
-        public override void SetStaticDefaults()
-        {
-            Main.projFrames[Projectile.type] = 1;
-        }
+			if (Timer == (int)(execTime * SPINTIME * 3 / 4)) {
+				SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/OverlordSwing") with { PitchVariance = 1.0f });
+				Projectile.ResetLocalNPCHitImmunity();
+			}
 
-        public override void SetDefaults()
-        {
-            Projectile.DamageType = ModContent.GetInstance<TrueMeleeDamageClass>();
-            Projectile.width = 1;
-            Projectile.height = 1;
-            Projectile.friendly = true;
-            Projectile.penetrate = -1;
-            Projectile.tileCollide = false;
-            Projectile.light = 1f;
-            Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = 36;
-            Projectile.ArmorPenetration = 80;
-            Projectile.timeLeft = 100000;
-            Projectile.extraUpdates = 3;
-        }
+			if (Timer >= execTime * SPINTIME) {
+				CurrentStage = AttackStage.Unwind;
+			}
+			
+		}
 
-        public float scaleD = 0.64f;
-        public float rotSpeed = 0f;
-        public bool playsound1 = true;
-        public bool playsound2 = true;
+		private void UnwindStrike() {
+			swordTip = Projectile.Center + Projectile.rotation.ToRotationVector2() * (Projectile.Size.Length() * Projectile.scale);
+			Progress = MathHelper.SmoothStep(0, SPINRANGE, (1f - UNWIND / 2) + UNWIND / 2 * Timer / (hideTime * SPINTIME / 2));
+			Size = 1f - MathHelper.SmoothStep(0, 1, Timer / (hideTime * SPINTIME / 2));
 
-        public override void AI()
-        {
-            float updates = Projectile.MaxUpdates + 1;
-            Player owner = Main.player[Projectile.owner];
-            float meleeSpeed = owner.GetTotalAttackSpeed(Projectile.DamageType);
+			if (Timer >= hideTime * SPINTIME / 2) {
+				Projectile.Kill();
+			}
+		}
 
-            if (Projectile.ai[0] == 0)
-            {
-                Projectile.direction = Projectile.velocity.X > 0 ? 1 : -1;
-                Projectile.rotation = Projectile.velocity.ToRotation();
-                Projectile.rotation -= 2.42f * Projectile.direction;
-            }
-
-            if (Projectile.ai[0] >= 64 * updates && playsound1)
-            {
-                playsound1 = false;
-                SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/ThrowWoosh1") with { PitchVariance = 1.5f }, Projectile.Center);
-            }
-
-            if (Projectile.ai[0] >= 74 * updates && playsound2)
-            {
-                playsound2 = false;
-                SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/ThrowWoosh1") with { PitchVariance = 1.5f }, Projectile.Center);
-            }
-
-            int Radius = 200;
-            Vector2 PRTPos = (Projectile.Center + new Vector2(Radius, 0)).RotatedBy(Projectile.rotation);
-
-            
-
-            PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], PRTPos, Vector2.Zero, Color.Black, 1, 40, ai2: 1);
-            PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], PRTPos, Vector2.Zero, new Color(255, 209, 0), 0.4f, 40, ai2: 1);
-
-
-            Projectile.Center = owner.MountedCenter + owner.gfxOffY * Vector2.UnitY;
-            Projectile.rotation += rotSpeed * meleeSpeed;
-
-            if (Projectile.ai[0] < 60 * updates)
-            {
-                Projectile.ai[0] = 60 * updates;
-                
-            }
-            else
-            {
-                if (Projectile.ai[0] < 86 * updates)
-                {
-                    rotSpeed += 0.00121f * Projectile.direction * meleeSpeed;
-                }
-                else
-                {
-                    rotSpeed *= (float)Math.Pow(0.94, 1.0 / meleeSpeed);
-                    if (Projectile.ai[0] > 90 * updates && Projectile.owner == Main.myPlayer)
-                    {
-                        Projectile.direction = (Main.MouseWorld - owner.Center).X > 0 ? 1 : -1;
-                        float targetrot = (Main.MouseWorld - owner.Center).ToRotation() - 2.42f * Projectile.direction;
-                        Projectile.rotation = RotateTowardsAngle(Projectile.rotation, targetrot, 0.07f * meleeSpeed, false);
-                    }
-                    if (Projectile.ai[0] > 100 * updates)
-                    {
-                        owner.itemTime = 0;
-                        owner.itemAnimation = 0;
-                        Projectile.Kill();
-                        return;
-                    }
-                }
-            }
-
-            Projectile.ai[0] += meleeSpeed;
-
-            if (Projectile.velocity.X > 0)
-            {
-                owner.direction = 1;
-                owner.SetCompositeArmFront(true, Player.CompositeArmStretchAmount.Full, Projectile.rotation - (float)(Math.PI * 0.5f));
-            }
-            else
-            {
-                owner.direction = -1;
-                owner.SetCompositeArmFront(true, Player.CompositeArmStretchAmount.Full, Projectile.rotation - (float)(Math.PI * 0.5f));
-            }
-
-            owner.heldProj = Projectile.whoAmI;
-            owner.itemTime = 2;
-            owner.itemAnimation = 2;
-
-
-        }
-
-        public static float RotateTowardsAngle(float currentRadians, float targetRadians, float rotateSpeed, bool useFixedSpeed = true)
-        {
-            currentRadians = MathHelper.WrapAngle(currentRadians);
-            targetRadians = MathHelper.WrapAngle(targetRadians);
-
-            float difference = targetRadians - currentRadians;
-            float turnAmount = MathHelper.WrapAngle(difference);
-
-            if (useFixedSpeed)
-            {
-                turnAmount = MathHelper.Clamp(turnAmount, -rotateSpeed, rotateSpeed);
-            }
-            else
-            {
-                turnAmount *= MathHelper.Clamp(rotateSpeed, 0f, 1f);
-            }
-
-            return currentRadians + turnAmount;
-        }
-
-        public override bool ShouldUpdatePosition() => false;
-
-        public override bool PreDraw(ref Color lightColor)
-        {
-            SpriteBatch sb = Main.spriteBatch;
-            Texture2D tex = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D tex2 = ModContent.Request<Texture2D>("FranciumCalamityWeapons/Content/Extras/MotionTrail1").Value;
-            Vector2 origin = new Vector2(0, tex.Height);
-            Vector2 position = Main.player[Projectile.owner].MountedCenter - Main.screenPosition;
-            float rotation = Projectile.rotation + MathF.PI * 0.25f;
-
-            Main.EntitySpriteDraw(
-                tex,
-                position,
-                null,
-                Color.White,
-                rotation,
-                origin,
-                Projectile.scale * 2.86f * scaleD,
-                SpriteEffects.None,
-                0);
-
-            Main.spriteBatch.End();
-			Main.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone, null, Main.GameViewMatrix.TransformationMatrix);
-
-
-            Main.EntitySpriteDraw(
-                tex2,
-                position,
-                null,
-                new Color(255, 209, 0),
-                rotation - MathHelper.PiOver4,
-                origin,
-                Projectile.scale * 3f * scaleD,
-                SpriteEffects.None,
-                0);
-
-            Main.spriteBatch.End();
-            Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone, null, Main.GameViewMatrix.TransformationMatrix);
-
-            return false;
-        }
-
-        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
-        {
-            return LineThroughRect(Projectile.Center, Projectile.Center + Projectile.rotation.ToRotationVector2() * 628 * Projectile.scale * scaleD, targetHitbox, 64);
-        }
-
-        public static bool LineThroughRect(Vector2 start, Vector2 end, Rectangle rect, int lineWidth = 4, int checkDistance = 8)
-        {
-            float point = 0f;
-            return rect.Contains((int)start.X, (int)start.Y) || rect.Contains((int)end.X, (int)end.Y) || Collision.CheckAABBvLineCollision(rect.TopLeft(), rect.Size(), start, end, lineWidth, ref point);
-        }
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            Player player = Main.player[Projectile.owner];
-            SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/WOTG_RiftOpen") with { PitchVariance = 0.5f }, Projectile.Center);
-            target.velocity *= 0.25f;
-            if (player.ownedProjectileCounts[ModContent.ProjectileType<SupremacyWyrmHead>()] < 1)
-            {
-                Projectile.NewProjectile(Entity.GetSource_FromThis(), Projectile.Center, (target.Center - Projectile.Center) * 0.1f, ModContent.ProjectileType<SupremacyWyrmHead>(), 200, 2, player.whoAmI);
-            }
-            PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom2>(), target.Center, Vector2.Zero, new Color(255, 209, 0), 1);
-        }
-    }
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+		{
+			Player player = Main.LocalPlayer;
+			SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/CosmicWrathEnchantmentDeath") with { PitchVariance = 1.0f, Volume = 3.0f });
+            PRTLoader.NewParticle(PRTLoader.GetParticleID<SmallShine>(), target.Center, Vector2.Zero, Color.White, 2);
+		}
+	}
 }
