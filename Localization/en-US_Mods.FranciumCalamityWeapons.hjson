@@ -400,6 +400,21 @@ Items: {
 		Tooltip: ""
 		DisplayName: Arsenal Arrow T1
 	}
+
+	AbyssalNeptuneBodyArmor: {
+		DisplayName: Abyssal Neptune Body Armor
+		Tooltip: ""
+	}
+
+	AbyssalNeptuneCuisses: {
+		DisplayName: Abyssal Neptune Cuisses
+		Tooltip: ""
+	}
+
+	AbyssalNeptuneMask: {
+		DisplayName: Abyssal Neptune Mask
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
