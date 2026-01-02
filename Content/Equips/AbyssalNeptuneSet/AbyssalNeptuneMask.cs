@@ -20,6 +20,8 @@ using DestroyerTest.Content.Projectiles;
 using Terraria.Audio;
 using DestroyerTest.Content.Projectiles.player.ArmorSet;
 using GlowmaskHelper.Content;
+using FranciumCalamityWeapons.Common;
+using CalamityMod;
 
 namespace FranciumCalamityWeapons.Content.Equips.AbyssalNeptuneSet
 {
@@ -54,7 +56,19 @@ namespace FranciumCalamityWeapons.Content.Equips.AbyssalNeptuneSet
             {
                 dash.Active = true;
             }
+            foreach (Projectile p in Main.projectile)
+            {
+                if (p.active && p.owner == player.whoAmI && p.TryGetGlobalProjectile<ScepterImbuesCalamity>(out var Imbues))
+                {
+                    Imbues.Riptide = true;
+                }
+            }
 		}
+
+        public override void UpdateEquip(Player player)
+        {
+            player.Calamity().abyssBreathCD--;
+        }
 
 		public override void ArmorSetShadows(Player player)
 		{
