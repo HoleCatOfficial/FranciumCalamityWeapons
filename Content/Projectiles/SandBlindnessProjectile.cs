@@ -37,7 +37,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<SandBlindness>(), 600);
+            target.AddBuff(BuffID.Confused, 600);
         }
     }
 }

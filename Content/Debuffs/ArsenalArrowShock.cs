@@ -41,7 +41,6 @@ namespace FranciumCalamityWeapons.Content.Debuffs
         public Color PhaseSlayerOrange = new Color(255, 64, 31);
         public override void AI(NPC npc)
         {
-            Player player = Main.player[npc.target];
             if (Shock)
             {
                 for(int i = 0; i < 5; i++)
