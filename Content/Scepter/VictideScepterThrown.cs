@@ -19,7 +19,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
             ThemeColor = Color.White;
             WidthDim = 34;
             HeightDim = 34;
-            DustType = DustID.Glass;
+            DustType = DustID.Mud;
             base.SetDefaults();
         }
     }

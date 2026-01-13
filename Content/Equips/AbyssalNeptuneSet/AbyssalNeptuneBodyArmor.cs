@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using DestroyerTest.Rarity;
 using Microsoft.Xna.Framework;
 using GlowmaskHelper.Content;
+using DestroyerTest.Rarity.Scepter;
 
 namespace FranciumCalamityWeapons.Content.Equips.AbyssalNeptuneSet
 {
@@ -18,7 +19,7 @@ namespace FranciumCalamityWeapons.Content.Equips.AbyssalNeptuneSet
             Item.width = 30;
             Item.height = 20; 
             Item.value = Item.sellPrice(gold: 1);
-            Item.rare = ItemRarityID.Red;
+            Item.rare = ModContent.RarityType<CerisePinkRarity>();
             Item.defense = 17;
         }
 

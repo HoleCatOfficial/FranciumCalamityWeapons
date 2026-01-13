@@ -30,20 +30,21 @@ using CalamityMod.Items.Placeables;
 using CalamityMod.Tiles.Furniture.CraftingStations;
 using CalamityMod;
 using FranciumCalamityWeapons.Content.Buffs;
+using CalamityMod.Items.Armor.Victide;
 
 namespace FranciumCalamityWeapons.Content.Equips
 {
 
 	[AutoloadEquip(EquipType.Head)]
-	public class SilvaCrown : ModItem
+	public class VictideHeaddress : ModItem
 	{
 
 		public override void SetStaticDefaults()
 		{
 			// If your head equipment should draw hair while drawn, use one of the following:
 			// ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false; // Don't draw the head at all. Used by Space Creature Mask
-			//ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true; // Draw hair as if a hat was covering the top. Used by Wizards Hat
-            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true; // Draw all hair as normal. Used by Mime Mask, Sunglasses
+			ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true; // Draw hair as if a hat was covering the top. Used by Wizards Hat
+            //ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true; // Draw all hair as normal. Used by Mime Mask, Sunglasses
             // ArmorIDs.Head.Sets.DrawsBackHairWithoutHeadgear[Item.headSlot] = true;
 
 		}
@@ -59,25 +60,21 @@ namespace FranciumCalamityWeapons.Content.Equips
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == ModContent.ItemType<SilvaArmor>() && legs.type == ModContent.ItemType<SilvaLeggings>();
+			return body.type == ModContent.ItemType<VictideBreastplate>() && legs.type == ModContent.ItemType<VictideGreaves>();
 		}
 
         public override void UpdateEquip(Player player)
         {
-            player.GetCritChance(ModContent.GetInstance<ScepterClass>()) *= 1.1f;
+            ScepterClassStats.Range += 100;
         }
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = Language.GetTextValue("Mods.FranciumCalamityWeapons.Items.SilvaCrown.SetBonus");
-            ScepterClassStats.ThrowSpeedModifier += 2.25f;
-            ScepterClassStats.ShotBounceModifier += 4;
-            ScepterClassStats.SizeMultiplier = 1.75f;
-            player.Calamity().silvaSet = true;
-            player.AddBuff(ModContent.BuffType<SilvaAttendantBuff>(), 600);
-            if (player.TryGetModPlayer<SilvaCrownPlayer>(out var Crown))
+            player.setBonus = Language.GetTextValue("Mods.FranciumCalamityWeapons.Items.VictideHeaddress.SetBonus");
+
+            if (player.TryGetModPlayer<VictideHeaddressPlayer>(out var Headdress))
             {
-                Crown.Active = true;
+                Headdress.Active = true;
             }
         }
 
@@ -89,19 +86,16 @@ namespace FranciumCalamityWeapons.Content.Equips
 		public override void AddRecipes()
 		{
             CreateRecipe()
-				.AddIngredient<PlantyMush>(6)
-                .AddIngredient<EffulgentFeather>(5)
-                .AddIngredient<AscendantSpiritEssence>(2)
-				.AddTile<CosmicAnvil>()
+				.AddIngredient<SeaRemains>(3)
+				.AddTile(TileID.Anvils)
 				.Register();
 		}
 	}
 
-    public class SilvaCrownPlayer : ModPlayer
+    public class VictideHeaddressPlayer : ModPlayer
     {
         public bool Active = false;
-        public bool TrySpawnProjectilesFromAttendant = false;
-        public int Cooldown = 0;
+
         public override void ResetEffects()
         {
             Active = false;
@@ -111,26 +105,26 @@ namespace FranciumCalamityWeapons.Content.Equips
         {
             if (Active)
             {
-                if (Cooldown > 0)
-                {
-                    Cooldown--;
-                }
+                
+            }
+        }
+    }
 
-                if (Cooldown == 1)
-                {
-                    
-                    SoundEngine.PlaySound(new SoundStyle("DestroyerTest/Assets/Audio/Corpse/TeleportSetPosition") with { PitchVariance = 0.5f }, Player.Center);
-                }
+    public class VictideHeaddressOwnedProjectiles : GlobalProjectile
+    {
+        public override bool InstancePerEntity => true;
 
-                if (Cooldown == 1199)
+        public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            Player player = Main.player[projectile.owner];
+            if (player.TryGetModPlayer<VictideHeaddressPlayer>(out var Headdress))
+            {
+                if (Headdress.Active && projectile.DamageType.CountsAsClass(ModContent.GetInstance<ScepterClass>()))
                 {
-                    TrySpawnProjectilesFromAttendant = false;
-                }
-
-                if (DestroyerTestMod.ArmorSetBonusHotKey.JustPressed && Cooldown <= 0 && !TrySpawnProjectilesFromAttendant)
-                {
-                    TrySpawnProjectilesFromAttendant = true;
-                    Cooldown = 1200;
+                    if (Main.rand.NextBool(4))
+                    {
+                        target.AddBuff(ModContent.BuffType<Eutrophication>(), 180);
+                    }
                 }
             }
         }

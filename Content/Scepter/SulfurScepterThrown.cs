@@ -25,22 +25,9 @@ namespace FranciumCalamityWeapons.Content.Scepter
             ThemeColor = new Color(140, 234, 87);
             WidthDim = 40;
             HeightDim = 40;
-            DustType = DustID.GreenBlood;
+            DustType = DustID.FireworksRGB;
+            DustColor = new Color(140, 234, 87);
             base.SetDefaults();
-        }
-
-        public override void AI()
-        {
-            if (Main.rand.NextBool(16))
-            {
-                float RotOffset = Main.rand.NextFloat(-0.5f, 0.51f);
-                // Base direction is the normalized velocity of the projectile
-                Vector2 baseDirection = Projectile.velocity.SafeNormalize(Vector2.UnitY);
-                Vector2 velocity = baseDirection.RotatedBy(RotOffset) * Main.rand.NextFloat(0.5f, 1.5f);
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, velocity * 0.75f, ModContent.ProjectileType<SandBlindnessProjectile>(), 0, 0f, Projectile.owner);
-                
-            }
-            base.AI();
         }
 
 
@@ -48,7 +35,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
         {
             for (int t = 0; t < 14; t++)
             {
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), Projectile.Center, new Vector2(Main.rand.NextFloat(1, -1), -4), new Color(140, 234, 87), Main.rand.NextFloat(0.04f, 1.4f));
+                PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), Projectile.Center, new Vector2(Main.rand.NextFloat(1, -1), -4), new Color(140, 234, 87), Main.rand.NextFloat(0.04f, 1.4f), ai1: 2);
             }
             base.OnKill(timeLeft);
         }

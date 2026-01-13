@@ -10,6 +10,7 @@ using DestroyerTest.Content.Resources.Cloths;
 using System.Drawing;
 using CalamityMod;
 using GlowmaskHelper.Content;
+using DestroyerTest.Rarity.Scepter;
 
 namespace FranciumCalamityWeapons.Content.Equips.AbyssalNeptuneSet
 {
@@ -21,7 +22,7 @@ namespace FranciumCalamityWeapons.Content.Equips.AbyssalNeptuneSet
 			Item.width = 22;
 			Item.height = 18;
 			Item.value = Item.sellPrice(gold: 1);
-			Item.rare = ItemRarityID.Red;
+			Item.rare = ModContent.RarityType<CerisePinkRarity>();
 			Item.defense = 4;
 		}
 

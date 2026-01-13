@@ -38,6 +38,11 @@ Buffs: {
 		DisplayName: Frying
 		Description: The Current is cooking you alive!
 	}
+
+	SulfurEmpowerment: {
+		DisplayName: Sulfur Empowerment
+		Description: Mods.FranciumCalamityWeapons.Buffs.SulfurEmpowerment.Description
+	}
 }
 
 Items: {
@@ -378,7 +383,7 @@ Items: {
 
 	SilvaCrown: {
 		DisplayName: Silva Crown
-		Tooltip: ""
+		Tooltip: 10% increased Scepter Critical Strike Chance
 		SetBonus:
 			'''
 			Summons a Silva Attendant.
@@ -413,6 +418,21 @@ Items: {
 
 	AbyssalNeptuneMask: {
 		DisplayName: Abyssal Neptune Mask
+		Tooltip: ""
+	}
+
+	VictideHeaddress: {
+		Tooltip: ""
+		DisplayName: Victide Headdress
+	}
+
+	SulfurousCrown: {
+		DisplayName: Sulfurous Crown
+		Tooltip: ""
+	}
+
+	SulfurousGarb: {
+		DisplayName: Sulfurous Garb
 		Tooltip: ""
 	}
 }

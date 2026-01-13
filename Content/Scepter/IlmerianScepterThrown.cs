@@ -16,12 +16,18 @@ namespace FranciumCalamityWeapons.Content.Scepter
     {
         public override void SetDefaults()
         {
-            ThemeColor = Color.White;
+            ThemeColor = Color.SkyBlue;
             WidthDim = 34;
             HeightDim = 34;
-            DustType = DustID.Glass;
+            DustType = DustID.Electric;
             base.SetDefaults();
         }
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            target.AddBuff(BuffID.Electrified, 300);
+        }
+
     }
 }
 

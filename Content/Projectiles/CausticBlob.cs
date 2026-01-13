@@ -118,7 +118,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 					SoundEngine.PlaySound(Main.rand.Next(Options), Projectile.Center);
 				}
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
-            PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), Projectile.Center, new Vector2(Main.rand.NextFloat(1, -1), -4), new Color(140, 234, 87), Main.rand.NextFloat(0.04f, 1.4f));
+            PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticle>(), Projectile.Center, new Vector2(Main.rand.NextFloat(1, -1), -4), new Color(140, 234, 87), Main.rand.NextFloat(0.04f, 1.4f), ai1: 2);
             Projectile.velocity.Y += 0.2f;
             if (Projectile.velocity.Y > 16f)
             {
@@ -132,7 +132,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
         {
             for (int t = 0; t < 14; t++)
             {
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), Projectile.Center, new Vector2(Main.rand.NextFloat(1, -1), -4), new Color(140, 234, 87), Main.rand.NextFloat(0.04f, 1.4f));
+                PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticle>(), Projectile.Center, new Vector2(Main.rand.NextFloat(1, -1), -4), new Color(140, 234, 87), Main.rand.NextFloat(0.04f, 1.4f));
             }
             Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<CausticAoE>(), 30, 0f, Projectile.owner);
             SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/CausticImpactSmall") with { PitchVariance = 2f, Volume = Main.rand.NextFloat(0.2f, 1.9f) }, Projectile.Center);
