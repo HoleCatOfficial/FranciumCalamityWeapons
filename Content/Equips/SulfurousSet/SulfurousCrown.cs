@@ -25,6 +25,7 @@ using CalamityMod;
 using DestroyerTest.Rarity.Scepter;
 using FranciumCalamityWeapons.Content.Buffs;
 using DestroyerTest.Content.Equips;
+using DestroyerTest;
 
 namespace FranciumCalamityWeapons.Content.Equips.SulfurousSet
 {
@@ -51,9 +52,27 @@ namespace FranciumCalamityWeapons.Content.Equips.SulfurousSet
 			return body.type == ModContent.ItemType<SulfurousGarb>();
 		}
 
+		public int cooldown = 0;
+		public SoundStyle Bonus = new SoundStyle("FranciumCalamityWeapons/Audio/SulfurBoost") { MaxInstances = 0, PitchVariance = 0.3f};
+		public SoundStyle Regen = new SoundStyle("FranciumCalamityWeapons/Audio/CalamityEntropy_AbyssBlade") { MaxInstances = 0, PitchVariance = 0.3f};
+		
 		public override void UpdateArmorSet(Player player)
 		{	
-            player.AddBuff(ModContent.BuffType<SulfurEmpowerment>(), 6);
+			if (cooldown > 0)
+			{
+				cooldown--;
+			}
+			
+			if (cooldown == 1)
+			{
+				SoundEngine.PlaySound(Regen, player.Center);
+			}
+			if (DestroyerTestMod.ArmorSetBonusHotKey.JustPressed)
+			{
+            	player.AddBuff(ModContent.BuffType<SulfurEmpowerment>(), 600);
+				SoundEngine.PlaySound(Bonus, player.Center);
+				cooldown = 1000;
+			}
 		}
 
         public override void UpdateEquip(Player player)
@@ -68,7 +87,7 @@ namespace FranciumCalamityWeapons.Content.Equips.SulfurousSet
 
             if (Main.rand.NextBool(4))
             {
-                Dust.NewDust(spawn.TopLeft(), spawn.Width, spawn.Height, DustID.FireworksRGB, Main.rand.NextFloat(-0.5f, 0.5f), Main.rand.NextFloat(-2, -1), 0, new Color(140, 234, 87), 1f);
+                Dust.NewDust(spawn.TopLeft(), spawn.Width, spawn.Height, DustID.FireworksRGB, Main.rand.NextFloat(-0.5f, 0.5f), Main.rand.NextFloat(-2, -1), 0, new Color(140, 234, 87), 0.5f);
             }
         }
 

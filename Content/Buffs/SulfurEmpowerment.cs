@@ -41,11 +41,6 @@ namespace FranciumCalamityWeapons.Content.Buffs
         {
             if (Active)
             {
-                if (Main.rand.NextBool(6))
-                {
-                    Dust BuffDust = Dust.NewDustDirect(Player.position, Player.width, Player.height, DustID.FireworksRGB, Player.velocity.X * 0.5f, -2f, 0, new Color(140, 234, 87), 1f);
-                    BuffDust.noGravity = true;
-                }
                 if (Player.miscCounter % 20 == 0)
                 {
                     Opus.RadialSpreadDust(DustID.TintableDustLighted, 16, Player.Center, 0, new Color(140, 234, 87), 1f, 3, true);
@@ -72,7 +67,6 @@ namespace FranciumCalamityWeapons.Content.Buffs
                     target.AddBuff(ModContent.BuffType<Irradiated>(), 300);
                 }
             }
-            
         }
     }
 }

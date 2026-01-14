@@ -335,7 +335,7 @@ Items: {
 	Weapons: {
 		Melee: {
 			ELResprite: {
-				DisplayName: E L Resprite
+				DisplayName: You should not have this item.
 				Tooltip: ""
 			}
 		}
@@ -358,7 +358,7 @@ Items: {
 			'''
 			Thrown Scepters release stationary bombs that do not collide with npcs or tiles.
 			Pressing the armor set bonus key will detonate all active bombs at once.
-			If npcs in the blast radius will have their armor broken.-
+			NPCs in the blast radius will have their armor broken.
 			'''
 	}
 
@@ -392,18 +392,18 @@ Items: {
 	}
 
 	ArsenalArrowT3: {
-		Tooltip: ""
-		DisplayName: Arsenal Arrow T3
+		Tooltip: "Explodes on death and releases homing sparks."
+		DisplayName: Arsenal Arrow
 	}
 
 	ArsenalArrowT2: {
-		Tooltip: ""
-		DisplayName: Arsenal Arrow T2
+		Tooltip: "Explodes on death."
+		DisplayName: Arsenal Arrow
 	}
 
 	ArsenalArrowT1: {
 		Tooltip: ""
-		DisplayName: Arsenal Arrow T1
+		DisplayName: Arsenal Arrow
 	}
 
 	AbyssalNeptuneBodyArmor: {
@@ -429,6 +429,11 @@ Items: {
 	SulfurousCrown: {
 		DisplayName: Sulfurous Crown
 		Tooltip: ""
+		SetBonus:
+				'''
+				Pressing the armor set bonus key will grant 10 seconds of sulfur empowerment.
+				Sulfur empowerment increases scepter stats across the board.
+				'''
 	}
 
 	SulfurousGarb: {
