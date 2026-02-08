@@ -5,10 +5,10 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace FranciumCalamityWeapons.Content.Scepter
+namespace FranciumCalamityWeapons.Content.Projectiles
 {
 	// This example is similar to the Wooden Arrow projectile
-	public class PinkCoral : ModProjectile
+	public class TealCoral : ModProjectile
 	{
 		public override void SetStaticDefaults()
 		{
@@ -17,8 +17,8 @@ namespace FranciumCalamityWeapons.Content.Scepter
 		}
 
 		public override void SetDefaults() {
-			Projectile.width = 28; // The width of projectile hitbox
-			Projectile.height = 14; // The height of projectile hitbox
+			Projectile.width = 30; // The width of projectile hitbox
+			Projectile.height = 18; // The height of projectile hitbox
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Generic;
 			Projectile.timeLeft = 1200;

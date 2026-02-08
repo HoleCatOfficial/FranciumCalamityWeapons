@@ -16,7 +16,7 @@ using Microsoft.Build.ObjectModelRemoting;
 using FranciumCalamityWeapons.Content.Projectiles;
 using DestroyerTest.Content.Particles;
 
-namespace FranciumCalamityWeapons.Content.Scepter
+namespace FranciumCalamityWeapons.Content.Projectiles
 {
     public class SulfurScepterThrown : ThrownScepter
     {

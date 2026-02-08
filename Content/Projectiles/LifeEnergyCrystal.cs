@@ -15,7 +15,7 @@ using FranciumCalamityWeapons.Content.Buffs;
 using Microsoft.Build.Evaluation;
 using OpusLib;
 
-namespace FranciumCalamityWeapons.Content.Scepter
+namespace FranciumCalamityWeapons.Content.Projectiles
 {
     public class LifeEnergyCrystal : ModProjectile
     {

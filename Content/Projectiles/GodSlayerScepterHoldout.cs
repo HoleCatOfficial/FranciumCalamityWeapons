@@ -7,8 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 using InnoVault.PRT;
 using Terraria.DataStructures;
 using FranciumCalamityWeapons.Content.Projectiles;
+using FranciumCalamityWeapons.Content.Scepter;
 
-namespace FranciumCalamityWeapons.Content.Scepter
+namespace FranciumCalamityWeapons.Content.Projectiles
 {
     public class GodSlayerScepterHoldout : ModProjectile
     {

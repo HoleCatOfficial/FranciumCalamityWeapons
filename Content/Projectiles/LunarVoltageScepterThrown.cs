@@ -11,7 +11,7 @@ using DestroyerTest.Content.Projectiles;
 using DestroyerTest.Content.Projectiles.ParentClasses;
 using CalamityMod.Buffs.StatDebuffs;
 
-namespace FranciumCalamityWeapons.Content.Scepter
+namespace FranciumCalamityWeapons.Content.Projectiles
 {
     public class LunarVoltageScepterThrown : ThrownScepter
     {
@@ -47,7 +47,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
 
             if (HomingTarget == null)
             {
-                HomingTarget = FindClosestNPC(200);
+                HomingTarget = FindClosestNPC(1200);
             }
 
             if (HomingTarget != null && !IsValidTarget(HomingTarget))

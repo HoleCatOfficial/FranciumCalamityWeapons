@@ -60,7 +60,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
                 {
                     SoundEngine.PlaySound(SoundID.Item160 with { Pitch = 0.6f }, Projectile.Center);
                     Opus.NewParticleFloatAI(PRTLoader.GetParticleID<BloomRingSharp>(), Projectile.Center, Vector2.Zero, new Color(67, 122, 102), 0.01f, 0.75f);
-                    Opus.RingProjectileOutward(ModContent.ProjectileType<SilvaHeart>(), 3, Projectile.Center, 30, 100, 16, 3);
+                    Opus.RingProjectileOutward(ModContent.ProjectileType<SilvaHeart>(), 3, Projectile.Center, 30, 100, 16, 3, RandomOffset: true);
                 }
             }
 

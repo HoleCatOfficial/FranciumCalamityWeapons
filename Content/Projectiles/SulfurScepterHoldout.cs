@@ -9,8 +9,9 @@ using Terraria.DataStructures;
 using FranciumCalamityWeapons.Content.Projectiles;
 using FranciumCalamityWeapons.Content.Particles;
 using DestroyerTest.Content.Particles;
+using FranciumCalamityWeapons.Content.Scepter;
 
-namespace FranciumCalamityWeapons.Content.Scepter
+namespace FranciumCalamityWeapons.Content.Projectiles
 {
     public class SulfurScepterHoldout : ModProjectile
     {

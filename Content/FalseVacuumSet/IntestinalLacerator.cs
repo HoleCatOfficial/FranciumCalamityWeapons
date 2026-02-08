@@ -2,6 +2,7 @@
 
 using CalamityMod.Items.Materials;
 using CalamityMod.Tiles.Furniture.CraftingStations;
+using CalamityMod.Tiles.FurnitureBotanic;
 using DestroyerTest.Content.Projectiles;
 using DestroyerTest.Rarity;
 using FranciumCalamityWeapons.Common.Rarities;

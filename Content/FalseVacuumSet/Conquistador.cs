@@ -52,7 +52,7 @@ namespace FranciumCalamityWeapons.Content.FalseVacuumSet
         {
            CreateRecipe()
 				.AddIngredient<HeatDeath>(18)
-				.AddIngredient<Deathwind>(1)
+				.AddIngredient<ThreadOfEradication>(1)
 				.AddIngredient<LoreAwakening>(1)
 				.AddTile<DraedonsForge>()
 				.Register();

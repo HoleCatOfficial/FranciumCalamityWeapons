@@ -13,7 +13,8 @@ using DestroyerTest.Rarity.Scepter;
 using DestroyerTest.Content.Projectiles.Weapon.Scepter;
 using DestroyerTest.Content.Scepter;
 using CalamityMod.Projectiles.Melee;
-using CalamityMod.Items.Materials; // Add this line if CT3_Swing is in the Projectiles namespace
+using CalamityMod.Items.Materials;
+using FranciumCalamityWeapons.Content.Projectiles; // Add this line if CT3_Swing is in the Projectiles namespace
 
 namespace FranciumCalamityWeapons.Content.Scepter
 {

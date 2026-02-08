@@ -15,6 +15,7 @@ using CalamityMod.Tiles.Furniture.CraftingStations;
 using DestroyerTest.Content.Scepter;
 using CalamityMod.Projectiles.Enemy;
 using DestroyerTest.Rarity.Scepter;
+using CalamityMod.Tiles.FurnitureNavystone.FurnitureAncientNavystone;
 
 namespace FranciumCalamityWeapons.Content.Scepter
 {

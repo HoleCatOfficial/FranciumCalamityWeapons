@@ -18,14 +18,6 @@ namespace FranciumCalamityWeapons.Content.CalLoreItems
             base.SetStaticDefaults();
         }
 
-        public override LocalizedText Tooltip => CalamityUtils.GetText($"{LocalizationCategory}.ShortTooltip");
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
-        {
-            TooltipLine fullLore = new(Mod, "CalamityMod:Lore", this.GetLocalizedValue("Lore"));
-            if (LoreColor.HasValue)
-                fullLore.OverrideColor = LoreColor.Value;
-            CalamityUtils.HoldShiftTooltip(tooltips, new TooltipLine[] { fullLore }, true);
-        }
         public override void SetDefaults()
         {
             Item.width = 80;

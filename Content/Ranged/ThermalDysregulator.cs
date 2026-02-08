@@ -9,6 +9,7 @@ using DestroyerTest.Rarity;
 using FranciumCalamityWeapons.Content.Projectiles;
 using CalamityMod.Items.Materials;
 using CalamityMod.Items.Placeables;
+using CalamityMod.Items.Placeables.Abyss;
 
 namespace FranciumCalamityWeapons.Content.Ranged
 {

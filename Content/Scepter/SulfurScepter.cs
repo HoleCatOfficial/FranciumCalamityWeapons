@@ -14,6 +14,7 @@ using CalamityMod.Items.Placeables;
 using CalamityMod.Tiles.Furniture.CraftingStations;
 using DestroyerTest.Content.Scepter;
 using DestroyerTest.Rarity.Scepter;
+using CalamityMod.Items.Placeables.Abyss;
 
 namespace FranciumCalamityWeapons.Content.Scepter
 {

@@ -30,6 +30,7 @@ using CalamityMod.Items.Placeables;
 using CalamityMod.Tiles.Furniture.CraftingStations;
 using CalamityMod;
 using FranciumCalamityWeapons.Content.Buffs;
+using CalamityMod.Items.Placeables.Abyss;
 
 namespace FranciumCalamityWeapons.Content.Equips
 {

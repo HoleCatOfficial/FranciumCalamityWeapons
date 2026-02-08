@@ -1,5 +1,6 @@
 using CalamityMod;
 using CalamityMod.Items.LoreItems;
+using DestroyerTest.Content.Tiles;
 using DestroyerTest.Rarity;
 using System.Collections.Generic;
 using Terraria;
@@ -16,15 +17,6 @@ namespace FranciumCalamityWeapons.Content.CalLoreItems
         {
             base.SetStaticDefaults();
         }
-
-        public override LocalizedText Tooltip => CalamityUtils.GetText($"{LocalizationCategory}.ShortTooltip");
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
-        {
-            TooltipLine fullLore = new(Mod, "CalamityMod:Lore", this.GetLocalizedValue("Lore"));
-            if (LoreColor.HasValue)
-                fullLore.OverrideColor = LoreColor.Value;
-            CalamityUtils.HoldShiftTooltip(tooltips, new TooltipLine[] { fullLore }, true);
-        }
         public override void SetDefaults()
         {
             Item.width = 60;
@@ -34,6 +26,14 @@ namespace FranciumCalamityWeapons.Content.CalLoreItems
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.rare = ModContent.RarityType<CrimsonSpecialRarity>();
             Item.maxStack = 1;
+        }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+                .AddIngredient<Item_WyvernCorpseTrophy>()
+                .AddTile(TileID.Bookcases)
+                .Register();
         }
     }
 }

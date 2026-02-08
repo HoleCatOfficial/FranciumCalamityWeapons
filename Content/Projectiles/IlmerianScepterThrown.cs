@@ -10,18 +10,24 @@ using DestroyerTest.Common;
 using DestroyerTest.Content.Projectiles;
 using DestroyerTest.Content.Projectiles.ParentClasses;
 
-namespace FranciumCalamityWeapons.Content.Scepter
+namespace FranciumCalamityWeapons.Content.Projectiles
 {
-    public class VictideScepterThrown : ThrownScepter
+    public class IlmerianScepterThrown : ThrownScepter
     {
         public override void SetDefaults()
         {
-            ThemeColor = Color.White;
+            ThemeColor = Color.SkyBlue;
             WidthDim = 34;
             HeightDim = 34;
-            DustType = DustID.Mud;
+            DustType = DustID.Electric;
             base.SetDefaults();
         }
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            target.AddBuff(BuffID.Electrified, 300);
+        }
+
     }
 }
 

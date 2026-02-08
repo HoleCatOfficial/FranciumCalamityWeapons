@@ -224,6 +224,7 @@ Items: {
 				Perhaps the felling of Fovos awakened new energies in corruption?
 				It is an engima, most definitely.
 				'''
+			Tooltip: ""
 		}
 
 		WyvernCorpseLore: {
@@ -243,6 +244,7 @@ Items: {
 				For the first time in centuries. I felt a pang of sadness for a lowly creature like a wyvern.
 				Perhaps having watched it was a mistake.
 				'''
+			Tooltip: ""
 		}
 	}
 
@@ -392,12 +394,12 @@ Items: {
 	}
 
 	ArsenalArrowT3: {
-		Tooltip: "Explodes on death and releases homing sparks."
+		Tooltip: Explodes on death and releases homing sparks.
 		DisplayName: Arsenal Arrow
 	}
 
 	ArsenalArrowT2: {
-		Tooltip: "Explodes on death."
+		Tooltip: Explodes on death.
 		DisplayName: Arsenal Arrow
 	}
 
@@ -430,15 +432,20 @@ Items: {
 		DisplayName: Sulfurous Crown
 		Tooltip: ""
 		SetBonus:
-				'''
-				Pressing the armor set bonus key will grant 10 seconds of sulfur empowerment.
-				Sulfur empowerment increases scepter stats across the board.
-				'''
+			'''
+			Pressing the armor set bonus key will grant 10 seconds of sulfur empowerment.
+			Sulfur empowerment increases scepter stats across the board.
+			'''
 	}
 
 	SulfurousGarb: {
 		DisplayName: Sulfurous Garb
 		Tooltip: ""
+	}
+
+	BrimstoneScepter: {
+		Tooltip: ""
+		DisplayName: Brimstone Scepter
 	}
 }
 
@@ -535,6 +542,10 @@ Projectiles: {
 	ArsenalArrowT2Projectile.DisplayName: Arsenal Arrow T2 Projectile
 	ArsenalArrowT1Projectile.DisplayName: Arsenal Arrow T1 Projectile
 	ArsenalArrowT3Spark.DisplayName: Arsenal Arrow T3 Spark
+	BrimstoneShot.DisplayName: Brimstone Shot
+	BrimstoneScepterThrown.DisplayName: Brimstone Scepter Thrown
+	BrimstoneScepterBomb.DisplayName: Brimstone Scepter Bomb
+	CursedShot.DisplayName: Cursed Shot
 }
 
 UI.OverlordChargeBar: Overlord Hit Count

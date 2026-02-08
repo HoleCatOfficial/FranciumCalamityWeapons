@@ -26,7 +26,7 @@ using DestroyerTest.Content.Particles;
 using OpusLib;
 using CalamityMod.Dusts;
 
-namespace FranciumCalamityWeapons.Content.Scepter
+namespace FranciumCalamityWeapons.Content.Projectiles
 {
     public class GodSlayerScepterThrown : ModProjectile
     {

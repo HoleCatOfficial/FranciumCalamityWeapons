@@ -5,6 +5,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
+using static Terraria.ModLoader.ModContent;
 using DestroyerTest.Content.Projectiles;
 using DestroyerTest.Common;
 using DestroyerTest.Rarity;
@@ -13,18 +14,14 @@ using DestroyerTest.Content.Projectiles.Weapon.Scepter;
 using DestroyerTest.Content.Scepter;
 using CalamityMod.Projectiles.Melee;
 using CalamityMod.Items.Materials;
-using CalamityMod.Projectiles.Rogue;
-using CalamityMod.Projectiles.Typeless;
-using CalamityMod.Items.Accessories;
-using CalamityMod.Items.Placeables.Ores;
-using FranciumCalamityWeapons.Content.Projectiles;
+using FranciumCalamityWeapons.Content.Projectiles; // Add this line if CT3_Swing is in the Projectiles namespace
 
 namespace FranciumCalamityWeapons.Content.Scepter
 {
-	public class LunarVoltageScepter : ScepterItem
+	public class BrimstoneScepter : ScepterItem
 	{
-        public override int Width => 78;
-        public override int Height => 78;
+        public override int Width => 100;
+        public override int Height => 100;
 
         public override void SetStaticDefaults()
         {
@@ -37,34 +34,26 @@ namespace FranciumCalamityWeapons.Content.Scepter
             base.SetDefaults();
 
             // Override stats unique to this scepter
-            ShootDMG = 250;
+            ShootDMG = 40;
             ShootCrit = 4;
             ThrowCrit = 14;
-            KB = 16;
+            KB = 6;
             AdditiveValue = Item.sellPrice(silver: 80);
-            Rarity = ModContent.RarityType<IncarnadineRarity>();
+            Rarity = ModContent.RarityType<WineRarity>();
 
             // Assign projectile types
-            ShootID = ModContent.ProjectileType<LunarElectricityArc>();
-            ThrowID = ModContent.ProjectileType<LunarVoltageScepterThrown>();
+            ShootID = ModContent.ProjectileType<BrimstoneShot>();
+            ThrowID = ModContent.ProjectileType<BrimstoneScepterThrown>();
 
             // Refresh defaults after overriding values
             base.SetDefaults();
         }
 
-        public override void ShootDefaults()
-        {
-            base.ShootDefaults();
-            Item.shootSpeed = 40;
-        }
-
         public override void AddRecipes()
         {
 			CreateRecipe()
-				.AddIngredient<TheTransformer>()
-                .AddIngredient(ItemID.LunarBar, 16)
-                .AddIngredient<ExodiumCluster>(10)
-				.AddTile(TileID.LunarCraftingStation)
+				.AddIngredient<UnholyCore>(6)
+				.AddTile(TileID.MythrilAnvil)
 				.Register();
         }
     }
