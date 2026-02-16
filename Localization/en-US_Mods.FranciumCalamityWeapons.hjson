@@ -546,6 +546,7 @@ Projectiles: {
 	BrimstoneScepterThrown.DisplayName: Brimstone Scepter Thrown
 	BrimstoneScepterBomb.DisplayName: Brimstone Scepter Bomb
 	CursedShot.DisplayName: Cursed Shot
+	SpearOfAspirationTrail.DisplayName: Spear Of Aspiration Trail
 }
 
 UI.OverlordChargeBar: Overlord Hit Count

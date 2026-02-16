@@ -36,7 +36,7 @@ using FranciumMultiCrossMod.Content.Equips;
 
 namespace FranciumCalamityWeapons.Content.Equips
 {
-    [JITWhenModsEnabled("FranciumMultiCrossMod")]
+    [JITWhenModsEnabled(CrossMod.DTCrossModName)]
     public class CosmicWrathEnchantment : ModItem
     {
         public static readonly int MultiplicativeDamageBonus = 12;
@@ -73,22 +73,21 @@ namespace FranciumCalamityWeapons.Content.Equips
         {
             if (CrossMod.DTCrossModLoaded)
             {
-                if (CrossMod.DTCrossMod.TryFind("HeliciteEnchantment", out ModItem HE))
-                {
-                    CreateRecipe()
-                    .AddIngredient<FalseVacuum>(5)
-                    .AddIngredient<DarksunFragment>(5)
-                    .AddIngredient<Overlord>()
-                    .AddIngredient<NebulousCore>()
-                    .AddIngredient(HE.Type)
-                    .AddTile<CosmicAnvil>()
-                    .Register();
-                }
+                
+                CreateRecipe()
+                .AddIngredient<FalseVacuum>(5)
+                .AddIngredient<DarksunFragment>(5)
+                .AddIngredient<Overlord>()
+                .AddIngredient<NebulousCore>()
+                .AddIngredient<HeliciteEnchantment>()
+                .AddTile<CosmicAnvil>()
+                .Register();
+                
             }
         }
 	}
 
-    [JITWhenModsEnabled("FranciumMultiCrossMod")]
+    [JITWhenModsEnabled(CrossMod.DTCrossModName)]
     public class CosmicWrathEnchantmentPlayer : ModPlayer
     {
         public bool CosmicWrathEnchantment = false;
@@ -119,7 +118,7 @@ namespace FranciumCalamityWeapons.Content.Equips
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        PRTLoader.NewParticle(PRTLoader.GetParticleID<SmallShine>(), Spawn, ToPlayer * 0.03f, CalCTAUtils.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), Main.rand.NextFloat(0.5f, 1.5f));
+                        PRTLoader.NewParticle(PRTLoader.GetParticleID<SmallShine>(), Spawn, ToPlayer * 0.03f, DTUtilsCalamity.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), Main.rand.NextFloat(0.5f, 1.5f));
                     }
                    
                 }
@@ -129,7 +128,7 @@ namespace FranciumCalamityWeapons.Content.Equips
             if (currentCooldown == 1)
                 {
                     SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/CosmicWrathEnchantmentRegen"), Player.position);
-                    PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp>(), Player.Center, Vector2.Zero, CalCTAUtils.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), 3f);
+                    PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp>(), Player.Center, Vector2.Zero, DTUtilsCalamity.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), 3f);
                 }
         }
 
@@ -142,10 +141,10 @@ namespace FranciumCalamityWeapons.Content.Equips
                 {
                 Player.GetModPlayer<ScreenshakePlayer>().screenshakeTimer = 5;
 			    Player.GetModPlayer<ScreenshakePlayer>().screenshakeMagnitude = 16;
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp>(), Player.Center, Vector2.Zero, CalCTAUtils.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), 1f);
+                PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp>(), Player.Center, Vector2.Zero, DTUtilsCalamity.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), 1f);
                 SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/CosmicWrathEnchantmentDeath"), Player.position);
                 Player.statLife = Player.statLifeMax2;
-                CombatText.NewText(Player.getRect(), CalCTAUtils.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), "Death Evaded!", true);
+                CombatText.NewText(Player.getRect(), DTUtilsCalamity.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), "Death Evaded!", true);
                 Player.AddBuff(ModContent.BuffType<GodSlayerInferno>(), 1200); // 10 seconds of Bleeding debuff
                 currentCooldown = Cooldown;
                 hurtInfo.Damage = 0;

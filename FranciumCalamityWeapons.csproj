@@ -11,10 +11,10 @@
 	<!-- References -->
 	<ItemGroup>
 		<Reference Include="DestroyerTest">
-			<HintPath>..\ModAssemblies\DestroyerTest_v2.1.7243.dll</HintPath>
+			<HintPath>..\ModAssemblies\DestroyerTest_v2.1.7247.dll</HintPath>
 		</Reference>
 		<Reference Include="OpusLib">
-			<HintPath>..\ModAssemblies\OpusLib_v1.415.dll</HintPath>
+			<HintPath>..\ModAssemblies\OpusLib_v1.423.dll</HintPath>
 		</Reference>
 		<Reference Include="GlowmaskHelper">
 			<HintPath>..\ModAssemblies\GlowmaskHelper_v1.0.0.dll</HintPath>

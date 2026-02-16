@@ -21,6 +21,7 @@ using DestroyerTest.Content.Projectiles.Weapon.Rogue;
 using System.Collections.Generic;
 using DestroyerTest.Content.MeleeWeapons;
 using DestroyerTest.Content.Projectiles.Weapon.Magic;
+using OpusLib;
 
 namespace FranciumCalamityWeapons.Common.Items
 {
@@ -46,9 +47,10 @@ namespace FranciumCalamityWeapons.Common.Items
             ModContent.ItemType<RiftMaker>(),
             ModContent.ItemType<RiftSpine>(),
             ModContent.ItemType<RiftTeardrop>(),
+            ModContent.ItemType<SpearOfAspiration>(),
             ModContent.ItemType<DestroyerTest.Content.RogueItems.TemporalLance>(),
             ModContent.ItemType<TenebrisWaraxe>(),
-            ModContent.ItemType<TenebrousChakram>()
+            ModContent.ItemType<TenebrousChakram>(),
         };
 
         public override void SetDefaults(Item item)
@@ -206,6 +208,7 @@ namespace FranciumCalamityWeapons.Common.Items
             ModContent.ProjectileType<RiftMaker_Thrown>(),
             ModContent.ProjectileType<RiftSpine_Thrown>(),
             ModContent.ProjectileType<RiftTeardrop_Thrown>(),
+            ModContent.ProjectileType<SpearOfAspirationThrown>(),
             ModContent.ProjectileType<DestroyerTest.Content.Projectiles.Weapon.Rogue.TemporalLance>(),
             ModContent.ProjectileType<TenebrisWaraxeProjectile>(),
             ModContent.ProjectileType<TenebrousChakramThrown>(),
@@ -270,9 +273,14 @@ namespace FranciumCalamityWeapons.Common.Items
             {
                 Projectile.NewProjectile(projectile.GetSource_FromAI(), projectile.Center, projectile.velocity * 0.1f, ModContent.ProjectileType<StellarFlameFriendly>(), projectile.damage / 4, 2, projectile.owner);
             }
+            if (projectile.type == ModContent.ProjectileType<SpearOfAspirationThrown>() && IsStealth)
+            {
+                if (Main.GameUpdateCount % 10 == 0)
+                {
+                    Projectile.NewProjectile(projectile.GetSource_FromAI(), projectile.Center, projectile.velocity * 0.1f, ModContent.ProjectileType<SpearOfAspirationTrail>(), projectile.damage / 4, 2, projectile.owner);
+                }   
+            }
             
-            
-
 
             if (IsHoming)
             {
@@ -285,6 +293,12 @@ namespace FranciumCalamityWeapons.Common.Items
             if (projectile.type == ModContent.ProjectileType<GodGougerThrown>() && IsStealth)
             {
                 Projectile.NewProjectile(projectile.GetSource_FromAI(), target.Center, Vector2.Zero, ModContent.ProjectileType<GodGougerStealthStrikeExplosion>(), projectile.damage, 2, projectile.owner);
+            }
+
+            if (projectile.type == ModContent.ProjectileType<SpearOfAspirationThrown>() && IsStealth)
+            {
+                SoundEngine.PlaySound(DTAssetLibCalamity.StealthStrike.SpearOfAspiration, projectile.Center);
+                Opus.RingProjectileOutward(ModContent.ProjectileType<SpearOfAspirationTrail>(), 5, target.Center, 120, projectile.damage / 10, 3, 4, RandomOffset: true);
             }
         }
 

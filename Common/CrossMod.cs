@@ -24,7 +24,7 @@ namespace FranciumCalamityWeapons.Common
 {
     public static class CrossMod
     {
-        public static string DTCrossModName = "FranciumMultiCrossMod";
+        public const string DTCrossModName = "FranciumMultiCrossMod";
         public static bool DTCrossModLoaded;
         public static Mod DTCrossMod;
 
