@@ -83,7 +83,11 @@ Items: {
 
 	Deuxième: {
 		DisplayName: Deuxième
-		Tooltip: Swings have a 50% chance of dealing a critical, if a critical is dealt, a special effect is triggered. If it is missed, the hit is nondescript again.
+		Tooltip:'''
+				Swings in a circle and periodically shoots homing Shimmering Flames.
+				True Melee hits inflict Shred.
+				'The Finest the Shade World can offer. A pitiful transformation of The Great Incarnadine from long-range to close quarters.'
+				'''
 	}
 
 	VoidBlood: {

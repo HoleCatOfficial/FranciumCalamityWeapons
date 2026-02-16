@@ -32,11 +32,9 @@ using System;
 using CalamityMod.Projectiles.Typeless;
 using CalamityMod.Projectiles.Magic;
 using CalamityMod.Items.Materials;
-using FranciumMultiCrossMod.Content.Equips;
 
 namespace FranciumCalamityWeapons.Content.Equips
 {
-    [JITWhenModsEnabled(CrossMod.DTCrossModName)]
     public class CosmicWrathEnchantment : ModItem
     {
         public static readonly int MultiplicativeDamageBonus = 12;
@@ -71,23 +69,15 @@ namespace FranciumCalamityWeapons.Content.Equips
 
         public override void AddRecipes()
         {
-            if (CrossMod.DTCrossModLoaded)
-            {
-                
-                CreateRecipe()
-                .AddIngredient<FalseVacuum>(5)
-                .AddIngredient<DarksunFragment>(5)
-                .AddIngredient<Overlord>()
-                .AddIngredient<NebulousCore>()
-                .AddIngredient<HeliciteEnchantment>()
-                .AddTile<CosmicAnvil>()
-                .Register();
-                
-            }
+            CreateRecipe()
+            .AddIngredient<FalseVacuum>(5)
+            .AddIngredient<DarksunFragment>(5)
+            .AddIngredient<Overlord>()
+            .AddIngredient<NebulousCore>()
+            .AddTile<CosmicAnvil>()
+            .Register();
         }
 	}
-
-    [JITWhenModsEnabled(CrossMod.DTCrossModName)]
     public class CosmicWrathEnchantmentPlayer : ModPlayer
     {
         public bool CosmicWrathEnchantment = false;

@@ -1,4 +1,9 @@
 
+using CalamityMod;
+using CalamityMod.Items.Materials;
+using CalamityMod.Tiles.Furniture.CraftingStations;
+using DestroyerTest.Content.MeleeWeapons;
+using DestroyerTest.Content.Resources;
 using FranciumCalamityWeapons.Content.Projectiles;
 using FranciumCalamityWeapons.Content.Resources;
 using Microsoft.Xna.Framework;
@@ -25,7 +30,7 @@ namespace FranciumCalamityWeapons.Content.Melee
 			Item.knockBack = 70;
 			Item.autoReuse = true;
 			Item.damage = 7600;
-			Item.DamageType = DamageClass.Melee;
+			Item.DamageType = ModContent.GetInstance<TrueMeleeDamageClass>();
 			Item.noMelee = true; 
 			Item.noUseGraphic = true; 
             Item.crit = 46;
@@ -36,6 +41,17 @@ namespace FranciumCalamityWeapons.Content.Melee
 		public override bool MeleePrefix() 
 		{
 			return true;
+		}
+
+       	public override void AddRecipes() {
+			
+			CreateRecipe()
+			.AddIngredient<Gargantua>(8)
+			.AddIngredient<Tenebris>(8)
+			.AddIngredient<LifeAlloy>(4)
+			.AddIngredient<AscendantSpiritEssence>(10)
+			.AddTile<CosmicAnvil>()
+			.Register();
 		}
 	}
 }

@@ -3,4 +3,3 @@ author = HoleCat
 version = 1.408
 modReferences = CalamityMod, DestroyerTest, InnoVault
 dependencies = CalamityMod, DestroyerTest, InnoVault
-weakReferences = FranciumMultiCrossMod

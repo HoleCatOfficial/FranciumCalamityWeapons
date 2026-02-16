@@ -19,9 +19,6 @@
 		<Reference Include="GlowmaskHelper">
 			<HintPath>..\ModAssemblies\GlowmaskHelper_v1.0.0.dll</HintPath>
 		</Reference>
-		<Reference Include="FranciumMultiCrossMod">
-			<HintPath>..\ModAssemblies\FranciumMultiCrossMod_v1.400.dll</HintPath>
-		</Reference>
 		<Reference Include="CalamityMod">
 			<HintPath>..\ModAssemblies\CalamityMod_v2.1.dll</HintPath>
 		</Reference>

@@ -1,8 +1,16 @@
-﻿using DestroyerTest.Common;
+﻿
+using CalamityMod.Buffs.DamageOverTime;
+using DestroyerTest.Common;
 using DestroyerTest.Common.Systems;
+using DestroyerTest.Content.Dusts;
+using DestroyerTest.Content.Particles;
+using DestroyerTest.Content.Projectiles;
+using InnoVault.PRT;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using OpusLib.Content.Helpers;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
@@ -36,8 +44,8 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 		private ref float Progress => ref Projectile.localAI[1]; // Position of sword relative to initial angle
 		private ref float Size => ref Projectile.localAI[2];
 
-		private float prepTime => 12f / Owner.GetTotalAttackSpeed(Projectile.DamageType);
-		private float hideTime => 12f / Owner.GetTotalAttackSpeed(Projectile.DamageType);
+		private float prepTime => 8f / Owner.GetTotalAttackSpeed(Projectile.DamageType);
+		private float hideTime => 20f / Owner.GetTotalAttackSpeed(Projectile.DamageType);
 
 		private Player Owner => Main.player[Projectile.owner];
 
@@ -53,6 +61,9 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             }
         }
 
+		List<float> OldRotations = new List<float>();
+        List<float> OldScales = new List<float>();
+
 		public override void SetStaticDefaults() 
         {
 			ProjectileID.Sets.HeldProjDoesNotUsePlayerGfxOffY[Type] = true;
@@ -61,14 +72,12 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 
 		public override void SetDefaults() 
         {
-			Projectile.width = 46; // Hitbox width of projectile
-			Projectile.height = 48; // Hitbox height of projectile
+			Projectile.width = 164; // Hitbox width of projectile
+			Projectile.height = 164; // Hitbox height of projectile
 			Projectile.friendly = true; // Projectile hits enemies
 			Projectile.timeLeft = 10000; // Time it takes for projectile to expire
 			Projectile.penetrate = -1; // Projectile pierces infinitely
 			Projectile.tileCollide = false; // Projectile does not collide with tiles
-			Projectile.usesLocalNPCImmunity = true; // Uses local immunity frames
-			Projectile.localNPCHitCooldown = -1; // We set this to -1 to make sure the projectile doesn't hit twice
 			Projectile.ownerHitCheck = true; // Make sure the owner of the projectile has line of sight to the target (aka can't hit things through tile).
 			Projectile.DamageType = DamageClass.Melee; // Projectile is a melee projectile
 		}
@@ -164,23 +173,26 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 			Utils.PlotTileLine(start, end, 15 * Projectile.scale, DelegateMethods.CutTiles);
 		}
 
-		// We make it so that the projectile can only do damage in its release and unwind phases
-		public override bool? CanDamage() 
-        {
-			if (CurrentStage == AttackStage.Prepare)
-				return false;
-			return base.CanDamage();
-		}
-
 		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) 
         {
 			// Make knockback go away from player
 			modifiers.HitDirectionOverride = target.position.X > Owner.MountedCenter.X ? 1 : -1;
 		}
 
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+			SoundEngine.PlaySound(DTAssetLib.IdriGreatswordSlice(ChildSafety.Disabled) with { PitchVariance = 0.6f, MaxInstances = 0 });
+			int splatterdir = target.position.X > Owner.MountedCenter.X ? 1 : -1;
+			for (int i = 0; i < 7; i++)
+			{
+				PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticle>(), target.Center, new Vector2(Main.rand.NextFloat(2f, 6f) * splatterdir, 0).RotatedByRandom(0.1f), Color.Red * Main.rand.NextFloat(0.5f, 1f), 1f);
+        	}	
+			target.AddBuff(ModContent.BuffType<Shred>(), 180);
+		}
+
 		public void SetSwordPosition() 
         {
-			Projectile.rotation = InitialAngle + Projectile.spriteDirection * Progress;
+			Projectile.rotation = (InitialAngle + Projectile.spriteDirection * Progress) * Owner.direction;
 
 			// Set composite arm allows you to set the rotation of the arm and stretch of the front and back arms independently
 			Owner.SetCompositeArmFront(true, Player.CompositeArmStretchAmount.Full, Projectile.rotation - MathHelper.ToRadians(90f)); // set arm position (90 degree offset since arm starts lowered)
@@ -211,20 +223,48 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             }
         }
 
-		private const float BASE_SPIN_SPEED = 0.12f; // radians per tick
+		private float SPINSPEED = 0.01f; // radians per tick
+		private int STimer = 0;
+		public Vector2 swordTip;
+		public Line SwordLine;
         private void Execute()
         {
+			swordTip = Projectile.Center + Projectile.rotation.ToRotationVector2() * (Projectile.Size.Length() * Projectile.scale);
+			SwordLine = new Line(Owner.Center, swordTip);
+			Vector2[] p = SwordLine.GetPointsAlongLine(10);
+
             if (CanContinueSwing(Owner))
             {
-                float speed = BASE_SPIN_SPEED * Owner.GetTotalAttackSpeed(Projectile.DamageType);
+				if (SPINSPEED < 0.36f)
+				{
+					SPINSPEED += 0.008f;
+				}
+				else
+				{
+					foreach(Vector2 DustP in p)
+					{
+						Dust.NewDustPerfect(DustP, ModContent.DustType<ColorableNeonDust>(), SwordLine.GetLineRotation.ToRotationVector2() * 4f, 0, Color.Maroon);
+					}
+				}
+                float speed = SPINSPEED * Owner.GetTotalAttackSpeed(Projectile.DamageType);
                 Progress += speed * Projectile.spriteDirection;
 
                 Size = 1f; // keep full size while spinning
 
-                if (Projectile.rotation % MathHelper.TwoPi == 0)
+                float speedRatio = Math.Min(1f, SPINSPEED / 0.36f); // Normalize to 0-1 range
+				int soundInterval = (int)MathHelper.Lerp(200, 20, speedRatio); // Start at 200 ticks, go down to 20
+
+				STimer++;
+				if (STimer % soundInterval == 0)
+				{
+					SoundEngine.PlaySound(DTAssetLib.SwordSounds.StandardSwing with { PitchVariance = 1f });
+				}
+
+				if (STimer % 40 == 0 && SPINSPEED >= 0.36f)
                 {
-                    SoundEngine.PlaySound(DTAssetLib.SwordSounds.StandardSwing);
-                }
+                    SoundEngine.PlaySound(DTAssetLib.ChargeBreak);
+					Projectile.NewProjectile(Projectile.GetSource_FromAI(), Projectile.Center, SwordLine.GetLineRotation.ToRotationVector2() * 8f, ModContent.ProjectileType<TenebrisFlamesFriendly>(), Projectile.damage / 3, 10, Owner.whoAmI);
+				}
             }
             else
             {
@@ -232,17 +272,17 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             }
         }
 
-
-
 		private void Unwind()
         {
+			float speed = SPINSPEED * Owner.GetTotalAttackSpeed(Projectile.DamageType);
+			Progress += speed * Projectile.spriteDirection;
             Size = 1f - MathHelper.SmoothStep(0, 1, Timer / hideTime);
+			Projectile.Opacity = 1f - MathHelper.SmoothStep(0, 1, Timer / hideTime);
 
             if (Timer >= hideTime)
             {
                 Projectile.Kill();
             }
         }
-
 	}
 }
