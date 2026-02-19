@@ -11,7 +11,7 @@
 	<!-- References -->
 	<ItemGroup>
 		<Reference Include="DestroyerTest">
-			<HintPath>..\ModAssemblies\DestroyerTest_v2.1.7247.dll</HintPath>
+			<HintPath>..\ModAssemblies\DestroyerTest_v2.1.7248.dll</HintPath>
 		</Reference>
 		<Reference Include="OpusLib">
 			<HintPath>..\ModAssemblies\OpusLib_v1.423.dll</HintPath>

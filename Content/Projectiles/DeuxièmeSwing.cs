@@ -1,4 +1,5 @@
 ﻿
+using CalamityMod;
 using CalamityMod.Buffs.DamageOverTime;
 using DestroyerTest.Common;
 using DestroyerTest.Common.Systems;
@@ -8,6 +9,7 @@ using DestroyerTest.Content.Projectiles;
 using InnoVault.PRT;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using OpusLib;
 using OpusLib.Content.Helpers;
 using System;
 using System.Collections.Generic;
@@ -79,7 +81,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 			Projectile.penetrate = -1; // Projectile pierces infinitely
 			Projectile.tileCollide = false; // Projectile does not collide with tiles
 			Projectile.ownerHitCheck = true; // Make sure the owner of the projectile has line of sight to the target (aka can't hit things through tile).
-			Projectile.DamageType = DamageClass.Melee; // Projectile is a melee projectile
+			Projectile.DamageType = ModContent.GetInstance<TrueMeleeDamageClass>(); // Projectile is a melee projectile
 		}
 
 		public override void OnSpawn(IEntitySource source) 
@@ -283,6 +285,12 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             {
                 Projectile.Kill();
             }
+        }
+
+        public override void OnKill(int timeLeft)
+        {
+			OldRotations.Clear();
+			OldScales.Clear();
         }
 	}
 }

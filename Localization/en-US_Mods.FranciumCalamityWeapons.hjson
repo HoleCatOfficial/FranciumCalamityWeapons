@@ -43,6 +43,11 @@ Buffs: {
 		DisplayName: Sulfur Empowerment
 		Description: Mods.FranciumCalamityWeapons.Buffs.SulfurEmpowerment.Description
 	}
+
+	NecroBoost: {
+		DisplayName: Necroplasmic Frenzy
+		Description: You are furious!
+	}
 }
 
 Items: {
@@ -83,11 +88,12 @@ Items: {
 
 	Deuxième: {
 		DisplayName: Deuxième
-		Tooltip:'''
-				Swings in a circle and periodically shoots homing Shimmering Flames.
-				True Melee hits inflict Shred.
-				'The Finest the Shade World can offer. A pitiful transformation of The Great Incarnadine from long-range to close quarters.'
-				'''
+		Tooltip:
+			'''
+			Swings in a circle and periodically shoots homing Shimmering Flames.
+			True Melee hits inflict Shred.
+			'The Finest the Shade World can offer. A pitiful transformation of The Great Incarnadine from long-range to close quarters.'
+			'''
 	}
 
 	VoidBlood: {
@@ -451,6 +457,27 @@ Items: {
 		Tooltip: ""
 		DisplayName: Brimstone Scepter
 	}
+
+	NecrokidBoots: {
+		DisplayName: Necrokid Boots
+		Tooltip: ""
+	}
+
+	NecrokidHead: {
+		DisplayName: Necrokid Head
+		Tooltip: 24% increased Critical Strike Chance.
+		SetBonus:
+			'''
+			You gain a charge bar that you fill whenever dealing Scepter Class Damage.
+			When the bar is full, you can enter a Necroplasmic Fenzy, spawning homing necroplasmic trails as you move and getting a 20% decrease to Scepter use speed.
+
+			'''
+	}
+
+	NecrokidPlates: {
+		DisplayName: Necrokid Plates
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -551,6 +578,7 @@ Projectiles: {
 	BrimstoneScepterBomb.DisplayName: Brimstone Scepter Bomb
 	CursedShot.DisplayName: Cursed Shot
 	SpearOfAspirationTrail.DisplayName: Spear Of Aspiration Trail
+	NecroTrail.DisplayName: Necroplasmic Trail
 }
 
 UI.OverlordChargeBar: Overlord Hit Count

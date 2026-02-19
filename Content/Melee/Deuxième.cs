@@ -18,22 +18,21 @@ namespace FranciumCalamityWeapons.Content.Melee
 	{
 		public override void SetDefaults() 
 		{
-			// Common Properties
 			Item.width = 164;
 			Item.height = 164;
 			Item.value = Item.sellPrice(gold: 2, silver: 50);
-			Item.rare = ItemRarityID.Green;
+			Item.rare = ItemRarityID.White;
 
 			Item.useTime = 40;
 			Item.useAnimation = 40;
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 70;
 			Item.autoReuse = true;
-			Item.damage = 7600;
+			Item.damage = 6000;
 			Item.DamageType = ModContent.GetInstance<TrueMeleeDamageClass>();
 			Item.noMelee = true; 
 			Item.noUseGraphic = true; 
-            Item.crit = 46;
+            Item.crit = 26;
 			Item.channel = true;
 			Item.shoot = ModContent.ProjectileType<DeuxièmeSwing>();
 		}
@@ -48,7 +47,7 @@ namespace FranciumCalamityWeapons.Content.Melee
 			CreateRecipe()
 			.AddIngredient<Gargantua>(8)
 			.AddIngredient<Tenebris>(8)
-			.AddIngredient<LifeAlloy>(4)
+			.AddIngredient<AuricBar>(4)
 			.AddIngredient<AscendantSpiritEssence>(10)
 			.AddTile<CosmicAnvil>()
 			.Register();
