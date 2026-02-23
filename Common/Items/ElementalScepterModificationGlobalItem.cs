@@ -29,11 +29,6 @@ namespace FranciumCalamityWeapons.Common.Items
         public override void AddRecipes()
         {
             base.AddRecipes();
-
-            Recipe recipe = Recipe.Create(ModContent.ItemType<ElementalScepter>(), 1);
-
-            recipe.AddIngredient<BrimstoneScepter>();
-            recipe.Register();
         }
     }
 }
