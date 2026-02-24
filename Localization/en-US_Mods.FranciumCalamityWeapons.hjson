@@ -228,31 +228,26 @@ Items: {
 			DisplayName: Nightmare Rose
 			Lore:
 				'''
-				The Corruption is a truly remarkable thing. Is it not?
-				Both you and I alike thought we had seen the last of that Golgotha, but it always seems to hold new surprises.
-				If my confusion had not made it obvious thus far, I do not know much about what this thing is, let alone why it was there.
-				Perhaps the felling of Fovos awakened new energies in corruption?
-				It is an engima, most definitely.
+				This... thing appears to be a more recent phenomena than anything else.
+				No texts in my library speak of anything like it, though I wouldn't put it past those dead gods to try and reconstruct a new body out of their worshippers' flesh.
 				'''
 			Tooltip: ""
 		}
 
 		WyvernCorpseLore: {
-			DisplayName: Wyvern Corpse
+			DisplayName: The Great Wyvern
 			Lore:
 				'''
-				What an unfortunate fate for such a meek creature.
-				I had the curiosity to watch it myself, and see just how the crimson works.
-				First, the throny bramble snares their lifeless body against the dirt.
-				Then, the blood crawlers come out from the caverns and gnaw its skin thin, devouring it for sustenance.
-				Then come the Herplings, as you know them by, that feasted on its lesser flesh and organs, tearing all the cartillage and fat and tissue from its skeleton.
-				All that remained were the muscle fibers. Seemingly too tough from the Wyvern's Lifestyle to be a sustainable meal for any creature.
-				It did not stop at that though. I watched as parasites as big as my arm wriggled out from the dirt and into the corpse, traveling into the vacant brain cavity.
-				Ichor boils developed as well, and most of the remaining muscle fibers either decayed and fell off the bones, or, they became petrified into crimstone.
+				Due to their benevolence, it has always been, and continues to be percieved as, the ultimate crime to slight The Great Wyvern.
+				To brutalize the pinnacle of innocence and generosity and good will is a sin incomparable to any other, according to common belief.
+				Though, if I am to be entirely honest, I do not feel the same.
+				That worm had been the subject of my adoration for many years on account of those same traits of generosity and good will.
 
-				After all that, it still moved. And it still hungered.
-				For the first time in centuries. I felt a pang of sadness for a lowly creature like a wyvern.
-				Perhaps having watched it was a mistake.
+				That adoration ended the day I asked for its blessing and they turned me away.
+				They claimed I was "impure", and that I had dark desires that it could not sponsor.
+
+				I knew that day exactly who's side the Wyvern was on.
+				I never needed a loyalist to the gods getting in my way anyway.
 				'''
 			Tooltip: ""
 		}
