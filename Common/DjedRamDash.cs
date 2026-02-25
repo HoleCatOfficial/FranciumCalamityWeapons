@@ -26,6 +26,7 @@ using DestroyerTest.Common;
 
 namespace FranciumCalamityWeapons.Common
 {
+    /*
     public class DjedRamDash : PlayerDashEffect
     {
         public static new string ID => "Djed Pillar Charm";
@@ -47,4 +48,5 @@ namespace FranciumCalamityWeapons.Common
             }
         }
     }
+    */
 }

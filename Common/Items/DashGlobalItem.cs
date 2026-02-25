@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 
 namespace FranciumCalamityWeapons.Common.Items
 {
+    /*
     public class DashGlobalItem : GlobalItem
     {
         public override bool InstancePerEntity => true;
@@ -28,5 +29,6 @@ namespace FranciumCalamityWeapons.Common.Items
                 DjedRamCompatibility(player);
             }
         }
-    }
+    }\
+    */
 }
