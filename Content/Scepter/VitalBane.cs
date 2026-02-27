@@ -42,7 +42,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
             Rarity = ModContent.RarityType<IncarnadineRarity>();
 
             // Assign projectile types
-            ShootID = ModContent.ProjectileType<TerratomereSwordBeam>();
+            ShootID = ModContent.ProjectileType<LifeBolt>();
             ThrowID = ModContent.ProjectileType<VitalBaneThrown>();
 
             // Optional: change sounds

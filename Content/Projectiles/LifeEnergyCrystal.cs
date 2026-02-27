@@ -63,7 +63,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
                             else
                             {
                                 SoundEngine.PlaySound(SoundID.Research, Projectile.Center);
-                                Opus.RadialSpreadDust(DustID.FireworksRGB, 16, player.Center, 0, new Color(221, 189, 62), 1f, 3, true);
+                                Opus.RadialSpreadDust(DustID.FireworksRGB, 16, player.Center, 0, new Color(159, 202, 172), 1f, 3, true);
                                 player.AddBuff(ModContent.BuffType<UltraRegen>(), 300);
                                 scepter.Kill();
                                 Projectile.Kill();

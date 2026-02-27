@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using DestroyerTest.Rarity;
 using CalamityMod.Items.Materials;
 using CalamityMod.Items.Placeables.Abyss;
+using CalamityMod.Items.Placeables.Ores;
 using DestroyerTest.Rarity.Scepter;
 using DestroyerTest.Common;
 
@@ -37,7 +38,7 @@ namespace FranciumCalamityWeapons.Content.Equips.NecroplasmSet
 			CreateRecipe()
 				.AddIngredient<Necroplasm>(12)
                 .AddIngredient<Voidstone>(6)
-                .AddIngredient<TwistingNether>(6)
+                .AddIngredient<ExodiumCluster>(10)
 				.AddTile(TileID.MythrilAnvil)
 				.Register();
 		}

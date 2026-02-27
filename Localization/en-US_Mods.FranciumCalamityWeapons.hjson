@@ -574,6 +574,7 @@ Projectiles: {
 	CursedShot.DisplayName: Cursed Shot
 	SpearOfAspirationTrail.DisplayName: Spear Of Aspiration Trail
 	NecroTrail.DisplayName: Necroplasmic Trail
+	LifeBolt.DisplayName: Life Bolt
 }
 
 UI.OverlordChargeBar: Overlord Hit Count
