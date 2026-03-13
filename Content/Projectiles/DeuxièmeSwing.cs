@@ -1,11 +1,16 @@
 ﻿
 using CalamityMod;
 using CalamityMod.Buffs.DamageOverTime;
+using CalamityMod.Projectiles.Melee;
 using DestroyerTest.Common;
 using DestroyerTest.Common.Systems;
 using DestroyerTest.Content.Dusts;
 using DestroyerTest.Content.Particles;
+using DestroyerTest.Content.Particles.Orchestrated;
 using DestroyerTest.Content.Projectiles;
+using DestroyerTest.Content.Projectiles.Weapon.Melee;
+using FranciumCalamityWeapons.Common;
+using FranciumCalamityWeapons.Content.Particles.Orchestrated;
 using InnoVault.PRT;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -151,11 +156,13 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 			}
 
 			Texture2D texture = TextureAssets.Projectile[Type].Value;
+			Texture2D glow = ModContent.Request<Texture2D>($"{Texture}_Glow").Value;
 
-			Main.spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, default, lightColor * Projectile.Opacity, Projectile.rotation + rotationOffset, origin, Projectile.scale, effects, 0);
+			Main.spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, default, Projectile.GetAlpha(lightColor) * Projectile.Opacity, Projectile.rotation + rotationOffset, origin, Projectile.scale, effects, 0);
+            Main.spriteBatch.Draw(glow, Projectile.Center - Main.screenPosition, default, Color.White, Projectile.rotation + rotationOffset, origin, Projectile.scale, effects, 0);
 
-			// Since we are doing a custom draw, prevent it from normally drawing
-			return false;
+            // Since we are doing a custom draw, prevent it from normally drawing
+            return false;
 		}
 
 		// Find the start and end of the sword and use a line collider to check for collision with enemies
@@ -183,13 +190,38 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-			SoundEngine.PlaySound(DTAssetLib.IdriGreatswordSlice(ChildSafety.Disabled) with { PitchVariance = 0.6f, MaxInstances = 0 });
-			int splatterdir = target.position.X > Owner.MountedCenter.X ? 1 : -1;
-			for (int i = 0; i < 7; i++)
-			{
-				PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticle>(), target.Center, new Vector2(Main.rand.NextFloat(2f, 6f) * splatterdir, 0).RotatedByRandom(0.1f), Color.Red * Main.rand.NextFloat(0.5f, 1f), 1f);
-        	}	
-			target.AddBuff(ModContent.BuffType<Shred>(), 180);
+            SoundEngine.PlaySound(DTAssetLib.IdriGreatswordSlice(ChildSafety.Disabled) with { PitchVariance = 0.1f, MaxInstances = 10 }, target.Center);
+            Player player = Main.player[Projectile.owner];
+            var ScreenShake = player.GetModPlayer<ScreenshakePlayer>();
+
+            int splatterdir = target.position.X > Owner.MountedCenter.X ? 1 : -1;
+            for (int i = 0; i < 7; i++)
+            {
+                PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), target.Center, new Vector2(Main.rand.NextFloat(2f, 6f) * splatterdir, 0).RotatedByRandom(0.1f), DTUtilsCalamity.DeuxiemeColor * Main.rand.NextFloat(0.01f, 0.3f), 1f);
+            }
+
+            PRTLoader.NewParticle(PRTLoader.GetParticleID<DeuxiemeParticle>(), target.Center, Vector2.Zero, (Color)default, 1f);
+            Opus.RadialSpreadParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], 10, target.Center, 0.4f, DTUtilsCalamity.DeuxiemeColor, 2f, 3, RandomOffset: true);
+            Opus.RadialProjectileRandomDir(ModContent.ProjectileType<DeuxiemeStar>(), 2, target.Center, (int)(Projectile.damage * 0.2f), (int)(Projectile.knockBack * 0.5f), 14f, friendly: true);
+
+            if (hit.Crit)
+            {
+                ScreenShake.screenshakeMagnitude = 8;
+                ScreenShake.screenshakeTimer = 10;
+                //SoundEngine.PlaySound(DTAssetLib.EnergyWoosh with { PitchVariance = 0.4f });
+                SoundEngine.PlaySound(new SoundStyle("DestroyerTest/Assets/Audio/Impacts/MagicHit", 3) { PitchVariance = 0.1f, MaxInstances = 10 }, target.Center);
+                for (int t = 0; t < 2; t++)
+                {
+                    Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.Center, new Vector2(20f * splatterdir, 0).RotatedByRandom(0.1f), ModContent.ProjectileType<ColossusPhantom>(), (int)(Projectile.damage * 0.2f), 4, Projectile.owner);
+                }
+            }
+            else
+            {
+                ScreenShake.screenshakeMagnitude = 4;
+                ScreenShake.screenshakeTimer = 10;
+            }
+
+            target.AddBuff(ModContent.BuffType<Shred>(), 180);
 		}
 
 		public void SetSwordPosition() 
@@ -245,7 +277,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 				{
 					foreach(Vector2 DustP in p)
 					{
-						Dust.NewDustPerfect(DustP, ModContent.DustType<ColorableNeonDust>(), SwordLine.GetLineRotation.ToRotationVector2() * 4f, 0, Color.Maroon);
+						Dust.NewDustPerfect(DustP, ModContent.DustType<ColorableNeonDust>(), SwordLine.GetLineRotation.ToRotationVector2() * 4f, 0, DTUtilsCalamity.DeuxiemeColor);
 					}
 				}
                 float speed = SPINSPEED * Owner.GetTotalAttackSpeed(Projectile.DamageType);
@@ -259,13 +291,13 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 				STimer++;
 				if (STimer % soundInterval == 0)
 				{
-					SoundEngine.PlaySound(DTAssetLib.SwordSounds.StandardSwing with { PitchVariance = 1f });
+					SoundEngine.PlaySound(new SoundStyle("CalamityMod/Sounds/Item/HeavySwing") with { MaxInstances = 0 });
 				}
 
 				if (STimer % 40 == 0 && SPINSPEED >= 0.36f)
                 {
-                    SoundEngine.PlaySound(DTAssetLib.ChargeBreak);
-					Projectile.NewProjectile(Projectile.GetSource_FromAI(), Projectile.Center, SwordLine.GetLineRotation.ToRotationVector2() * 8f, ModContent.ProjectileType<TenebrisFlamesFriendly>(), Projectile.damage / 3, 10, Owner.whoAmI);
+                    //SoundEngine.PlaySound(DTAssetLib.ChargeBreak);
+					//Projectile.NewProjectile(Projectile.GetSource_FromAI(), Projectile.Center, SwordLine.GetLineRotation.ToRotationVector2() * 8f, ModContent.ProjectileType<TenebrisFlamesFriendly>(), Projectile.damage / 3, 10, Owner.whoAmI);
 				}
             }
             else

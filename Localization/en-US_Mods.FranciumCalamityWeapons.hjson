@@ -575,6 +575,8 @@ Projectiles: {
 	SpearOfAspirationTrail.DisplayName: Spear Of Aspiration Trail
 	NecroTrail.DisplayName: Necroplasmic Trail
 	LifeBolt.DisplayName: Life Bolt
+	ColossusPhantom.DisplayName: Colossus Phantom
+	DeuxiemeStar.DisplayName: Deuxieme Star
 }
 
 UI.OverlordChargeBar: Overlord Hit Count

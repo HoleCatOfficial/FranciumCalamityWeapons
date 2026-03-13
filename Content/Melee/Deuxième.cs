@@ -6,6 +6,7 @@ using DestroyerTest.Content.MeleeWeapons;
 using DestroyerTest.Content.Resources;
 using FranciumCalamityWeapons.Content.Projectiles;
 using FranciumCalamityWeapons.Content.Resources;
+using GlowmaskHelper.Content;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -14,6 +15,7 @@ using Terraria.ModLoader;
 
 namespace FranciumCalamityWeapons.Content.Melee
 {
+	[AutoloadGlowmask]
 	public class Deuxième : ModItem
 	{
 		public override void SetDefaults() 
@@ -32,7 +34,7 @@ namespace FranciumCalamityWeapons.Content.Melee
 			Item.DamageType = ModContent.GetInstance<TrueMeleeDamageClass>();
 			Item.noMelee = true; 
 			Item.noUseGraphic = true; 
-            Item.crit = 26;
+            Item.crit = 10;
 			Item.channel = true;
 			Item.shoot = ModContent.ProjectileType<DeuxièmeSwing>();
 		}
@@ -45,8 +47,7 @@ namespace FranciumCalamityWeapons.Content.Melee
        	public override void AddRecipes() {
 			
 			CreateRecipe()
-			.AddIngredient<Gargantua>(8)
-			.AddIngredient<Tenebris>(8)
+			.AddIngredient<Colossus>(8)
 			.AddIngredient<AuricBar>(4)
 			.AddIngredient<AscendantSpiritEssence>(10)
 			.AddTile<CosmicAnvil>()
