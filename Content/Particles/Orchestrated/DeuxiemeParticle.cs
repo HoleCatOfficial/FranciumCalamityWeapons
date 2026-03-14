@@ -38,6 +38,8 @@ namespace FranciumCalamityWeapons.Content.Particles.Orchestrated
                 PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), Position, new Vector2(-0.5f, 0), DTUtilsCalamity.DeuxiemeColor, 0.5f);
                 
                 Opus.RadialSpreadParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), 6, Position, 1, DTColorUtils.Pastel(DTUtilsCalamity.DeuxiemeColor, 0.6f), 0.2f, 0.5f, offset: 0f);
+                Opus.RadialParticleRandomDir(PRTLoader.GetParticleID<DeuxiemeParticle2>(), 6, Position, 1, DTColorUtils.Pastel(DTUtilsCalamity.DeuxiemeColor, 0.6f), 1f, 0.5f);
+
                 Opus.RadialSpreadParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), 6, Position, 1, DTColorUtils.Pastel(DTUtilsCalamity.DeuxiemeColor, 0.9f), 0.2f, 1f, offset: 0.5f);
                 Spawned = true;
             }

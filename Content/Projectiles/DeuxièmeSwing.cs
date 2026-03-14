@@ -10,6 +10,7 @@ using DestroyerTest.Content.Particles.Orchestrated;
 using DestroyerTest.Content.Projectiles;
 using DestroyerTest.Content.Projectiles.Weapon.Melee;
 using FranciumCalamityWeapons.Common;
+using FranciumCalamityWeapons.Content.Particles;
 using FranciumCalamityWeapons.Content.Particles.Orchestrated;
 using InnoVault.PRT;
 using Microsoft.Xna.Framework;
@@ -277,7 +278,8 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 				{
 					foreach(Vector2 DustP in p)
 					{
-						Dust.NewDustPerfect(DustP, ModContent.DustType<ColorableNeonDust>(), SwordLine.GetLineRotation.ToRotationVector2() * 4f, 0, DTUtilsCalamity.DeuxiemeColor);
+                        //Dust.NewDustPerfect(DustP, ModContent.DustType<ColorableNeonDust>(), SwordLine.GetLineRotation.ToRotationVector2() * 4f, 0, DTUtilsCalamity.DeuxiemeColor);
+                        //BasePRT S = PRTLoader.NewParticle(PRTLoader.GetParticleID<DeuxiemeParticle3>(), DustP, SwordLine.GetLineRotation.ToRotationVector2().RotatedByRandom(0.1f) * 4f, DTUtilsCalamity.DeuxiemeColor * 0.3f, 4f);
 					}
 				}
                 float speed = SPINSPEED * Owner.GetTotalAttackSpeed(Projectile.DamageType);

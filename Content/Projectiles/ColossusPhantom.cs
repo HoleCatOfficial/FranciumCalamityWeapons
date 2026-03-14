@@ -3,6 +3,7 @@ using DestroyerTest.Common;
 using DestroyerTest.Content.Particles;
 using DestroyerTest.Content.Projectiles.Boss.NodeBoss.Ichor;
 using FranciumCalamityWeapons.Common;
+using FranciumCalamityWeapons.Content.Particles;
 using InnoVault.PRT;
 using Microsoft.Build.Evaluation;
 using Microsoft.Xna.Framework;
@@ -64,6 +65,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
         {
             NPC target = FindClosestNPC();
             Timer++;
+            PRTLoader.NewParticle(PRTLoader.GetParticleID<DeuxiemeParticle2>(), Projectile.Center, Projectile.velocity * 0.15f * Main.rand.NextVector2Circular(3, 3), DTUtilsCalamity.DeuxiemeColor, 1f);
 
             switch (State)
             {

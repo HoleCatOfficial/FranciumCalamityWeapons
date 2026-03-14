@@ -16,6 +16,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using OpusLib;
 using FranciumCalamityWeapons.Common;
+using FranciumCalamityWeapons.Content.Particles;
 
 namespace FranciumCalamityWeapons.Content.Projectiles
 {
@@ -162,7 +163,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 
             if (Main.rand.NextBool(12))
             {
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<StarParticle>(), Projectile.Center + Main.rand.NextVector2Circular(10, 10), Vector2.Zero, DTUtilsCalamity.DeuxiemeColor, 0.1f);
+                PRTLoader.NewParticle(PRTLoader.GetParticleID<DeuxiemeParticle2>(), Projectile.Center + Main.rand.NextVector2Circular(10, 10), Main.rand.NextVector2Circular(4, 4), DTUtilsCalamity.DeuxiemeColor, 1f);
             }
 
             Lighting.AddLight(Projectile.Center, ColorLib.Rift.ToVector3() * 0.2f);
