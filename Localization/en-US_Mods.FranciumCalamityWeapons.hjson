@@ -473,6 +473,23 @@ Items: {
 		DisplayName: Necrokid Plates
 		Tooltip: ""
 	}
+
+	Breaker: {
+		DisplayName: P-TLS Breaker
+		Tooltip:
+			'''
+			After six true melee hits, the blade accrues a powerful charge.
+			The first charged hit deals double damage, but each hit after that deals diminishing damage returns, capped at 60% reduced damage.
+			Charged hits inflict Static Discharge for 5 seconds.
+			'''
+		SchematicKnowledgeTooltip1:
+			'''
+			Constructed solely as a test of the capabilities of Wulfrum when combined with higher technology.
+			Ultimately, it lacked a significant use case compared to other, more robust weaponry such as the [i:CalamityMod/Auger] P-GSS Auger.
+			That said, it does have a singular strength: it is very cheap to produce.
+			As such, the blueprints for it have sat untouched ever since the initial testing, and likely will continue to remain so.
+			'''
+	}
 }
 
 Projectiles: {
@@ -577,6 +594,7 @@ Projectiles: {
 	LifeBolt.DisplayName: Life Bolt
 	ColossusPhantom.DisplayName: Colossus Phantom
 	DeuxiemeStar.DisplayName: Deuxieme Star
+	BreakerSwing.DisplayName: Breaker Swing
 }
 
 UI.OverlordChargeBar: Overlord Hit Count
