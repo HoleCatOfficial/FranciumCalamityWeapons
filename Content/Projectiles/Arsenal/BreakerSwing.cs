@@ -36,7 +36,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles.Arsenal
             Projectile.width = 76;
             Projectile.height = 76;
             SweepColor = Color.White;
-            
+            Glowmask = ModContent.Request<Texture2D>($"{Texture}_Glow");
         }
 
         public override SoundStyle Swing => DTAssetLib.SwordSounds.Woosh;
@@ -78,24 +78,45 @@ namespace FranciumCalamityWeapons.Content.Projectiles.Arsenal
             float rotationOffset;
             SpriteEffects effects;
 
-            Texture2D Glow = ModContent.Request<Texture2D>($"{Texture}_Glow").Value;
+            Texture2D texture = TextureAssets.Projectile[Type].Value;
             Texture2D Tesla = ModContent.Request<Texture2D>($"{Texture}_Tesla").Value;
             Texture2D Tesla2 = ModContent.Request<Texture2D>($"{Texture}_Tesla2").Value;
 
-            if (Projectile.spriteDirection > 0)
+            //i swear to FUCKING GOD.
+            //dont touch this shit.
+            //FUCK ROTATIONS DUDE.
+
+            if (LastSwing == -1)
             {
-                origin = new Vector2(0, Glow.Height);
-                effects = SpriteEffects.None;
-                rotationOffset = MathHelper.ToRadians(45f);
+                if (Projectile.spriteDirection > 0)
+                {
+                    origin = new Vector2(0, texture.Height);
+                    effects = SpriteEffects.None;
+                    rotationOffset = MathHelper.ToRadians(45f);
+                }
+                else
+                {
+                    origin = new Vector2(0, texture.Height);
+                    effects = SpriteEffects.None;
+                    rotationOffset = MathHelper.ToRadians(50f);
+                }
             }
             else
             {
-                origin = new Vector2(Glow.Width, Glow.Height);
-                effects = SpriteEffects.FlipHorizontally;
-                rotationOffset = MathHelper.ToRadians(135f);
+                if (Projectile.spriteDirection > 0)
+                {
+                    origin = new Vector2(texture.Width, texture.Height);
+                    effects = SpriteEffects.FlipHorizontally;
+                    rotationOffset = MathHelper.ToRadians(135);
+                }
+                else
+                {
+                    origin = new Vector2(texture.Width, texture.Height);
+                    effects = SpriteEffects.FlipHorizontally;
+                    rotationOffset = MathHelper.ToRadians(135f);
+                }
             }
 
-            Main.EntitySpriteDraw(Glow, Projectile.Center - Main.screenPosition, null, Color.White * Projectile.Opacity, Projectile.rotation + rotationOffset + RotationManualOffset, origin, AdjustedScale, effects, 0);
 
             if (Power)
             {

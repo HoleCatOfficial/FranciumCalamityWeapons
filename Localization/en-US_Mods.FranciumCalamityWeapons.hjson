@@ -48,6 +48,11 @@ Buffs: {
 		DisplayName: Necroplasmic Frenzy
 		Description: You are furious!
 	}
+
+	NightGazerBuff: {
+		DisplayName: Night Gazer Buff
+		Description: Mods.FranciumCalamityWeapons.Buffs.NightGazerBuff.Description
+	}
 }
 
 Items: {
@@ -475,7 +480,7 @@ Items: {
 	}
 
 	Breaker: {
-		DisplayName: P-TLS Breaker
+		DisplayName: P-TSL Breaker
 		Tooltip:
 			'''
 			After six true melee hits, the blade accrues a powerful charge.
@@ -489,6 +494,21 @@ Items: {
 			That said, it does have a singular strength: it is very cheap to produce.
 			As such, the blueprints for it have sat untouched ever since the initial testing, and likely will continue to remain so.
 			'''
+	}
+
+	NightGazer: {
+		DisplayName: Night Gazer
+		Tooltip:
+			'''
+			An automaton of otherworldly properties.
+			Shoots three shots at a time that weakly home in on enemies and inflict Galvanic Corrosion.
+			Each Gazer consumes 2 minion slots.
+			'''
+	}
+
+	Proxima: {
+		DisplayName: Proxima
+		Tooltip: ""
 	}
 }
 
@@ -595,6 +615,11 @@ Projectiles: {
 	ColossusPhantom.DisplayName: Colossus Phantom
 	DeuxiemeStar.DisplayName: Deuxieme Star
 	BreakerSwing.DisplayName: Breaker Swing
+	NightGazerBolt.DisplayName: Night Gazer Bolt
+	NightGazerProjectile.DisplayName: Night Gazer Projectile
+	ProximaCrescent.DisplayName: Proxima Crescent
+	ProximaHoldout.DisplayName: Proxima Holdout
+	ProximaThrown.DisplayName: Proxima Thrown
 }
 
 UI.OverlordChargeBar: Overlord Hit Count

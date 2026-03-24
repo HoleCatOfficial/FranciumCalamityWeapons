@@ -11,7 +11,7 @@
 	<!-- References -->
 	<ItemGroup>
 		<Reference Include="DestroyerTest">
-			<HintPath>..\ModAssemblies\DestroyerTest_v2.1.7253.dll</HintPath>
+			<HintPath>..\ModAssemblies\DestroyerTest_v2.1.7254.dll</HintPath>
 		</Reference>
 		<Reference Include="OpusLib">
 			<HintPath>..\ModAssemblies\OpusLib_v1.424.dll</HintPath>
@@ -24,6 +24,9 @@
 		</Reference>
 		<Reference Include="InnoVault">
 			<HintPath>..\ModAssemblies\InnoVault_v1.9.78.dll</HintPath>
+		</Reference>
+		<Reference Include="BreadLibrary">
+			<HintPath>..\ModAssemblies\BreadLibrary_v0.1.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 
