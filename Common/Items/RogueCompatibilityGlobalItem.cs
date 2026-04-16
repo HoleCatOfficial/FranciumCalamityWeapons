@@ -22,6 +22,8 @@ using System.Collections.Generic;
 using DestroyerTest.Content.MeleeWeapons;
 using DestroyerTest.Content.Projectiles.Weapon.Magic;
 using OpusLib;
+using Terraria.Localization;
+using DestroyerTest.Common;
 
 namespace FranciumCalamityWeapons.Common.Items
 {
@@ -38,12 +40,12 @@ namespace FranciumCalamityWeapons.Common.Items
         public static List<int> DTRogues = new List<int>
         {
             ModContent.ItemType<Chroma>(),
+            ModContent.ItemType<DreamDisc>(),
             ModContent.ItemType<GalantineKnife>(),
             ModContent.ItemType<GalantineLance>(),
             ModContent.ItemType<GigaCursedHammerWeapon>(),
             ModContent.ItemType<GodGouger>(),
             ModContent.ItemType<P_Noctis>(),
-            ModContent.ItemType<RiftChakram>(),
             ModContent.ItemType<RiftMaker>(),
             ModContent.ItemType<RiftSpine>(),
             ModContent.ItemType<RiftTeardrop>(),
@@ -51,6 +53,7 @@ namespace FranciumCalamityWeapons.Common.Items
             ModContent.ItemType<DestroyerTest.Content.RogueItems.TemporalLance>(),
             ModContent.ItemType<TenebrisWaraxe>(),
             ModContent.ItemType<TenebrousChakram>(),
+            ModContent.ItemType<TrueRiftMaker>(),
         };
 
         public override void SetDefaults(Item item)
@@ -60,6 +63,17 @@ namespace FranciumCalamityWeapons.Common.Items
                 if (DTRogues.Contains(item.type))
                 {
                     item.DamageType = ModContent.GetInstance<RogueDamageClass>();
+                }
+            }
+        }
+
+        public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
+        {
+            if (CalamityLoaded)
+            {
+                if (DTRogues.Contains(item.type))
+                {
+                    tooltips.Add(new TooltipLine(Mod, "StealthStrikeCompat", Language.GetTextValue($"Mods.DestroyerTest.Items.{item.Name.NoSpace()}.StealthStrike")));
                 }
             }
         }
@@ -74,7 +88,7 @@ namespace FranciumCalamityWeapons.Common.Items
             if (CalamityLoaded && player.Calamity().StealthStrikeAvailable() && item.type == ModContent.ItemType<RiftMaker>())
             {
                 player.GetModPlayer<RogueCompatibilityStealthPlayer>().usedStealthStrike = true;
-                for (int c = 0; c < 12; c++)
+                for (int c = 0; c < 5; c++)
                 {
                     float angle = Main.rand.NextFloat(0, MathHelper.TwoPi);
                     float speed = 8f; // Adjust speed as needed
@@ -93,7 +107,7 @@ namespace FranciumCalamityWeapons.Common.Items
 
             if (CalamityLoaded && player.Calamity().StealthStrikeAvailable() && item.type == ModContent.ItemType<Chroma>())
             {
-                Mod.Logger.Info("Stealth Strike triggered for Chroma!");
+                //Mod.Logger.Info("Stealth Strike triggered for Chroma!");
 
                 player.GetModPlayer<RogueCompatibilityStealthPlayer>().usedStealthStrike = true;
 
@@ -125,20 +139,7 @@ namespace FranciumCalamityWeapons.Common.Items
                 );
             }
 
-            if (CalamityLoaded && player.Calamity().StealthStrikeAvailable() && item.type == ModContent.ItemType<RiftChakram>())
-            {
-                Projectile.NewProjectile(
-                            player.GetSource_ItemUse(item),
-                            player.Center,
-                            new Vector2(0.0f, 8),
-                            ModContent.ProjectileType<RiftChakramSawClone>(),
-                            (int)(item.damage * 0.25f),
-                            1,
-                            player.whoAmI
-                        );
-
-                
-            }
+ 
                 return base.UseItem(item, player);
             }
 
@@ -199,12 +200,12 @@ namespace FranciumCalamityWeapons.Common.Items
         public List<int> DTRogueDirectProjectiles = new List<int>
         {
             ModContent.ProjectileType<Chroma_Projectile>(),
+            ModContent.ProjectileType<DreamDiscThrown>(),
             ModContent.ProjectileType<GalantineKnifeThrown>(),
             ModContent.ProjectileType<GalantineLanceFriendly>(),
             ModContent.ProjectileType<GigaCursedHammerThrown>(),
             ModContent.ProjectileType<GodGougerThrown>(),
             ModContent.ProjectileType<P_Noctis_Projectile>(),
-            ModContent.ProjectileType<RiftChakramThrown>(),
             ModContent.ProjectileType<RiftMaker_Thrown>(),
             ModContent.ProjectileType<RiftSpine_Thrown>(),
             ModContent.ProjectileType<RiftTeardrop_Thrown>(),
@@ -212,6 +213,7 @@ namespace FranciumCalamityWeapons.Common.Items
             ModContent.ProjectileType<DestroyerTest.Content.Projectiles.Weapon.Rogue.TemporalLance>(),
             ModContent.ProjectileType<TenebrisWaraxeProjectile>(),
             ModContent.ProjectileType<TenebrousChakramThrown>(),
+            ModContent.ProjectileType<TrueRiftMakerThrown>(),
         };
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
@@ -230,9 +232,19 @@ namespace FranciumCalamityWeapons.Common.Items
             }
         }
 
+        public int DreamDiscTimer;
         public override void AI(Projectile projectile)
         {
-
+            if (projectile.type == ModContent.ProjectileType<DreamDiscThrown>() && IsStealth)
+            {
+                DreamDiscTimer++;
+                if (DreamDiscTimer % 30 == 0)
+                {
+                    SoundEngine.PlaySound(SoundID.DD2_WitherBeastCrystalImpact, projectile.Center);
+                    Opus.RadialSpreadProjectile(ModContent.ProjectileType<DreamDiscMini>(), 4, projectile.Center, projectile.damage / 4, 8, 20, offset: projectile.rotation);
+                }
+            }
+                
             if (projectile.type == ModContent.ProjectileType<TenebrousChakramThrown>() && IsStealth)
             {
                 TCScytheTimer++;
@@ -265,7 +277,7 @@ namespace FranciumCalamityWeapons.Common.Items
                 WillUseTimerForHoming = true;
                 TimerVal = 20;
                 HomingDetectionRange = 4600;
-                WillRotateToHomingTarget = true;
+                //WillRotateToHomingTarget = true;
                 projectile.penetrate = 1;
             }
 
@@ -339,7 +351,7 @@ namespace FranciumCalamityWeapons.Common.Items
             // We only rotate by 3 degrees an update to give it a smooth trajectory. Increase the rotation speed here to make tighter turns
             float length = projectile.velocity.Length();
             float targetAngle = projectile.AngleTo(HomingTarget.Center);
-            projectile.velocity = projectile.velocity.ToRotation().AngleTowards(targetAngle, MathHelper.ToRadians(300)).ToRotationVector2() * length;
+            projectile.velocity = projectile.velocity.ToRotation().AngleTowards(targetAngle, MathHelper.ToRadians(9)).ToRotationVector2() * length;
             if (WillRotateToHomingTargetWith90DegreeRot)
             {
                 projectile.rotation = projectile.velocity.ToRotation() + MathHelper.PiOver2;

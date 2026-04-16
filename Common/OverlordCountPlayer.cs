@@ -1,10 +1,13 @@
 using CalamityMod.Projectiles.Magic;
+using CalamityMod.Projectiles.Typeless;
 using DestroyerTest.Content.RiftArsenal;
+using FranciumCalamityWeapons.Content.Melee;
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -49,7 +52,7 @@ namespace FranciumCalamityWeapons.Common
 			UpdateResource();
 		}
 
-        public override void PostUpdate()
+		public override void PostUpdate()
         {
             Player player = Main.LocalPlayer;
 
@@ -60,36 +63,21 @@ namespace FranciumCalamityWeapons.Common
             {
                 DecayStartTimer++;
 
-                if (DecayStartTimer >= 120) // 2 seconds of no hits = decay starts
+                if (DecayStartTimer >= 120) 
                 {
                     HitCount--;
-                    DecayStartTimer = 100; // Let it count back up again next tick
+                    DecayStartTimer = 0;
                 }
-            }
-
-            // Summon the projectile once the threshold is hit
-            if (HitCount >= HitThreshold2)
-            {
-                HitCount = 0; // Reset after summon
-                DecayStartTimer = 0;
-
-                SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/DevourerDeathImpact") with { PitchVariance = 0.3f });
-                
-                Vector2 spawnOffset = new(Main.rand.Next(-10, 10), Main.rand.Next(-10, 10));
-                Vector2 direction = Vector2.Normalize(Main.MouseWorld - player.Center);
-                Vector2 velocity = direction * 12f; // Arbitrary speed
-                Projectile.NewProjectile(
-                    Entity.GetSource_FromThis(),
-                    player.Center + spawnOffset,
-                    velocity,
-                    ModContent.ProjectileType<ApotheosisWorm>(),
-                    80,
-                    1f,
-                    player.whoAmI
-                );
             }
         }
 
+        public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
+        {
+            if (drawInfo.drawPlayer.HeldItem.type == ModContent.ItemType<Overlord>() && drawInfo.shadow == 0)
+			{
+				DTUtilsCalamity.DrawOverlordChargeBar(1f, (Player.Center + new Vector2(0, -200)) - Main.screenPosition, (float)((float)HitCount / (float)HitThreshold2), 1f);
+			}
+        }
 
 
 		// Lets do all our logic for the custom resource here, such as limiting it, increasing it and so on.

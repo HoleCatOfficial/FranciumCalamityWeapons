@@ -142,10 +142,10 @@ Items: {
 			Even holding this sword makes you feel atop the world. You feel almost compelled to fulfill the dream you cut so short.
 			Nothing stops you from doing so.
 			~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			Swings in a circle around the player. Striking an enemy releases two homing Cosmic Stars that begin to spin when in the vicinity of a target.
-			The Blue Star inflicts Glacial State, and the Pink Star inflicts God Slayer Inferno.
+			Swings in a circle around the player.
+			True melee hits spawn 4 homing cosmic stars.
 			Critical hits from the blade inflict Whispering Death.
-			Consecutive Hits from the blade charge a bar. At full charge, a mirage of the devourer will appear to assist you.
+			Consecutive Hits from the blade charge a bar that decays after two seconds. At full charge, your next strike will create an explosion that deals double damage.
 			'''
 		DisplayName: Overlord
 	}
@@ -620,6 +620,7 @@ Projectiles: {
 	ProximaCrescent.DisplayName: Proxima Crescent
 	ProximaHoldout.DisplayName: Proxima Holdout
 	ProximaThrown.DisplayName: Proxima Thrown
+	DreamDiscMini.DisplayName: Dream Disc Mini
 }
 
 UI.OverlordChargeBar: Overlord Hit Count

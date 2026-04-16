@@ -65,7 +65,10 @@ namespace FranciumCalamityWeapons.Content.Projectiles
         {
             NPC target = FindClosestNPC();
             Timer++;
-            PRTLoader.NewParticle(PRTLoader.GetParticleID<DeuxiemeParticle2>(), Projectile.Center, Projectile.velocity * 0.15f * Main.rand.NextVector2Circular(3, 3), DTUtilsCalamity.DeuxiemeColor, 1f);
+            if (!DTOptimizationsConfig.instance.DisableExcessParticles)
+            {
+                PRTLoader.NewParticle(PRTLoader.GetParticleID<DeuxiemeParticle2>(), Projectile.Center, Projectile.velocity * 0.15f * Main.rand.NextVector2Circular(3, 3), DTUtilsCalamity.DeuxiemeColor, 1f);
+            }
 
             switch (State)
             {

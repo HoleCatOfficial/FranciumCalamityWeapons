@@ -38,7 +38,11 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 			Unwind
 		}
 
-		private AttackStage CurrentStage 
+        public static int HitCooldownGlobal = 20;
+        private int HitCooldown = 0;
+
+
+        private AttackStage CurrentStage 
         {
 			get => (AttackStage)Projectile.localAI[0];
 			set {
@@ -109,8 +113,11 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 
 		public override void AI() 
         {
-			// Extend use animation until projectile is killed
-			Owner.itemAnimation = 2;
+            if (HitCooldown > 0)
+            {
+                HitCooldown--;
+            }
+            Owner.itemAnimation = 2;
 			Owner.itemTime = 2;
 
 			// Kill the projectile if the player dies or gets crowd controlled
@@ -183,7 +190,12 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 			Utils.PlotTileLine(start, end, 15 * Projectile.scale, DelegateMethods.CutTiles);
 		}
 
-		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) 
+        public override bool? CanHitNPC(NPC target)
+        {
+            return HitCooldown <= 0 && !target.friendly;
+        }
+
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) 
         {
 			// Make knockback go away from player
 			modifiers.HitDirectionOverride = target.position.X > Owner.MountedCenter.X ? 1 : -1;
@@ -191,6 +203,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
+            HitCooldown = HitCooldownGlobal;
             SoundEngine.PlaySound(DTAssetLib.IdriGreatswordSlice(ChildSafety.Disabled) with { PitchVariance = 0.1f, MaxInstances = 10 }, target.Center);
             Player player = Main.player[Projectile.owner];
             var ScreenShake = player.GetModPlayer<ScreenshakePlayer>();
@@ -293,7 +306,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 				STimer++;
 				if (STimer % soundInterval == 0)
 				{
-					SoundEngine.PlaySound(new SoundStyle("CalamityMod/Sounds/Item/HeavySwing") with { MaxInstances = 0 });
+					SoundEngine.PlaySound(new SoundStyle("CalamityMod/Sounds/Item/HeavySwing") with { MaxInstances = 0, PitchVariance = 0.3f, Volume = 0.7f });
 				}
 
 				if (STimer % 40 == 0 && SPINSPEED >= 0.36f)

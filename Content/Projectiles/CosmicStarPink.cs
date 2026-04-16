@@ -62,35 +62,9 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 			SpriteBatch spriteBatch = Main.spriteBatch;
 			DTUtils Utility = new DTUtils();
 
-			Opus.StartSpriteBatchForTrails(spriteBatch, BlendState.Additive, SpriteSortMode.Immediate);
-			
-			if (TrailPositions.Count > 1)
-			{
-				List<ColoredVertex> ve = new List<ColoredVertex>();
-				float a = 0;
+            DTTrail.DrawTrail(spriteBatch, DTAssetLib.Streak(10).Value, TrailPositions, TrailRotations, 35, lightColor, trailOffset, 3);
 
-				for (int i = TrailPositions.Count - 1; i > 0; i--)
-				{
-					float t = 1f - (i / (float)TrailPositions.Count); // fade toward tail
-					Color b = lightColor * t;
-
-					Vector2 dir = (TrailPositions[i] - TrailPositions[i - 1]).ToRotation().ToRotationVector2();
-					Vector2 offset = dir.RotatedBy(MathHelper.ToRadians(90)) * 30;
-                    Vector2 offset2 = dir.RotatedBy(MathHelper.ToRadians(-90)) * 30;
-
-					DTUtils.AddStrips(ve, TrailPositions, i, offset, offset2, t, b, trailOffset);
-				}
-
-
-				GraphicsDevice gd = Main.graphics.GraphicsDevice;
-				if (ve.Count >= 3)
-				{
-					gd.Textures[0] = DTAssetLib.Streak(1).Value;
-					gd.DrawUserPrimitives(PrimitiveType.TriangleStrip, ve.ToArray(), 0, ve.Count - 2);
-				}
-			}
-
-			Opus.DrawGlowOnProj(Projectile, lightColor, true);
+            Opus.DrawGlowOnProj(Projectile, lightColor, true);
 
 			Opus.ReturnToDefaultDrawing(spriteBatch);
 
@@ -166,7 +140,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 
 			float length = Projectile.velocity.Length();
 			float targetAngle = Projectile.AngleTo(HomingTarget.Center);
-			Projectile.velocity = Projectile.velocity.ToRotation().AngleTowards(targetAngle, MathHelper.ToRadians(20)).ToRotationVector2() * length;
+			Projectile.velocity = Projectile.velocity.ToRotation().AngleTowards(targetAngle, MathHelper.ToRadians(8)).ToRotationVector2() * length;
 			Projectile.velocity *= 1.02f;
 			Projectile.rotation += 0.4f * Projectile.direction;
 		}

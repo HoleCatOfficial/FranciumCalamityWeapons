@@ -25,6 +25,8 @@ using DestroyerTest.Content.Buffs;
 using DestroyerTest.Content.Projectiles.Weapon.Summon;
 using FranciumCalamityWeapons.Content.Buffs;
 using FranciumCalamityWeapons.Content.Projectiles.NightGazer;
+using CalamityMod.Items.Placeables.Abyss;
+using CalamityMod.Items.Materials;
 
 namespace FranciumCalamityWeapons.Content.Summon
 {
@@ -69,6 +71,16 @@ namespace FranciumCalamityWeapons.Content.Summon
         {
             player.AddBuff(Item.buffType, 2);
             return true;
+        }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+                .AddIngredient<Voidstone>(10)
+                .AddIngredient<RuinousSoul>(6)
+                .AddIngredient(ItemID.LunarBar, 10)
+                .AddTile(TileID.MythrilAnvil)
+                .Register();
         }
     }
 }

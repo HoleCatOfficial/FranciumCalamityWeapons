@@ -11,22 +11,22 @@
 	<!-- References -->
 	<ItemGroup>
 		<Reference Include="DestroyerTest">
-			<HintPath>..\ModAssemblies\DestroyerTest_v2.1.7254.dll</HintPath>
+			<HintPath>lib\DestroyerTest.dll</HintPath>
 		</Reference>
 		<Reference Include="OpusLib">
-			<HintPath>..\ModAssemblies\OpusLib_v1.424.dll</HintPath>
+			<HintPath>lib\OpusLib.dll</HintPath>
 		</Reference>
 		<Reference Include="GlowmaskHelper">
-			<HintPath>..\ModAssemblies\GlowmaskHelper_v1.0.0.dll</HintPath>
+			<HintPath>lib\GlowmaskHelper.dll</HintPath>
 		</Reference>
 		<Reference Include="CalamityMod">
-			<HintPath>..\ModAssemblies\CalamityMod_v2.1.dll</HintPath>
+			<HintPath>lib\CalamityMod.dll</HintPath>
 		</Reference>
 		<Reference Include="InnoVault">
-			<HintPath>..\ModAssemblies\InnoVault_v1.9.78.dll</HintPath>
+			<HintPath>lib\InnoVault.dll</HintPath>
 		</Reference>
 		<Reference Include="BreadLibrary">
-			<HintPath>..\ModAssemblies\BreadLibrary_v0.1.dll</HintPath>
+			<HintPath>lib\BreadLibrary.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 

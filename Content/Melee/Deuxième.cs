@@ -30,7 +30,7 @@ namespace FranciumCalamityWeapons.Content.Melee
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 70;
 			Item.autoReuse = true;
-			Item.damage = 6000;
+			Item.damage = 2000;
 			Item.DamageType = ModContent.GetInstance<TrueMeleeDamageClass>();
 			Item.noMelee = true; 
 			Item.noUseGraphic = true; 

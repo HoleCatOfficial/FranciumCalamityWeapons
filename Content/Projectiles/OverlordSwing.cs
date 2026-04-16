@@ -1,5 +1,6 @@
 using CalamityMod;
 using CalamityMod.Buffs.StatDebuffs;
+using CalamityMod.Projectiles.Typeless;
 using DestroyerTest.Common;
 using DestroyerTest.Content.Dusts;
 using DestroyerTest.Content.Particles;
@@ -37,7 +38,9 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 			Unwind
 		}
 
-		private AttackStage CurrentStage 
+        public static int HitCooldownGlobal = 20;
+        private int HitCooldown = 0;
+        private AttackStage CurrentStage 
 		{
 			get => (AttackStage)Projectile.localAI[0];
 			set {
@@ -108,8 +111,12 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 
 		public override void AI() 
 		{
-			// Extend use animation until projectile is killed
-			Owner.itemAnimation = 2;
+            if (HitCooldown > 0)
+            {
+                HitCooldown--;
+            }
+            // Extend use animation until projectile is killed
+            Owner.itemAnimation = 2;
 			Owner.itemTime = 2;
 
 			// Kill the projectile if the player dies or gets crowd controlled
@@ -179,8 +186,12 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 			Vector2 end = start + Projectile.rotation.ToRotationVector2() * (Projectile.Size.Length() * Projectile.scale);
 			Utils.PlotTileLine(start, end, 15 * Projectile.scale, DelegateMethods.CutTiles);
 		}
+        public override bool? CanHitNPC(NPC target)
+        {
+            return HitCooldown <= 0 && !target.friendly;
+        }
 
-		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) 
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) 
 		{
 			// Make knockback go away from player
 			modifiers.HitDirectionOverride = target.position.X > Owner.MountedCenter.X ? 1 : -1;
@@ -194,33 +205,40 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			Color IceColor = new Color(39, 151, 171);
+            HitCooldown = HitCooldownGlobal;
+            Color IceColor = new Color(39, 151, 171);
 			Color FireColor = new Color(252, 109, 202);
-
-			float lerpAmount = (float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)));
-			Color entityhitcolor = Color.Lerp(IceColor, FireColor, lerpAmount);
-			Player player = Main.LocalPlayer;
-			player.GetModPlayer<ScreenshakePlayer>().screenshakeMagnitude = 9;
-			player.GetModPlayer<ScreenshakePlayer>().screenshakeTimer = 12;
-			Lighting.AddLight(target.Center, entityhitcolor.ToVector3() * 0.8f);
 			SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/CosmicStarSpawn") with { PitchVariance = 1.0f, Volume = 1.5f });
 			SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/CalamityBell") with { PitchVariance = 1.0f, Volume = 3.0f });
-			Vector2 Flamedirection = new Vector2((float)Math.Cos(MathHelper.ToRadians(90)), (float)Math.Sin(MathHelper.ToRadians(90)));
-			Vector2 Frostdirection = new Vector2((float)Math.Cos(MathHelper.ToRadians(270)), (float)Math.Sin(MathHelper.ToRadians(270)));
-			Projectile.NewProjectile(Entity.GetSource_OnHit(target), Projectile.Center, Flamedirection, ModContent.ProjectileType<CosmicStarPink>(), 100, 8, Main.myPlayer);
 
-			Projectile.NewProjectile(Entity.GetSource_OnHit(target), Projectile.Center, Frostdirection, ModContent.ProjectileType<CosmicStarBlue>(), 100, 8, Main.myPlayer);
-
-			PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom3>(), target.Center, Vector2.Zero, entityhitcolor, 1);
+			DTUtils.InfectedScepter_RingProjectileOutwardAlternating(ModContent.ProjectileType<CosmicStarPink>(), ModContent.ProjectileType<CosmicStarBlue>(), 4, target.Center, 20, Projectile.damage / 8, 10, 10, RandomOffset: true);
 			if (hit.Crit)
 			{
 				target.AddBuff(ModContent.BuffType<WhisperingDeath>(), 360);
 			}
 
-			var modPlayer = player.GetModPlayer<OverlordCountPlayer>();
+			var modPlayer = Main.player[Projectile.owner].GetModPlayer<OverlordCountPlayer>();
 
 			modPlayer.HitCount += 1;
-			modPlayer.DecayStartTimer = 0;
+
+			if (modPlayer.HitCount >= modPlayer.HitThreshold2)
+			{
+                modPlayer.HitCount = 0;
+                modPlayer.DecayStartTimer = 0;
+
+                SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/DevourerDeathImpact") with { PitchVariance = 0.3f });
+
+ 
+                Projectile.NewProjectile(
+                    Entity.GetSource_FromThis(),
+                    target.Center,
+                    Vector2.Zero,
+                    ModContent.ProjectileType<CosmicDashExplosion>(),
+                    Projectile.damage,
+                    1f,
+                    Projectile.owner
+                );
+            }
 
 			
 		}
