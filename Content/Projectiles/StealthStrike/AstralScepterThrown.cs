@@ -1,0 +1,35 @@
+﻿using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
+using Terraria.Audio;
+using System;
+using DestroyerTest.Common;
+using DestroyerTest.Content.Projectiles;
+using DestroyerTest.Content.Projectiles.ParentClasses;
+using CalamityMod.Dusts;
+using CalamityMod.Buffs.DamageOverTime;
+
+namespace FranciumCalamityWeapons.Content.Projectiles
+{
+    public class AstralScepterThrown : ThrownScepter
+    {
+        public override void SetDefaults()
+        {
+            ThemeColor = Color.White;
+            WidthDim = 34;
+            HeightDim = 34;
+            DustType = ModContent.DustType<AstralBasic>();
+            base.SetDefaults();
+        }
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            target.AddBuff(ModContent.BuffType<AstralInfectionDebuff>(), 300);
+        }
+
+    }
+}
+

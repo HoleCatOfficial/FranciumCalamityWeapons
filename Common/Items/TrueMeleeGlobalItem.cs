@@ -1,6 +1,7 @@
 ﻿using CalamityMod;
 using DestroyerTest.Content.MeleeWeapons;
 using DestroyerTest.Content.MeleeWeapons.Flails;
+using DestroyerTest.Content.MeleeWeapons.TwistedLineage;
 using DestroyerTest.Content.OrionCrossover;
 using DestroyerTest.Content.RiftArsenal;
 using System;
@@ -21,6 +22,7 @@ namespace FranciumCalamityWeapons.Common.Items
         {
             ModContent.ItemType<Quixotism>(),
             ModContent.ItemType<Icemourne>(),
+            ModContent.ItemType<DarkFireSword>(),
             ModContent.ItemType<ScarletDragon>(),
             ModContent.ItemType<FrigidHalberd>(),
             ModContent.ItemType<SpiritOfJustice>(),
@@ -40,6 +42,7 @@ namespace FranciumCalamityWeapons.Common.Items
             ModContent.ItemType<RiftYoyoT2>(),
             ModContent.ItemType<RiftYoyoT3>(),
             ModContent.ItemType<RiftClaymore>(),
+            ModContent.ItemType<Committment>(),
         };
 
         public override void SetDefaults(Item entity)

@@ -20,8 +20,8 @@ namespace FranciumCalamityWeapons.Content.Scepter
 {
 	public class BrimstoneScepter : ScepterItem
 	{
-        public override int Width => 100;
-        public override int Height => 100;
+        public override int Width => 58;
+        public override int Height => 58;
 
         public override void SetStaticDefaults()
         {

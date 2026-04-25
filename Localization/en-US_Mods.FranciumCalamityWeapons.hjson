@@ -510,6 +510,11 @@ Items: {
 		DisplayName: Proxima
 		Tooltip: ""
 	}
+
+	AstralScepter: {
+		DisplayName: Astral Scepter
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -621,6 +626,7 @@ Projectiles: {
 	ProximaHoldout.DisplayName: Proxima Holdout
 	ProximaThrown.DisplayName: Proxima Thrown
 	DreamDiscMini.DisplayName: Dream Disc Mini
+	AstralScepterThrown.DisplayName: Astral Scepter Thrown
 }
 
 UI.OverlordChargeBar: Overlord Hit Count
