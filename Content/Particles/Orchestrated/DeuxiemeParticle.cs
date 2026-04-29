@@ -1,4 +1,5 @@
-﻿using DestroyerTest.Common;
+﻿using BreadLibrary.Core.Graphics.Particles;
+using DestroyerTest.Common;
 using DestroyerTest.Content.Particles;
 using FranciumCalamityWeapons.Common;
 using InnoVault.PRT;
@@ -6,48 +7,65 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using OpusLib;
 using Terraria;
+using Terraria.Graphics.Renderers;
 using Terraria.ModLoader;
 
 namespace FranciumCalamityWeapons.Content.Particles.Orchestrated
 {
-    public class DeuxiemeParticle : BasePRT
+    public class DeuxiemeParticle : BaseParticle<DeuxiemeParticle>
     {
-        public override void SetProperty()
-        {
-            Lifetime = 60;
-            ShouldKillWhenOffScreen = false;
-        }
+        public Vector2 position;
 
         public bool Spawned = false;
-        public override void AI()
+
+        public void Initiate(Vector2 Position)
+        {
+            this.position = Position;
+        }
+
+        public override void Update(ref ParticleRendererSettings settings)
         {
             if (!Spawned)
             {
-                Opus.NewParticleFloatAI(PRTLoader.GetParticleID<BloomRingSharp>(), Position, Vector2.Zero, DTUtilsCalamity.DeuxiemeColor * 0.5f, 0.001f, 0.8f);
-                Opus.NewParticleFloatAI(PRTLoader.GetParticleID<BloomRingSharp>(), Position, Vector2.Zero, DTUtilsCalamity.DeuxiemeColor * 0.8f, 0.001f, 0.3f);
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<StarParticle>(), Position, Vector2.Zero, Color.White, 1f);
+                PRTLoader.NewParticle(PRTLoader.GetParticleID<StarParticle>(), position, Vector2.Zero, Color.White, 1f);
 
-                for (int i = 0; i < 4; i++)
-                {
-                    PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), Position, new Vector2(0, -5).RotatedByRandom(0.1f), DTColorUtils.Pastel(DTUtilsCalamity.DeuxiemeColor, 0.3f), 1f);
-                    PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), Position, new Vector2(0, 5).RotatedByRandom(0.1f), DTColorUtils.Pastel(DTUtilsCalamity.DeuxiemeColor, 0.3f), 1f);
-                }
-               
 
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), Position, new Vector2(0.5f, 0), DTUtilsCalamity.DeuxiemeColor, 0.5f);
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), Position, new Vector2(-0.5f, 0), DTUtilsCalamity.DeuxiemeColor, 0.5f);
-                
-                Opus.RadialSpreadParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), 6, Position, 1, DTColorUtils.Pastel(DTUtilsCalamity.DeuxiemeColor, 0.6f), 0.2f, 0.5f, offset: 0f);
-                Opus.RadialParticleRandomDir(PRTLoader.GetParticleID<DeuxiemeParticle2>(), 6, Position, 1, DTColorUtils.Pastel(DTUtilsCalamity.DeuxiemeColor, 0.6f), 1f, 0.5f);
 
-                Opus.RadialSpreadParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), 6, Position, 1, DTColorUtils.Pastel(DTUtilsCalamity.DeuxiemeColor, 0.9f), 0.2f, 1f, offset: 0.5f);
+                Spark Up = new Spark();
+                Spark Down = new Spark();
+                Spark Left = new Spark();
+                Spark Right = new Spark();
+
+                Spark UpLeft = new Spark();
+                Spark UpRight = new Spark();
+                Spark DownLeft = new Spark();
+                Spark DownRight = new Spark();
+
+                Up.PrepareSpark(position, new Vector2(0, -1), 0f, DTUtilsCalamity.DeuxiemeColor, 1f, false, 40, SparkDrawMode.Additive);
+                Down.PrepareSpark(position, new Vector2(0, 1), 0f, DTUtilsCalamity.DeuxiemeColor, 1f, false, 40, SparkDrawMode.Additive);
+
+                Left.PrepareSpark(position, new Vector2(-0.5f, 0), 0f, DTUtilsCalamity.DeuxiemeColor, 0.75f, false, 40, SparkDrawMode.Additive);
+                Right.PrepareSpark(position, new Vector2(0.5f, 0), 0f, DTUtilsCalamity.DeuxiemeColor, 0.75f, false, 40, SparkDrawMode.Additive);
+
+                UpLeft.PrepareSpark(position, new Vector2(-0.3f, -0.3f), 0f, DTColorUtils.Pastel(DTUtilsCalamity.DeuxiemeColor, 0.9f), 0.5f, false, 40, SparkDrawMode.Additive);
+                UpRight.PrepareSpark(position, new Vector2(0.3f, -0.3f), 0f, DTColorUtils.Pastel(DTUtilsCalamity.DeuxiemeColor, 0.9f), 0.5f, false, 40, SparkDrawMode.Additive);
+                DownLeft.PrepareSpark(position, new Vector2(-0.3f, 0.3f), 0f, DTColorUtils.Pastel(DTUtilsCalamity.DeuxiemeColor, 0.9f), 0.5f, false, 40, SparkDrawMode.Additive);
+                DownRight.PrepareSpark(position, new Vector2(0.3f, 0.3f), 0f, DTColorUtils.Pastel(DTUtilsCalamity.DeuxiemeColor, 0.9f), 0.5f, false, 40, SparkDrawMode.Additive);
+
+                ParticleEngine.BehindProjectiles.Add(Up);
+                ParticleEngine.BehindProjectiles.Add(Down);
+                ParticleEngine.BehindProjectiles.Add(Left);
+                ParticleEngine.BehindProjectiles.Add(Right);
+                ParticleEngine.BehindProjectiles.Add(UpLeft);
+                ParticleEngine.BehindProjectiles.Add(UpRight);
+                ParticleEngine.BehindProjectiles.Add(DownLeft);
+                ParticleEngine.BehindProjectiles.Add(DownRight);
                 Spawned = true;
             }
-        }
-
-        public override bool PreDraw(SpriteBatch spriteBatch)
-        {
-            return false;
+            else
+            {
+                ShouldBeRemovedFromRenderer = true;
+            }
         }
     }
 }

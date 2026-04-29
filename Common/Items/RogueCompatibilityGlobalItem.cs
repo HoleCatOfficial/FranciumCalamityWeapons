@@ -37,29 +37,11 @@ namespace FranciumCalamityWeapons.Common.Items
 
         public override bool InstancePerEntity => true;
 
-        public static List<int> DTRogues = new List<int>
-        {
-            ModContent.ItemType<Chroma>(),
-            ModContent.ItemType<DreamDisc>(),
-            ModContent.ItemType<GalantineKnife>(),
-            ModContent.ItemType<GalantineLance>(),
-            ModContent.ItemType<GigaCursedHammerWeapon>(),
-            ModContent.ItemType<GodGouger>(),
-            ModContent.ItemType<P_Noctis>(),
-            ModContent.ItemType<RiftMaker>(),
-            ModContent.ItemType<RiftSpine>(),
-            ModContent.ItemType<RiftTeardrop>(),
-            ModContent.ItemType<SpearOfAspiration>(),
-            ModContent.ItemType<TenebrisWaraxe>(),
-            ModContent.ItemType<TenebrousChakram>(),
-            ModContent.ItemType<TrueRiftMaker>(),
-        };
-
         public override void SetDefaults(Item item)
         {
             if (CalamityLoaded)
             {
-                if (DTRogues.Contains(item.type))
+                if (item.DamageType == ModContent.GetInstance<DTRogueClass>())
                 {
                     item.DamageType = ModContent.GetInstance<RogueDamageClass>();
                 }
@@ -70,7 +52,7 @@ namespace FranciumCalamityWeapons.Common.Items
         {
             if (CalamityLoaded)
             {
-                if (DTRogues.Contains(item.type))
+                if (item.DamageType == ModContent.GetInstance<DTRogueClass>())
                 {
                     tooltips.Add(new TooltipLine(Mod, "StealthStrikeCompat", Language.GetTextValue($"Mods.DestroyerTest.Items.{item.Name.NoSpace()}.StealthStrike")));
                 }
@@ -82,62 +64,59 @@ namespace FranciumCalamityWeapons.Common.Items
             if (CalamityLoaded && player.Calamity().StealthStrikeAvailable())
             {
                 player.GetModPlayer<RogueCompatibilityStealthPlayer>().usedStealthStrike = true;
-            }
-
-            if (CalamityLoaded && player.Calamity().StealthStrikeAvailable() && item.type == ModContent.ItemType<RiftMaker>())
-            {
-                player.GetModPlayer<RogueCompatibilityStealthPlayer>().usedStealthStrike = true;
-                for (int c = 0; c < 5; c++)
+                if (item.type == ModContent.ItemType<RiftMaker>())
                 {
-                    float angle = Main.rand.NextFloat(0, MathHelper.TwoPi);
-                    float speed = 8f; // Adjust speed as needed
-                    Vector2 velocity = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * speed;
+                    player.GetModPlayer<RogueCompatibilityStealthPlayer>().usedStealthStrike = true;
+                    for (int c = 0; c < 5; c++)
+                    {
+                        float angle = Main.rand.NextFloat(0, MathHelper.TwoPi);
+                        float speed = 8f; // Adjust speed as needed
+                        Vector2 velocity = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * speed;
+                        Projectile.NewProjectile(
+                                player.GetSource_ItemUse(item),
+                                player.Center,
+                                velocity,
+                                ModContent.ProjectileType<RiftStarFriendly>(),
+                                (int)(item.damage * 0.5f),
+                                1,
+                                player.whoAmI
+                            );
+                    }
+                }
+
+                if (item.type == ModContent.ItemType<Chroma>())
+                {
+
+                    player.GetModPlayer<RogueCompatibilityStealthPlayer>().usedStealthStrike = true;
+
+                    Vector2 sourceAbove = player.Center + new Vector2(0, -40);
+                    Vector2 sourceBelow = player.Center + new Vector2(0, 40);
+                    Vector2 directiondown = Main.MouseWorld - sourceAbove;
+                    Vector2 directionup = Main.MouseWorld - sourceBelow;
+                    directiondown.Normalize();
+                    directionup.Normalize();
+
                     Projectile.NewProjectile(
-                            player.GetSource_ItemUse(item),
-                            player.Center,
-                            velocity,
-                            ModContent.ProjectileType<RiftStarFriendly>(),
-                            (int)(item.damage * 0.5f),
-                            1,
-                            player.whoAmI
-                        );
+                        player.GetSource_ItemUse(item),
+                        sourceAbove,
+                        directiondown * 20f,
+                        ModContent.ProjectileType<ChromaStardust>(),
+                        (int)(item.damage * 0.75f),
+                        1f,
+                        player.whoAmI
+                    );
+
+                    Projectile.NewProjectile(
+                        player.GetSource_ItemUse(item),
+                        sourceBelow,
+                        directionup * 20f,
+                        ModContent.ProjectileType<ChromaVortex>(),
+                        (int)(item.damage * 0.75f),
+                        1f,
+                        player.whoAmI
+                    );
                 }
             }
-
-            if (CalamityLoaded && player.Calamity().StealthStrikeAvailable() && item.type == ModContent.ItemType<Chroma>())
-            {
-                //Mod.Logger.Info("Stealth Strike triggered for Chroma!");
-
-                player.GetModPlayer<RogueCompatibilityStealthPlayer>().usedStealthStrike = true;
-
-                Vector2 sourceAbove = player.Center + new Vector2(0, -40);
-                Vector2 sourceBelow = player.Center + new Vector2(0, 40);
-                Vector2 directiondown = Main.MouseWorld - sourceAbove;
-                Vector2 directionup = Main.MouseWorld - sourceBelow;
-                directiondown.Normalize();
-                directionup.Normalize();
-
-                Projectile.NewProjectile(
-                    player.GetSource_ItemUse(item),
-                    sourceAbove,
-                    directiondown * 20f,
-                    ModContent.ProjectileType<ChromaStardust>(),
-                    (int)(item.damage * 0.75f),
-                    1f,
-                    player.whoAmI
-                );
-
-                Projectile.NewProjectile(
-                    player.GetSource_ItemUse(item),
-                    sourceBelow,
-                    directionup * 20f,
-                    ModContent.ProjectileType<ChromaVortex>(),
-                    (int)(item.damage * 0.75f),
-                    1f,
-                    player.whoAmI
-                );
-            }
-
  
                 return base.UseItem(item, player);
             }
@@ -154,7 +133,7 @@ namespace FranciumCalamityWeapons.Common.Items
 
         public override bool AppliesToEntity(Item entity, bool lateInstantiation)
         {
-            return true; // Applies to all items, but SetDefaults will filter
+            return true;
         }
     }
     
@@ -196,29 +175,12 @@ namespace FranciumCalamityWeapons.Common.Items
 
         public ref float GetDelayTimer(Projectile projectile) => ref projectile.ai[1];
 
-        public List<int> DTRogueDirectProjectiles = new List<int>
-        {
-            ModContent.ProjectileType<Chroma_Projectile>(),
-            ModContent.ProjectileType<DreamDiscThrown>(),
-            ModContent.ProjectileType<GalantineKnifeThrown>(),
-            ModContent.ProjectileType<GalantineLanceFriendly>(),
-            ModContent.ProjectileType<GigaCursedHammerThrown>(),
-            ModContent.ProjectileType<GodGougerThrown>(),
-            ModContent.ProjectileType<P_Noctis_Projectile>(),
-            ModContent.ProjectileType<RiftMaker_Thrown>(),
-            ModContent.ProjectileType<RiftSpine_Thrown>(),
-            ModContent.ProjectileType<RiftTeardrop_Thrown>(),
-            ModContent.ProjectileType<SpearOfAspirationThrown>(),
-            ModContent.ProjectileType<TenebrisWaraxeProjectile>(),
-            ModContent.ProjectileType<TenebrousChakramThrown>(),
-            ModContent.ProjectileType<TrueRiftMakerThrown>(),
-        };
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
             if (!RogueCompatibility.CalamityLoaded || !RogueCompatibility.DestroyerTestLoaded)
                 return;
 
-            if (DTRogueDirectProjectiles.Contains(projectile.type))
+            if (projectile.DamageType == ModContent.GetInstance<DTRogueClass>())
             {
                 projectile.DamageType = ModContent.GetInstance<RogueDamageClass>();
 
@@ -261,7 +223,7 @@ namespace FranciumCalamityWeapons.Common.Items
                 }
             }
 
-            if (projectile.type == ModContent.ProjectileType<GigaCursedHammerThrown>() && IsStealth)
+            if ((projectile.type == ModContent.ProjectileType<CursedHammerThrown>() || projectile.type == ModContent.ProjectileType<TenebrisWaraxeProjectile>()) && IsStealth)
             {
                 IsHoming = true;
                 HomingDetectionRange = 1600;

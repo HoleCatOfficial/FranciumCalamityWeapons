@@ -64,6 +64,8 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 
             DTTrail.DrawTrail(spriteBatch, DTAssetLib.Streak(10).Value, TrailPositions, TrailRotations, 35, lightColor, trailOffset, 3);
 
+            Opus.StartSpriteBatchWithBlending(spriteBatch, BlendState.Additive, SpriteSortMode.Deferred);
+
             Opus.DrawGlowOnProj(Projectile, lightColor, true);
 
 			Opus.ReturnToDefaultDrawing(spriteBatch);

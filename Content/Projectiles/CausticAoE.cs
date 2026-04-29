@@ -34,10 +34,6 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             if (DidTheThing == false)
             {
                 PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom3>(), Projectile.Center, Vector2.Zero, new Color(140, 234, 87), 2f);
-                for (int i = 0; i < 5; i++)
-                {
-                    PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), Projectile.Center, new Vector2(Main.rand.NextFloat(1, -1), -4), new Color(140, 234, 87), Main.rand.NextFloat(0.04f, 1.4f));
-                }
                 DidTheThing = true;
             }
         }

@@ -1,11 +1,13 @@
-using System;
+using BreadLibrary.Core.Graphics.Particles;
 using DestroyerTest.Common;
 using DestroyerTest.Content.Buffs;
 using DestroyerTest.Content.Particles;
+using DestroyerTest.Content.Particles.fire;
 using FranciumCalamityWeapons.Content.Particles;
 using InnoVault.PRT;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Enums;
 using Terraria.GameContent;
@@ -56,14 +58,13 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 			float t = (sine + 1f) / 2f; // 0 to 1
 			Vector2 StarOffset = Vector2.Lerp(StarOffsetUp, StarOffsetDown, t);
 
-			PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Projectile.Center, Vector2.Zero, Color.Black, 1, 60, ai2: 1);
 
-			if (Main.rand.NextBool(3))
-			{
-				PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Projectile.Center, Vector2.Zero, DTColorUtils.Pastel(Main.DiscoColor, 0.4f), 1, 60, ai2: 1);
-			}
 
-			PRTLoader.NewParticle(PRTLoader.GetParticleID<Ember>(), RandPos, Vector2.Zero, new Color(Main.DiscoR / 2, (byte)(Main.DiscoG / 1.25f), (byte)(Main.DiscoB / 1.5f)), 1);
+            LerpingFire fire = new LerpingFire();
+            fire.PrepareFire(Projectile.Center, Vector2.Zero, DTUtils.RandomDirection(2), 0.2f, Color.Indigo, Color.Navy, 1f, 100, FireDrawMode.Additive);
+            ParticleEngine.BehindProjectiles.Add(fire);
+
+            PRTLoader.NewParticle(PRTLoader.GetParticleID<Ember>(), RandPos, Vector2.Zero, new Color(Main.DiscoR / 2, (byte)(Main.DiscoG / 1.25f), (byte)(Main.DiscoB / 1.5f)), 1);
 
 			// Fade out the projectile over time	
 			float maxDetectRadius = 400f; // The maximum radius at which a projectile can detect a target

@@ -1,10 +1,12 @@
-using System.Collections.Generic;
-using System.IO;
+using BreadLibrary.Core.Graphics.Particles;
 using DestroyerTest.Common;
+using DestroyerTest.Content.Particles.fire;
 using FranciumCalamityWeapons.Content.Particles;
 using InnoVault.PRT;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -43,12 +45,9 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
 
-            PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Projectile.Center, Vector2.Zero, Color.Black, 1, 60, ai2: 1);
-
-			if (Main.rand.NextBool(3))
-			{
-				PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Projectile.Center, Vector2.Zero, DTColorUtils.Pastel(Main.DiscoColor, 0.4f), 1, 60, ai2: 1);
-			}
+            LerpingFire fire = new LerpingFire();
+            fire.PrepareFire(Projectile.Center, Vector2.Zero, DTUtils.RandomDirection(2), 0.2f, Color.Indigo, Color.Navy, 1f, 100, FireDrawMode.Additive);
+            ParticleEngine.BehindProjectiles.Add(fire);
 
         }
         

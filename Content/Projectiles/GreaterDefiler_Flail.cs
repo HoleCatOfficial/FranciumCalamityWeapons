@@ -464,10 +464,6 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 				if (CurrentAIState != AIState.Spinning)
 				{
 					PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom2>(), Projectile.Center, Vector2.Zero, Color.Pink, 1);
-					for (int e = 0; e < 5; e++)
-					{
-						PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticle>(), target.Center, (Projectile.velocity * 0.08f).RotatedBy(Main.rand.NextFloat(-0.5f, 0.5f)), Color.SkyBlue, 1);
-					}
 				}
 				
 			}

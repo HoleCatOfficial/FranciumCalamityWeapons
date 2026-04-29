@@ -1,4 +1,5 @@
-﻿using CalamityMod.Buffs.StatDebuffs;
+﻿using BreadLibrary.Core.Graphics.Particles;
+using CalamityMod.Buffs.StatDebuffs;
 using DestroyerTest.Common;
 using DestroyerTest.Content.Particles;
 using DestroyerTest.Content.Projectiles.Boss.NodeBoss.Ichor;
@@ -107,7 +108,9 @@ namespace FranciumCalamityWeapons.Content.Projectiles
                 return;
             }
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver4;
-            PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), Projectile.Center, Projectile.velocity * 0.15f, DTUtilsCalamity.DeuxiemeColor, 1f);
+            Spark Spark = new Spark();
+            Spark.PrepareSpark(Projectile.Center, Projectile.velocity * 0.1f, 0f, DTUtilsCalamity.DeuxiemeColor, 0.5f, false, 30, SparkDrawMode.Additive);
+            ParticleEngine.BehindProjectiles.Add(Spark);
 
             if (Timer == 1f) // first tick of dashing phase
             {

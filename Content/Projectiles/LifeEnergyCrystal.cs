@@ -71,13 +71,6 @@ namespace FranciumCalamityWeapons.Content.Projectiles
                         }
                     }
                 }
-
-                if (Main.rand.NextBool(6))
-                {
-                    PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Main.rand.NextVector2FromRectangle(Projectile.Hitbox), Projectile.velocity * 0.2f + Main.rand.NextVector2Circular(1, 1), new Color(159, 202, 172), 1, 60, ai2: 2);
-                    Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.FireworksRGB, Main.rand.NextFloat(-1, 1), Main.rand.NextFloat(-2, -1), 70, new Color(159, 202, 172), 1f);
-                    dust.noGravity = true;
-                }
             }
 
 

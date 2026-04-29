@@ -94,10 +94,6 @@ namespace FranciumCalamityWeapons.Content.Projectiles
                         ShootDir.Normalize();
                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), PRTPos, ShootDir * 8f, ModContent.ProjectileType<CausticBlob>(), 8, 2f, player.whoAmI);
                     }
-                    for (int t = 0; t < 14; t++)
-                    {
-                        PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), PRTPos, new Vector2(Main.rand.NextFloat(1, -1), -4), new Color(140, 234, 87), Main.rand.NextFloat(0.4f, 1.4f));
-                    }
                     player.velocity += KickbackDir;
                     SoundEngine.PlaySound(SoundID.NPCDeath53, Projectile.position);
                     ShootInterval = 80;

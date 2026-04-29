@@ -89,7 +89,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
                 }
             }
 
-            PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Projectile.Center, Vector2.Zero, Color.Black, 1, 40, ai2: 1);
+            //PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Projectile.Center, Vector2.Zero, Color.Black, 1, 40, ai2: 1);
 
             Vector2 RandPos = Main.rand.NextVector2Circular(radius, radius) + Projectile.Center;
 

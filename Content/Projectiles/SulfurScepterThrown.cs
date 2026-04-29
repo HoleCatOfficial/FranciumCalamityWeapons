@@ -33,10 +33,6 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 
         public override void OnKill(int timeLeft)
         {
-            for (int t = 0; t < 14; t++)
-            {
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), Projectile.Center, new Vector2(Main.rand.NextFloat(1, -1), -4), new Color(140, 234, 87), Main.rand.NextFloat(0.04f, 1.4f), ai1: 2);
-            }
             base.OnKill(timeLeft);
         }
 

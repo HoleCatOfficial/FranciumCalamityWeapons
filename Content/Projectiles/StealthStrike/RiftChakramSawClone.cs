@@ -135,10 +135,6 @@ namespace FranciumCalamityWeapons.Content.Projectiles.StealthStrike
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			Player player = Main.player[Main.myPlayer];
             SoundEngine.PlaySound(EnemySlice, target.Center);
-            for (int H = 0; H < 4; H++)
-            {
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticle>(), target.Center, new Vector2(Main.rand.NextFloat(-2, 2), -6), ColorLib.Rift, 1);
-            }
         }
 	}
 }

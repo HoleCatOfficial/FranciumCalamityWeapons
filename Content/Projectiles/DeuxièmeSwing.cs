@@ -1,4 +1,5 @@
 ﻿
+using BreadLibrary.Core.Graphics.Particles;
 using CalamityMod;
 using CalamityMod.Buffs.DamageOverTime;
 using CalamityMod.Projectiles.Melee;
@@ -211,11 +212,16 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             int splatterdir = target.position.X > Owner.MountedCenter.X ? 1 : -1;
             for (int i = 0; i < 7; i++)
             {
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<SparkParticleNoGravity>(), target.Center, new Vector2(Main.rand.NextFloat(2f, 6f) * splatterdir, 0).RotatedByRandom(0.1f), DTUtilsCalamity.DeuxiemeColor * Main.rand.NextFloat(0.01f, 0.3f), 1f);
+                Spark Spark = new Spark();
+                Spark.PrepareSpark(target.Center, new Vector2(Main.rand.NextFloat(2f, 6f) * splatterdir, 0).RotatedByRandom(0.1f), 0f, DTUtilsCalamity.DeuxiemeColor, 1f, false, 30, SparkDrawMode.Additive);
+                ParticleEngine.BehindProjectiles.Add(Spark);
             }
 
-            PRTLoader.NewParticle(PRTLoader.GetParticleID<DeuxiemeParticle>(), target.Center, Vector2.Zero, (Color)default, 1f);
-            Opus.RadialSpreadParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], 10, target.Center, 0.4f, DTUtilsCalamity.DeuxiemeColor, 2f, 3, RandomOffset: true);
+            DeuxiemeParticle FX = new DeuxiemeParticle();
+			FX.Initiate(target.Center);
+            ParticleEngine.BehindProjectiles.Add(FX);
+
+            //Opus.RadialSpreadParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], 10, target.Center, 0.4f, DTUtilsCalamity.DeuxiemeColor, 2f, 3, RandomOffset: true);
             Opus.RadialProjectileRandomDir(ModContent.ProjectileType<DeuxiemeStar>(), 2, target.Center, (int)(Projectile.damage * 0.2f), (int)(Projectile.knockBack * 0.5f), 14f, friendly: true);
 
             if (hit.Crit)

@@ -1,7 +1,9 @@
+using BreadLibrary.Core.Graphics.Particles;
 using CalamityMod.Buffs.DamageOverTime;
 using DestroyerTest.Common;
 using DestroyerTest.Content.Buffs;
 using DestroyerTest.Content.Particles;
+using DestroyerTest.Content.Particles.fire;
 using FranciumCalamityWeapons.Content.Particles;
 using InnoVault.PRT;
 using Microsoft.Xna.Framework;
@@ -38,23 +40,19 @@ namespace DestroyerTest.Content.Projectiles
 
 		public override void AI()
 		{
-            Lighting.AddLight(Projectile.Center, PyreEmber().R / 255, PyreEmber().G / 255, PyreEmber().B / 255);
-            PRTLoader.NewParticle(DTUtils.Fire[Main.rand.Next(DTUtils.Fire.Length)], Projectile.Center, Vector2.Zero, PyreEmber(), 1, 40, ai2: 2);
-		}
-        
-        public Color PyreEmber()
-        {
-            return LerpThree(new Color(224, 108, 29), new Color(125, 58, 58), new Color(99, 7, 36), new Color());
-        }
+            LerpingFire fire = new LerpingFire();
+            fire.PrepareFire(Projectile.Center, Vector2.Zero, DTUtils.RandomDirection(2), 0.2f, PyreEmber, 1f, 100, FireDrawMode.Additive);
+            ParticleEngine.BehindProjectiles.Add(fire);
 
-        public Color LerpThree(Color Val1, Color Val2, Color Val3, Color result)
-        {
-            float sine = (float)System.Math.Sin(Main.GlobalTimeWrappedHourly * 6f); // -1 to 1
-            float t = (sine + 1f) / 2f; // 0 to 1
-            result = Color.Lerp(Val1, Val2, t);
-            result = Color.Lerp(Val2, Val3, t);
-            return result;
-        }
+		}
+
+		public Color[] PyreEmber = new Color[4]
+		{
+			new Color(224, 108, 29),
+			new Color(125, 58, 58),
+			new Color(99, 7, 36),
+			Color.Black
+		};
 
 		public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
