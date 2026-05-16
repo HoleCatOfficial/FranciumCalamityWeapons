@@ -176,7 +176,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 35,
+          "SelectedChildIndex": 40,
           "Children": [
             {
               "$type": "Bookmark",
@@ -195,6 +195,26 @@
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{34c7837f-3b3a-449c-bdf0-bdad86cbaf4a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "SilvaHeart.cs",
@@ -204,8 +224,7 @@
               "RelativeToolTip": "Content\\Projectiles\\SilvaHeart.cs",
               "ViewState": "AgIAADoAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:54:33.208Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:54:33.208Z"
             },
             {
               "$type": "Document",
@@ -217,8 +236,7 @@
               "RelativeToolTip": "Content\\Projectiles\\SulfurScepterThrown.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAtwCIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:50:20.06Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:50:20.06Z"
             },
             {
               "$type": "Document",
@@ -230,8 +248,7 @@
               "RelativeToolTip": "Content\\Projectiles\\SulfurScepterHoldout.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAtwF8AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:50:11.965Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:50:11.965Z"
             },
             {
               "$type": "Document",
@@ -243,8 +260,7 @@
               "RelativeToolTip": "Content\\Projectiles\\CausticAoE.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAIAzwCMAAACGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:48:28.378Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:48:28.378Z"
             },
             {
               "$type": "Document",
@@ -256,8 +272,7 @@
               "RelativeToolTip": "Content\\Particles\\Orchestrated\\DeuxiemeParticle.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAQwDUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:40:53.073Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:40:53.073Z"
             },
             {
               "$type": "Document",
@@ -269,8 +284,7 @@
               "RelativeToolTip": "Content\\Projectiles\\StealthStrike\\RiftChakramSawClone.cs",
               "ViewState": "AgIAAHUAAAAAAAAAAAAtwIgAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:40:44.353Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:40:44.353Z"
             },
             {
               "$type": "Document",
@@ -282,8 +296,7 @@
               "RelativeToolTip": "Content\\Projectiles\\StealthStrike\\ChromaVortex.cs",
               "ViewState": "AgIAADUAAAAAAAAAAAAtwEgAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:40:38.323Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:40:38.323Z"
             },
             {
               "$type": "Document",
@@ -295,8 +308,7 @@
               "RelativeToolTip": "Content\\Projectiles\\StealthStrike\\ChromaStardust.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAlwEoAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:40:28.823Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:40:28.823Z"
             },
             {
               "$type": "Document",
@@ -308,8 +320,7 @@
               "RelativeToolTip": "Content\\Projectiles\\GreaterDefiler_Flail.cs",
               "ViewState": "AgIAAL4BAAAAAAAAAIA7wNEBAABtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:40:16.834Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:40:16.834Z"
             },
             {
               "$type": "Document",
@@ -321,8 +332,7 @@
               "RelativeToolTip": "Content\\Projectiles\\CausticBlob.cs",
               "ViewState": "AgIAAG4AAAAAAAAAAAD4v4MAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:40:02.153Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:40:02.153Z"
             },
             {
               "$type": "Document",
@@ -334,8 +344,7 @@
               "RelativeToolTip": "Content\\Projectiles\\PyreFlame.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAD4vykAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:37:45.032Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:37:45.032Z"
             },
             {
               "$type": "Document",
@@ -347,8 +356,7 @@
               "RelativeToolTip": "Content\\Projectiles\\PUSProj.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAtwDYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:37:14.11Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:37:14.11Z"
             },
             {
               "$type": "Document",
@@ -360,8 +368,7 @@
               "RelativeToolTip": "Content\\Projectiles\\PUSFeather.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAD4vzEAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:37:01.05Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:37:01.05Z"
             },
             {
               "$type": "Document",
@@ -373,8 +380,7 @@
               "RelativeToolTip": "Content\\Projectiles\\NightFlameProjectile.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAD4vz4AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:35:18.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:35:18.833Z"
             },
             {
               "$type": "Document",
@@ -386,8 +392,7 @@
               "RelativeToolTip": "Content\\Projectiles\\LifeEnergyCrystal.cs",
               "ViewState": "AgIAADAAAAAAAAAAAAAtwEgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:35:10.091Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:35:10.091Z"
             },
             {
               "$type": "Document",
@@ -399,8 +404,7 @@
               "RelativeToolTip": "Content\\Projectiles\\HotWater.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:34:52.423Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:34:52.423Z"
             },
             {
               "$type": "Document",
@@ -412,8 +416,7 @@
               "RelativeToolTip": "Content\\Projectiles\\EquivocatorAreaProjectile.cs",
               "ViewState": "AgIAAEUAAAAAAAAAAAAtwFsAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:33:58.234Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:33:58.234Z"
             },
             {
               "$type": "Document",
@@ -425,8 +428,7 @@
               "RelativeToolTip": "..\\DestroyerTest\\Content\\Projectiles\\Weapon\\Melee\\ColossusProjectile.cs",
               "ViewState": "AgIAAM8AAAAAAAAAAAAAAOIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T23:32:57.368Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T23:32:57.368Z"
             },
             {
               "$type": "Document",
@@ -438,8 +440,7 @@
               "RelativeToolTip": "Content\\Projectiles\\BrimstoneScepterThrown.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T21:34:08.122Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-20T21:34:08.122Z"
             },
             {
               "$type": "Document",
@@ -535,8 +536,7 @@
               "RelativeToolTip": "Common\\Items\\RogueCompatibilityGlobalItem.cs",
               "ViewState": "AgIAAEsBAAAAAAAAAAAwwOEAAACcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T14:39:30.634Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T14:39:30.634Z"
             },
             {
               "$type": "Document",
@@ -584,8 +584,7 @@
               "RelativeToolTip": "Content\\Projectiles\\CosmicStarBlue.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAIwEEAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T00:44:20.584Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T00:44:20.584Z"
             },
             {
               "$type": "Document",
@@ -658,8 +657,7 @@
               "RelativeToolTip": "Content\\Projectiles\\ColossusPhantom.cs",
               "ViewState": "AgIAAFgAAAAAAAAAAAAtwGsAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T00:20:21.782Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T00:20:21.782Z"
             },
             {
               "$type": "Document",
@@ -695,8 +693,7 @@
               "RelativeToolTip": "Content\\Projectiles\\Deuxi\u00E8meSwing.cs",
               "ViewState": "AgIAAMEAAAAAAAAAAIAzwN4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T23:14:30.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-15T23:14:30.434Z"
             },
             {
               "$type": "Document",
