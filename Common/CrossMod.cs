@@ -19,6 +19,8 @@ using System.Linq;
 using DestroyerTest.Content.Consumables;
 using DestroyerTest.Content.Scepter;
 using DestroyerTest.Content.Equips.ScepterAccessories;
+using DestroyerTest;
+using CalamityMod.Items.Potions;
 
 namespace FranciumCalamityWeapons.Common
 {
@@ -38,6 +40,17 @@ namespace FranciumCalamityWeapons.Common
         {
             DTCrossModLoaded = false;
             DTCrossMod = null;
+        }
+
+
+    }
+
+    public class PotionFlowerSupport : ModSystem
+    {
+        public override void PostSetupContent()
+        {
+            ModContent.GetInstance<DestroyerTestMod>().Call("RegisterPotionFlowerPotion", "OmegaHealingPotion", ModContent.ItemType<OmegaHealingPotion>(), 300);
+            ModContent.GetInstance<DestroyerTestMod>().Call("RegisterPotionFlowerPotion", "SupremeHealingPotion", ModContent.ItemType<SupremeHealingPotion>(), 250);
         }
     }
 }
