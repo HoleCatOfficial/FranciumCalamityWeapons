@@ -108,18 +108,8 @@ namespace FranciumCalamityWeapons.Common.Items
             }
         }
 
-        public int DreamDiscTimer;
         public override void AI(Projectile projectile)
         {
-            if (projectile.type == ModContent.ProjectileType<DreamDiscThrown>() && IsStealth)
-            {
-                DreamDiscTimer++;
-                if (DreamDiscTimer % 30 == 0)
-                {
-                    SoundEngine.PlaySound(SoundID.DD2_WitherBeastCrystalImpact, projectile.Center);
-                    Opus.RadialSpreadProjectile(ModContent.ProjectileType<DreamDiscMini>(), 4, projectile.Center, projectile.damage / 4, 8, 20, offset: projectile.rotation);
-                }
-            }
                 
             if (projectile.type == ModContent.ProjectileType<TenebrousChakramThrown>() && IsStealth)
             {
@@ -139,36 +129,6 @@ namespace FranciumCalamityWeapons.Common.Items
                 }
             }
 
-            if ((projectile.type == ModContent.ProjectileType<CursedHammerThrown>() || projectile.type == ModContent.ProjectileType<TenebrisWaraxeProjectile>()) && IsStealth)
-            {
-                IsHoming = true;
-                HomingDetectionRange = 1600;
-                
-                projectile.penetrate = 1;
-            }
-
-            if ((projectile.type == ModContent.ProjectileType<RiftTeardrop_Thrown>() || projectile.type == ModContent.ProjectileType<RiftSpine_Thrown>()) && IsStealth)
-            {
-                IsHoming = true;
-                WillUseTimerForHoming = true;
-                TimerVal = 20;
-                HomingDetectionRange = 4600;
-                //WillRotateToHomingTarget = true;
-                projectile.penetrate = 1;
-            }
-
-            if (projectile.type == ModContent.ProjectileType<GalantineKnifeThrown>() && IsStealth)
-            {
-                Projectile.NewProjectile(projectile.GetSource_FromAI(), projectile.Center, projectile.velocity * 0.1f, ModContent.ProjectileType<StellarFlameFriendly>(), projectile.damage / 4, 2, projectile.owner);
-            }
-            if (projectile.type == ModContent.ProjectileType<SpearOfAspirationThrown>() && IsStealth)
-            {
-                if (Main.GameUpdateCount % 10 == 0)
-                {
-                    Projectile.NewProjectile(projectile.GetSource_FromAI(), projectile.Center, projectile.velocity * 0.1f, ModContent.ProjectileType<SpearOfAspirationTrail>(), projectile.damage / 4, 2, projectile.owner);
-                }   
-            }
-            
 
             if (IsHoming)
             {
@@ -178,16 +138,9 @@ namespace FranciumCalamityWeapons.Common.Items
 
         public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            if (projectile.type == ModContent.ProjectileType<GodGougerThrown>() && IsStealth)
-            {
-                Projectile.NewProjectile(projectile.GetSource_FromAI(), target.Center, Vector2.Zero, ModContent.ProjectileType<GodGougerStealthStrikeExplosion>(), projectile.damage, 2, projectile.owner);
-            }
 
-            if (projectile.type == ModContent.ProjectileType<SpearOfAspirationThrown>() && IsStealth)
-            {
-                SoundEngine.PlaySound(DTAssetLibCalamity.StealthStrike.SpearOfAspiration, projectile.Center);
-                Opus.RingProjectileOutward(ModContent.ProjectileType<SpearOfAspirationTrail>(), 5, target.Center, 120, projectile.damage / 10, 3, 4, RandomOffset: true);
-            }
+
+     
         }
 
         public void ManageHoming(Projectile projectile)
