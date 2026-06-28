@@ -1,5 +1,5 @@
 displayName = Talid Mod - Calamity DLC 
 author = HoleCat
-version = 1.415
+version = 1.416
 modReferences = CalamityMod, DestroyerTest, InnoVault
 dependencies = CalamityMod, DestroyerTest, InnoVault
