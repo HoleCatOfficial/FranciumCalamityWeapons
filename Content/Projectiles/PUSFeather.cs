@@ -1,10 +1,10 @@
 using BreadLibrary.Core.Graphics.Particles;
 using DestroyerTest.Common;
-using DestroyerTest.Content.Particles.fire;
 using FranciumCalamityWeapons.Content.Particles;
 using InnoVault.PRT;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using OpusLib.Content.Particles;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;

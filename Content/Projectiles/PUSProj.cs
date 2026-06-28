@@ -1,11 +1,11 @@
 using BreadLibrary.Core.Graphics.Particles;
 using DestroyerTest.Common;
 using DestroyerTest.Content.Particles;
-using DestroyerTest.Content.Particles.fire;
 using FranciumCalamityWeapons.Content.Particles;
 using InnoVault.PRT;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using OpusLib.Content.Particles;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -64,14 +64,14 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 			SoundEngine.PlaySound(SoundID.Item65, Projectile.position); // Plays the basic sound most projectiles make when hitting blocks.
             Color baseColor = new Color(Main.DiscoR / 2, (byte)(Main.DiscoG / 1.25f), (byte)(Main.DiscoB / 1.5f));
 			Color pastelColor = Color.Lerp(baseColor, Color.White, 0.5f);
-            PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom2>(), Projectile.Center, Vector2.Zero, pastelColor, 1);
+            //PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom2>(), Projectile.Center, Vector2.Zero, pastelColor, 1);
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
             Color baseColor = new Color(Main.DiscoR / 2, (byte)(Main.DiscoG / 1.25f), (byte)(Main.DiscoB / 1.5f));
 			Color pastelColor = Color.Lerp(baseColor, Color.White, 0.5f);
-            PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom2>(), Projectile.Center, Vector2.Zero, pastelColor, 1);
+           // PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom2>(), Projectile.Center, Vector2.Zero, pastelColor, 1);
             for (int i = 0; i < 5; i++)
             {
                 float angle = MathHelper.TwoPi / 5 * i;

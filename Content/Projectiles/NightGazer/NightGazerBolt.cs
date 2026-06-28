@@ -3,7 +3,6 @@ using CalamityMod.Buffs.StatDebuffs;
 using DestroyerTest.Common;
 using DestroyerTest.Content.Buffs;
 using DestroyerTest.Content.Particles;
-using DestroyerTest.Content.Particles.CurseRunes;
 using DestroyerTest.Content.Particles.Stellar;
 using InnoVault.PRT;
 using Microsoft.Xna.Framework;
@@ -187,7 +186,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles.NightGazer
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             //SoundEngine.PlaySound(SoundID.Item10, Projectile.Center);
-            Opus.RadialParticleRandomDir(PRTLoader.GetParticleID<StarParticle>(), 3, Projectile.Center, 1f, Color.White, 1f, 2, 5f);
+            //Opus.RadialParticleRandomDir(PRTLoader.GetParticleID<StarParticle>(), 3, Projectile.Center, 1f, Color.White, 1f, 2, 5f);
             target.AddBuff(ModContent.BuffType<GalvanicCorrosion>(), 300);
         }
     }

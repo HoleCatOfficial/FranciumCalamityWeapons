@@ -2,9 +2,8 @@ using BreadLibrary.Core.Graphics.Particles;
 using DestroyerTest.Common;
 using DestroyerTest.Content.Buffs;
 using DestroyerTest.Content.Particles;
-using DestroyerTest.Content.Particles.fire;
 using FranciumCalamityWeapons.Content.Particles;
-using InnoVault.PRT;
+using OpusLib.Content.Particles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -64,7 +63,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             fire.PrepareFire(Projectile.Center, Vector2.Zero, DTUtils.RandomDirection(2), 0.2f, Color.Indigo, Color.Navy, 1f, 100, FireDrawMode.Additive);
             ParticleEngine.BehindProjectiles.Add(fire);
 
-            PRTLoader.NewParticle(PRTLoader.GetParticleID<Ember>(), RandPos, Vector2.Zero, new Color(Main.DiscoR / 2, (byte)(Main.DiscoG / 1.25f), (byte)(Main.DiscoB / 1.5f)), 1);
+            //PRTLoader.NewParticle(PRTLoader.GetParticleID<Ember>(), RandPos, Vector2.Zero, new Color(Main.DiscoR / 2, (byte)(Main.DiscoG / 1.25f), (byte)(Main.DiscoB / 1.5f)), 1);
 
 			// Fade out the projectile over time	
 			float maxDetectRadius = 400f; // The maximum radius at which a projectile can detect a target

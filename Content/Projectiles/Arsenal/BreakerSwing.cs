@@ -126,7 +126,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles.Arsenal
             }
         }
 
-        public override void HitNPCEffects(NPC npc, NPC.HitInfo hit)
+        public override void HitNPCEffects(NPC npc, NPC.HitInfo hit, int damageDone)
         {
             if (Owner.HeldItem.ModItem is Breaker B)
             {
