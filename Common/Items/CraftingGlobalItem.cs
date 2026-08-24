@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using CalamityMod.Items.Materials;
 using CalamityMod.Items.Weapons.Melee;
 using DestroyerTest.Content.Tiles.Riftplate;
-using FranciumCalamityWeapons.Content.Resources;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -17,13 +16,18 @@ namespace FranciumCalamityWeapons.Common.Items
         //Calamity Recipe Code
         public override void AddRecipes()
         {
-            static Func<Recipe, bool> Vanilla(int itemID) => r => r.Mod is null && r.HasResult(itemID);
-            static Func<Recipe, bool> Calamity(int itemID) => r => r.Mod is CalamityMod.CalamityMod && r.HasResult(itemID);
-            static Action<Recipe> AddIngredient(int itemID, int stack = 1) => r => r.AddIngredient(itemID, stack);
-            var edits = new Dictionary<Func<Recipe, bool>, Action<Recipe>>(128)
+
+        }
+
+        public override void PostAddRecipes()
+        {
+            foreach (Recipe recipe in Main.recipe)
             {
-                { Calamity(ModContent.ItemType<LifeAlloy>()), AddIngredient(ModContent.ItemType<Item_Riftplate>(), 1) },
-            };
+                if (recipe.HasResult<LifeAlloy>())
+                {
+                    recipe.AddIngredient(ModContent.ItemType<Item_Riftplate>(), 1);
+                }
+            }
         }
 
     }

@@ -7,7 +7,6 @@ using DestroyerTest.Content.Particles;
 using DestroyerTest.Content.Projectiles;
 using DestroyerTest.Content.Projectiles.ParentClasses;
 using DestroyerTest.Content.Projectiles.player.Accessory;
-using InnoVault.PRT;
 using Microsoft.Build.Evaluation;
 using Microsoft.Xna.Framework;
 using Terraria;

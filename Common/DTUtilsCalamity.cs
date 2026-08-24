@@ -17,8 +17,10 @@ namespace FranciumCalamityWeapons.Common
         public static DTUtilsCalamity Instance = new DTUtilsCalamity();
         public static Color GodSlayerInfernoGradient(float completion)
         {
-            return Color.Lerp(new Color(39, 151, 171), new Color(252, 109, 202), completion);
+            return Color.Lerp(new Color(38, 148, 237), new Color(217, 46, 223), completion);
         }
+
+        public static Color[] UC_Colormap = [Color.White, new Color(236, 255, 192), new Color(255, 241, 148), new Color(255, 166, 148), new Color(255, 93, 148), new Color(167, 46, 180)];
 
         public static Color DeuxiemeColor = Opus.Sine(Color.DarkRed, Color.DarkOrchid);
 

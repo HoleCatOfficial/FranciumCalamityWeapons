@@ -193,7 +193,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
         }
         public override void OnKill(int timeLeft)
         {
-            Opus.NewParticleFloatAI(PRTLoader.GetParticleID<BloomRingSharp>(), Projectile.Center, Vector2.Zero, DTUtilsCalamity.DeuxiemeColor, 0.001f, 0.5f);
+            //Opus.NewParticleFloatAI(PRTLoader.GetParticleID<BloomRingSharp>(), Projectile.Center, Vector2.Zero, DTUtilsCalamity.DeuxiemeColor, 0.001f, 0.5f);
         }
     }
 }

@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using CalamityMod.Items.Weapons.Melee;
 using CalamityMod.Projectiles.Melee.Spears;
 using DestroyerTest.Content.Scepter;
-using FranciumCalamityWeapons.Content.Resources;
 using FranciumCalamityWeapons.Content.Scepter;
 using Terraria;
 using Terraria.Audio;

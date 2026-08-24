@@ -52,7 +52,7 @@ namespace FranciumCalamityWeapons.Content.Equips.AbyssalNeptuneSet
 
 		public override void UpdateArmorSet(Player player)
 		{	
-			ScepterClassStats.ThrowSpeedModifier = 2f;
+			player.ScepterClass().ThrowSpeedModifier = 2f;
             if (player.TryGetModPlayer<AbyssalNeptuneDash>(out AbyssalNeptuneDash dash))
             {
                 dash.Active = true;

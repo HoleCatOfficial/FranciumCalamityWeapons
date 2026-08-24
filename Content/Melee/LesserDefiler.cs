@@ -10,6 +10,7 @@ using Terraria.ModLoader;
 
 namespace FranciumCalamityWeapons.Content.Melee
 {
+	/*
 	public class LesserDefiler : ModItem
 	{
 		public override void SetDefaults() {
@@ -47,10 +48,11 @@ namespace FranciumCalamityWeapons.Content.Melee
 		public override void AddRecipes() {
 			
 			CreateRecipe()
-			.AddIngredient<MeldConstruct>(8)
+			.AddIngredient<MeldBlob>(8)
 			.AddIngredient<TwistingNether>(8)
 			.AddTile(TileID.LunarCraftingStation)
 			.Register();
 		}
 	}
+	*/
 }

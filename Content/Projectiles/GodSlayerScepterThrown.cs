@@ -25,6 +25,7 @@ using CalamityMod.Projectiles.Typeless;
 using DestroyerTest.Content.Particles;
 using OpusLib;
 using CalamityMod.Dusts;
+using BreadLibrary.Core.Graphics.Particles;
 
 namespace FranciumCalamityWeapons.Content.Projectiles
 {
@@ -36,8 +37,8 @@ namespace FranciumCalamityWeapons.Content.Projectiles
         public int DustType { get; set; }
         public int soundCooldown = 0;
         public bool returning = false;
-        public Color CosmicBlue = new Color(39, 151, 171);
-        public Color CosmicPink = new Color(252, 109, 202);
+        public Color CosmicBlue = new Color(38, 148, 237);
+        public Color CosmicPink = new Color(217, 46, 223);
         public override void SetDefaults()
         {
             ThemeColor = new Color(Opus.Sine(CosmicBlue.R, CosmicPink.R), Opus.Sine(CosmicBlue.G, CosmicPink.G), Opus.Sine(CosmicBlue.B, CosmicPink.B));
@@ -45,8 +46,8 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             HeightDim = 84;
             DustType = ModContent.DustType<CosmiliteBarDust>();
 
-            Projectile.width = WidthDim + ScepterClassStats.SizeModifier;
-            Projectile.height = HeightDim + ScepterClassStats.SizeModifier;
+            Projectile.width = WidthDim;
+            Projectile.height = HeightDim;
             Projectile.friendly = true;
             Projectile.penetrate = -1;
             Projectile.light = 0.5f;
@@ -77,11 +78,15 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             {
                 if (Main.rand.NextBool(2))
                 {
-                    PRTLoader.NewParticle(PRTLoader.GetParticleID<StarParticle>(), Projectile.Center, Projectile.velocity * 0.25f, CosmicBlue, 1f);
+                    StarParticle Star1 = new StarParticle();
+                    Star1.Initialize(Projectile.Center, Projectile.velocity * 0.25f, CosmicBlue, 1f);
+                    ParticleEngine.BehindProjectiles.Add(Star1);
                 }
                 else
                 {
-                    PRTLoader.NewParticle(PRTLoader.GetParticleID<StarParticle>(), Projectile.Center, Projectile.velocity * 0.25f, CosmicPink, 1f);
+                    StarParticle Star2 = new StarParticle();
+                    Star2.Initialize(Projectile.Center, Projectile.velocity * 0.25f, CosmicPink, 1f);
+                    ParticleEngine.BehindProjectiles.Add(Star2);
                 }
             }
 
@@ -123,12 +128,9 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             if (returning)
             {
                 ArmCatchAnimate(player);
-                // InPhase: Smooth return using Lerp
-                Vector2 returnDirection = player.Center - Projectile.Center;
-                float speed = MathHelper.Lerp(Projectile.velocity.Length(), 15f, 0.08f); // Smooth acceleration
-                Projectile.velocity = returnDirection.SafeNormalize(Vector2.Zero) * speed;
 
-                // If close enough, remove the projectile
+                Projectile.SmoothMoveToPoint(player.MountedCenter, 12f * player.ScepterClass().ThrowSpeedModifier);
+
                 if (Projectile.Distance(player.Center) < 8) // 8 pixels radius
                 {
                     Projectile.Kill();
@@ -168,9 +170,8 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             if (Projectile.ai[2] <= 0)
             {
                 SoundEngine.PlaySound(Hit, target.Center);
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<SmallShine>(), target.Center, Vector2.Zero, Color.White, 1);
                 int PinkOrBlue = Main.rand.NextBool(2) ? ModContent.ProjectileType<CosmicStarPink>() : ModContent.ProjectileType<CosmicStarBlue>();
-                Opus.RadialSpreadProjectile(PinkOrBlue, 12, target.Center, Projectile.damage / 4, 0, 8, RandomOffset: false);
+                Opus.RadialSpreadProjectile(PinkOrBlue, 12, target.Center, Projectile.damage / 4, 0, 8, offset: Main.rand.NextFloat(MathHelper.TwoPi));
                 Projectile.ai[2] = 20;
             }
         }

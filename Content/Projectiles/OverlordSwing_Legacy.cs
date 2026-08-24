@@ -267,7 +267,6 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             Vector2 Frostdirection = new Vector2((float)Math.Cos(MathHelper.ToRadians(270)), (float)Math.Sin(MathHelper.ToRadians(270)));
             Projectile.NewProjectile(Entity.GetSource_OnHit(target), Projectile.Center, Flamedirection, ModContent.ProjectileType<CosmicStarPink>(), 1600, 8, Main.myPlayer);
             Projectile.NewProjectile(Entity.GetSource_OnHit(target), Projectile.Center, Frostdirection, ModContent.ProjectileType<CosmicStarBlue>(), 1600, 8, Main.myPlayer);
-			PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom1>(), Projectile.Center, Vector2.Zero, Color.Pink, 1);
         }
 	}
 }

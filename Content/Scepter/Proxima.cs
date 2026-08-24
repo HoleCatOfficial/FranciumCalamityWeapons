@@ -44,7 +44,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
             Item.shoot = ModContent.ProjectileType<GodSlayerScepterHoldout>();
             Item.shootSpeed = 12f;
             Item.noUseGraphic = true;
-            Item.damage = 435 + (int)Math.Round(ScepterClassStats.DamageModifier);
+            Item.damage = 435;
             Item.DamageType = ModContent.GetInstance<ScepterClass>();
             Item.channel = true;
             Item.UseSound = null;

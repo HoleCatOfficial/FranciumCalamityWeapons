@@ -71,9 +71,8 @@ namespace FranciumCalamityWeapons.Content.Equips
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = Language.GetTextValue("Mods.FranciumCalamityWeapons.Items.SilvaCrown.SetBonus");
-            ScepterClassStats.ThrowSpeedModifier += 2.25f;
-            ScepterClassStats.ShotBounceModifier += 4;
-            ScepterClassStats.SizeMultiplier = 1.75f;
+            player.ScepterClass().ThrowSpeedModifier += 2.25f;
+            player.ScepterClass().ShotBounceModifier += 4;
             player.Calamity().silvaSet = true;
             player.AddBuff(ModContent.BuffType<SilvaAttendantBuff>(), 600);
             if (player.TryGetModPlayer<SilvaCrownPlayer>(out var Crown))

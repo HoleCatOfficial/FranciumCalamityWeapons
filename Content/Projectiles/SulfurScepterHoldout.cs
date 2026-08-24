@@ -77,7 +77,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
                     Vector2 toCursor = Main.MouseWorld - mountedCenter;
                     toCursor.Normalize();
                     Vector2 PRTPos = mountedCenter + toCursor * PRTDist;
-                    PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp>(), PRTPos, Vector2.Zero, new Color(140, 234, 87), 2f);
+                    //PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp>(), PRTPos, Vector2.Zero, new Color(140, 234, 87), 2f);
                     for (int i = 0; i < 3; i++)
                     {
                         float angleOffset = Main.rand.NextFloat(-0.3f, 0.3f);

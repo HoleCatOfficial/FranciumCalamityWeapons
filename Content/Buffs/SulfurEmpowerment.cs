@@ -43,11 +43,11 @@ namespace FranciumCalamityWeapons.Content.Buffs
             {
                 if (Player.miscCounter % 20 == 0)
                 {
-                    Opus.RadialSpreadDust(DustID.TintableDustLighted, 16, Player.Center, 0, new Color(140, 234, 87), 1f, 3, true);
+                    Opus.RadialSpreadDust(DustID.TintableDustLighted, 16, Player.Center, 0, new Color(140, 234, 87), 1f, 3, Main.rand.NextFloat(MathHelper.TwoPi));
                 }
 
-                ScepterClassStats.Range += 160;
-                ScepterClassStats.ThrowSpeedModifier += 3f;
+                Player.ScepterClass().Range += 160;
+                Player.ScepterClass().ThrowSpeedModifier += 3f;
                 Player.GetDamage(ModContent.GetInstance<ScepterClass>()) *= 1.16f;
             }
         }
@@ -63,7 +63,7 @@ namespace FranciumCalamityWeapons.Content.Buffs
             {
                 if (Sulfur.Active)
                 {
-                    Opus.RadialSpreadDust(DustID.FireworksRGB, 10, target.Center, 0, new Color(140, 234, 87), 1f, 2, true);
+                    Opus.RadialSpreadDust(DustID.FireworksRGB, 10, target.Center, 0, new Color(140, 234, 87), 1f, 2, Main.rand.NextFloat(MathHelper.TwoPi));
                     target.AddBuff(ModContent.BuffType<Irradiated>(), 300);
                 }
             }

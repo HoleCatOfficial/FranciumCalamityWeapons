@@ -65,7 +65,7 @@ namespace FranciumCalamityWeapons.Content.Equips
 
         public override void UpdateEquip(Player player)
         {
-            ScepterClassStats.Range += 100;
+            player.ScepterClass().Range += 100;
         }
 
         public override void UpdateArmorSet(Player player)

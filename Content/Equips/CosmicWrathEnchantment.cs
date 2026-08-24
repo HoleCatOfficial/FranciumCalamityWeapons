@@ -16,9 +16,7 @@ using DestroyerTest.Content.RangedItems;
 using DestroyerTest.Content.MeleeWeapons;
 using DestroyerTest.Content.Buffs;
 using Terraria.Audio;
-using InnoVault.PRT;
 using CalamityMod.Tiles.Furniture.CraftingStations;
-using FranciumCalamityWeapons.Content.Resources;
 using FranciumCalamityWeapons.Content.Melee;
 using FranciumCalamityWeapons.Content.Particles;
 using CalamityMod.Items.Accessories;
@@ -70,7 +68,6 @@ namespace FranciumCalamityWeapons.Content.Equips
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient<FalseVacuum>(5)
             .AddIngredient<DarksunFragment>(5)
             .AddIngredient<Overlord>()
             .AddIngredient<NebulousCore>()
@@ -108,7 +105,7 @@ namespace FranciumCalamityWeapons.Content.Equips
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        PRTLoader.NewParticle(PRTLoader.GetParticleID<SmallShine>(), Spawn, ToPlayer * 0.03f, DTUtilsCalamity.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), Main.rand.NextFloat(0.5f, 1.5f));
+                       
                     }
                    
                 }
@@ -118,7 +115,7 @@ namespace FranciumCalamityWeapons.Content.Equips
             if (currentCooldown == 1)
                 {
                     SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/CosmicWrathEnchantmentRegen"), Player.position);
-                    PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp>(), Player.Center, Vector2.Zero, DTUtilsCalamity.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), 3f);
+                    
                 }
         }
 
@@ -131,7 +128,7 @@ namespace FranciumCalamityWeapons.Content.Equips
                 {
                 Player.GetModPlayer<ScreenshakePlayer>().screenshakeTimer = 5;
 			    Player.GetModPlayer<ScreenshakePlayer>().screenshakeMagnitude = 16;
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp>(), Player.Center, Vector2.Zero, DTUtilsCalamity.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), 1f);
+                //PRTLoader.NewParticle(PRTLoader.GetParticleID<BloomRingSharp>(), Player.Center, Vector2.Zero, DTUtilsCalamity.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), 1f);
                 SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/CosmicWrathEnchantmentDeath"), Player.position);
                 Player.statLife = Player.statLifeMax2;
                 CombatText.NewText(Player.getRect(), DTUtilsCalamity.GodSlayerInfernoGradient((float)(0.5 * (1 + Math.Sin(Main.GlobalTimeWrappedHourly * 2f * Math.PI)))), "Death Evaded!", true);

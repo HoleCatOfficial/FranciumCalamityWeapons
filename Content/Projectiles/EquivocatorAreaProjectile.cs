@@ -1,4 +1,5 @@
 using System;
+using BreadLibrary.Core.Graphics.Particles;
 using DestroyerTest.Common;
 using DestroyerTest.Content.Particles;
 using FranciumCalamityWeapons.Content.Particles;
@@ -62,7 +63,10 @@ namespace FranciumCalamityWeapons.Content.Projectiles
                 Vector2 dustPos = Projectile.Center + radius * new Vector2((float)Math.Cos(dynamicAngle), (float)Math.Sin(dynamicAngle));
                 Color baseColor = new Color(Main.DiscoR / 2, (byte)(Main.DiscoG / 1.25f), (byte)(Main.DiscoB / 1.5f));
 				Color pastelColor = Color.Lerp(baseColor, Color.White, 0.5f);
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<StarParticle>(), dustPos, Vector2.Zero, pastelColor, 1);
+
+                StarParticle Star = new();
+                Star.Initialize(dustPos, Vector2.Zero, pastelColor, 1);
+                ParticleEngine.Particles.Add(Star);
             }
             if (auraTimer <= 30)
             {

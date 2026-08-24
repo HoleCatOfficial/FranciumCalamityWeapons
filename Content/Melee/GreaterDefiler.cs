@@ -10,6 +10,7 @@ using Terraria.ModLoader;
 
 namespace FranciumCalamityWeapons.Content.Melee
 {
+	/*
 	public class GreaterDefiler : ModItem
 	{
 		public override void SetDefaults() {
@@ -45,4 +46,5 @@ namespace FranciumCalamityWeapons.Content.Melee
 			.Register();
 		}
 	}
+	*/
 }

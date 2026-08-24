@@ -32,25 +32,16 @@ namespace FranciumCalamityWeapons.Common.Items
         public static bool CalamityLoaded => ModLoader.HasMod("CalamityMod");
         public static bool DestroyerTestLoaded => ModLoader.HasMod("DestroyerTest");
 
-        public Vector2 PlayerToMouse = Main.MouseWorld - Main.LocalPlayer.Center;
-        public Vector2 MouseToPlayer = Main.LocalPlayer.Center - Main.MouseWorld;
-
         public override bool InstancePerEntity => true;
 
-        public override bool Shoot(Item item, Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        public override void SetDefaults(Item entity)
         {
-            if (CalamityLoaded && player.Calamity().StealthStrikeAvailable() && item.type == ModContent.ItemType<P_Noctis>())
-            {
-				Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<PNoctisAoE>(), damage, 0);
-			}
-            return base.Shoot(item, player, source, position, velocity, type, damage, knockback);
+            if (!CalamityLoaded || !DestroyerTestLoaded)
+                return;
+
+     
         }
 
-
-        public override bool AppliesToEntity(Item entity, bool lateInstantiation)
-        {
-            return true;
-        }
     }
     
     public class RogueCompatibilityStealthPlayer : ModPlayer
@@ -96,16 +87,6 @@ namespace FranciumCalamityWeapons.Common.Items
             if (!RogueCompatibility.CalamityLoaded || !RogueCompatibility.DestroyerTestLoaded)
                 return;
 
-            if (projectile.DamageType == ModContent.GetInstance<DTRogueClass>())
-            {
-                projectile.DamageType = ModContent.GetInstance<RogueDamageClass>();
-
-                Player owner = Main.player[projectile.owner];
-                if (owner.GetModPlayer<RogueCompatibilityStealthPlayer>().usedStealthStrike)
-                {
-                    IsStealth = true;
-                }
-            }
         }
 
         public override void AI(Projectile projectile)

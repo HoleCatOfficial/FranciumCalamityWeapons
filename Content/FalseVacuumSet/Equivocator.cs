@@ -3,7 +3,6 @@ using CalamityMod.Items.LoreItems;
 using CalamityMod.Items.Weapons.Melee;
 using CalamityMod.Tiles.Furniture.CraftingStations;
 using FranciumCalamityWeapons.Content.Projectiles;
-using FranciumCalamityWeapons.Content.Resources;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -60,12 +59,7 @@ namespace FranciumCalamityWeapons.Content.FalseVacuumSet
 
 		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
 		public override void AddRecipes() {
-			CreateRecipe()
-				.AddIngredient<HeatDeath>(18)
-				.AddIngredient<LuminousPartisan>(1)
-				.AddIngredient<LoreAwakening>(1)
-				.AddTile<DraedonsForge>()
-				.Register();
+
 		}
 	}
 }

@@ -27,8 +27,10 @@ namespace FranciumCalamityWeapons.Content.Particles.Orchestrated
         {
             if (!Spawned)
             {
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<StarParticle>(), position, Vector2.Zero, Color.White, 1f);
 
+                StarParticle Star = new();
+                Star.Initialize(position, Vector2.Zero, Color.White, 1f);
+                ParticleEngine.Particles.Add(Star);
 
 
                 Spark Up = new Spark();

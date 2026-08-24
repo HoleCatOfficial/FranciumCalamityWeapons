@@ -42,7 +42,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
 			Item.shoot = ModContent.ProjectileType<GodSlayerScepterHoldout>(); // The sword as a projectile
 			Item.shootSpeed = 12f;
 			Item.noUseGraphic = true; // The sword is actually a "projectile", so the item should not be visible when used
-			Item.damage = 435 + (int)Math.Round(ScepterClassStats.DamageModifier); // The damage of your sword, this is dynamically adjusted in the projectile code.
+			Item.damage = 435; // The damage of your sword, this is dynamically adjusted in the projectile code.
 			Item.DamageType = ModContent.GetInstance<ScepterClass>();
 			Item.channel = true;
 			Item.UseSound = null;
@@ -67,7 +67,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
                 Item.noMelee = false; // The projectile will do the damage and not the item
                 Item.UseSound = Throw;
                 Item.crit = 19;
-                Item.damage = 435 + (int)Math.Round(ScepterClassStats.DamageModifier); // The damage of your sword, this is dynamically adjusted in the projectile code.
+				Item.damage = 435; // The damage of your sword, this is dynamically adjusted in the projectile code.
                 Item.DamageType = ModContent.GetInstance<ScepterClass>();
                 Item.channel = true;
             }
@@ -87,7 +87,7 @@ namespace FranciumCalamityWeapons.Content.Scepter
                 Item.shoot = ModContent.ProjectileType<GodSlayerScepterHoldout>(); // The sword as a projectile
                 Item.shootSpeed = 0.01f;
                 Item.noUseGraphic = true; // The sword is actually a "projectile", so the item should not be visible when used
-                Item.damage = 435 + (int)Math.Round(ScepterClassStats.DamageModifier); // The damage of your sword, this is dynamically adjusted in the projectile code.
+                Item.damage = 435; // The damage of your sword, this is dynamically adjusted in the projectile code.
                 Item.DamageType = ModContent.GetInstance<ScepterClass>();
                 Item.channel = true;
 				Item.UseSound = null;

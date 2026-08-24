@@ -33,7 +33,6 @@ namespace FranciumCalamityWeapons.Content.Projectiles
         {
             if (DidTheThing == false)
             {
-                PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom3>(), Projectile.Center, Vector2.Zero, new Color(140, 234, 87), 2f);
                 DidTheThing = true;
             }
         }

@@ -82,8 +82,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
        
         public void Explosion()
         {
-            Opus.NewParticleFloatAI(PRTLoader.GetParticleID<BoomCloud>(), Projectile.Center, Vector2.Zero, Color.Red, 0.01f, 1.5f);
-            Opus.RadialDustRandomDir((int) CalamityDusts.Brimstone, 10, Projectile.Center, 1, default, 1f, 2.6f);
+            Opus.RadialSpreadDustRandom((int) CalamityDusts.Brimstone, 10, Projectile.Center, 1, default, 1f, 2.6f);
         }
 
         public override void OnKill(int timeLeft)

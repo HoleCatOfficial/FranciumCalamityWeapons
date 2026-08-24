@@ -198,7 +198,6 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 						if (Locked == true && TargetNPC != null && TargetNPC.active == true && TargetNPC.Distance(player.MountedCenter) < 101f)
 							{
 								SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/FlameImpact") with {PitchVariance = 1}, Projectile.position);
-								PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom2>(), Projectile.Center, Vector2.Zero, Color.Pink, 1);
 
 								// Reverse the TargetNPC velocity to bang them in the other direction
 								TargetNPC.velocity = (TargetNPC.Center - player.Center).SafeNormalize(Vector2.Zero) * 10f; // Push outward with a speed of 10
@@ -463,7 +462,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 				SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/StabAnchor") with { PitchVariance = 1 }, Projectile.position);
 				if (CurrentAIState != AIState.Spinning)
 				{
-					PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom2>(), Projectile.Center, Vector2.Zero, Color.Pink, 1);
+
 				}
 				
 			}

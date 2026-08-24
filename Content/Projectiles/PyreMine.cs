@@ -47,7 +47,6 @@ namespace FranciumCalamityWeapons.Content.Projectiles
             Player player = Main.player[Projectile.owner];
             int damage = player.GetWeaponDamage(player.HeldItem);
             SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/PyreMineBlast"), Projectile.Center);
-            PRTLoader.NewParticle(PRTLoader.GetParticleID<Boom4>(), Projectile.Center, Vector2.Zero, new Color(224, 108, 29), 1f);
 
             for (int i = 0; i < Main.npc.Length; i++)
             {

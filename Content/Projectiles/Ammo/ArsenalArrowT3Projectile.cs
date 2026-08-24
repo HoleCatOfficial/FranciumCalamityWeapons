@@ -69,7 +69,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles.Ammo
             t = Math.Clamp(t, 0f, 1f);
 
             Color blastColor = Color.Lerp(Color.White, PhaseSlayerOrange, t);
-            Opus.NewParticleFloatAI(PRTLoader.GetParticleID<BloomRingSharp>(), Projectile.Center, Vector2.Zero, blastColor, 0.01f, 1f);
+            //Opus.NewParticleFloatAI(PRTLoader.GetParticleID<BloomRingSharp>(), Projectile.Center, Vector2.Zero, blastColor, 0.01f, 1f);
 
             Projectile.Resize(300, 300);
 
@@ -108,7 +108,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles.Ammo
                 smokeGore.velocity -= Vector2.One;
             }
 
-            Opus.RadialProjectileRandomDir(ModContent.ProjectileType<ArsenalArrowT3Spark>(), 5, Projectile.Center, (int)(Projectile.damage * 0.75f), 0, 5, friendly: true);
+            Opus.RadialSpreadProjectileRandom(ModContent.ProjectileType<ArsenalArrowT3Spark>(), 5, Projectile.Center, (int)(Projectile.damage * 0.75f), 0, 5);
 		}
 	}
 }

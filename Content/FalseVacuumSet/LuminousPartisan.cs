@@ -6,7 +6,6 @@ using CalamityMod.Items.Placeables.Abyss;
 using CalamityMod.Items.Weapons.Melee;
 using CalamityMod.Tiles.Furniture.CraftingStations;
 using FranciumCalamityWeapons.Content.Projectiles;
-using FranciumCalamityWeapons.Content.Resources;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -66,12 +65,8 @@ namespace FranciumCalamityWeapons.Content.FalseVacuumSet
 
 		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
 		public override void AddRecipes() {
-			CreateRecipe()
-				.AddIngredient<Voidstone>(10)
-				.AddIngredient<Lumenyl>(8)
-				.AddIngredient<FalseVacuum>(4)
-				.AddTile<CosmicAnvil>()
-				.Register();
+
+
 		}
 	}
 }

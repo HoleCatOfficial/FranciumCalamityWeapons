@@ -30,4 +30,6 @@ namespace FranciumCalamityWeapons.Content.CalLoreItems
         }
 
     }
+
+    
 }

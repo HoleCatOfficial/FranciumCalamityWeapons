@@ -95,9 +95,8 @@ Items: {
 		DisplayName: Deuxième
 		Tooltip:
 			'''
-			Swings in a circle and periodically shoots homing Shimmering Flames.
-			True Melee hits inflict Shred.
-			'The Finest the Shade World can offer. A pitiful transformation of The Great Incarnadine from long-range to close quarters.'
+			True Melee hits inflict Shred and create two homing stars.
+			Critical hits create Colossus Phantoms that stab enemies twice.
 			'''
 	}
 
@@ -198,43 +197,14 @@ Items: {
 			'''
 	}
 
-	PasserUmbraeSeparatricis: {
-		DisplayName: Passer Umbrae Separatricis
-		Tooltip:
-			'''
-			Light Bends around this weapon...
-			With a luminant plume, this javelin bursts into a spread of 5 feathers on collision with a tile.
-			Stealth Strikes summon a radiant sparrow to sweep away you foes.
-			'''
-	}
-
-	FinalCommand: {
-		DisplayName: Final Command
-		Tooltip: ""
-	}
-
-	Twisted: {
-		DisplayName: Embargo
-		Tooltip: ""
-	}
-
-	TheCrystal: {
-		DisplayName: Eye of the Nirvana
-		Tooltip: ""
-	}
-
-	GazeofNoxus: {
-		Tooltip: ""
-		DisplayName: Gazeof Noxus
-	}
-
 	Lore: {
 		NightmareRoseLore: {
 			DisplayName: Nightmare Rose
 			Lore:
 				'''
-				This... thing appears to be a more recent phenomena than anything else.
-				No texts in my library speak of anything like it, though I wouldn't put it past those dead gods to try and reconstruct a new body out of their worshippers' flesh.
+				The Fallen Fighter... Renowned all around multiple worlds for his mission to upend tyranny.
+				I don't have much to say about him, on account of never coming face to face with him or the revolutions he's sparked. His crusade and mine run almost parallel.
+				An awful shame that wretch Hekate decided to murder him...
 				'''
 			Tooltip: ""
 		}
@@ -246,12 +216,12 @@ Items: {
 				Due to their benevolence, it has always been, and continues to be percieved as, the ultimate crime to slight The Great Wyvern.
 				To brutalize the pinnacle of innocence and generosity and good will is a sin incomparable to any other, according to common belief.
 				Though, if I am to be entirely honest, I do not feel the same.
-				That worm had been the subject of my adoration for many years on account of those same traits of generosity and good will.
+				The Great Wyvern had been the subject of my adoration for many years on account of those same traits of generosity and good will.
 
-				That adoration ended the day I asked for its blessing and they turned me away.
+				That adoration ended the day I asked for their blessing and they turned me away.
 				They claimed I was "impure", and that I had dark desires that it could not sponsor.
 
-				I knew that day exactly who's side the Wyvern was on.
+				I knew that day exactly who's side that worm was on.
 				I never needed a loyalist to the gods getting in my way anyway.
 				'''
 			Tooltip: ""
@@ -261,16 +231,6 @@ Items: {
 	LuminousPartisan: {
 		DisplayName: Luminous Partisan
 		Tooltip: ""
-	}
-
-	StellarJaw: {
-		Tooltip: ""
-		DisplayName: Stellar Jaw
-	}
-
-	StarConqueringMaw: {
-		Tooltip: ""
-		DisplayName: Star Conquering Maw
 	}
 
 	IntestinalLacerator: {
@@ -515,6 +475,29 @@ Items: {
 		DisplayName: Astral Scepter
 		Tooltip: ""
 	}
+
+	UnfathomableConglomeration: {
+		DisplayName: Unfathomable Conglomeration
+		Tooltip:
+		'''
+		Combines the effects of [i:CalamityMod/TheAmalgam] The Amalgam and the [i:DestroyerTest/ShadeHeart] Shade Heart.
+		
+		[i:DestroyerTest/ShadeHeart]Grants immunity to Shimmering Flames, God Slayer Inferno, and Defilement.
+		[i:DestroyerTest/ShadeHeart]26% increased all-class damage.
+		[i:DestroyerTest/ShadeHeart]All classes ignore 37 points of enemy defense.
+		[i:DestroyerTest/ShadeHeart]21% Incoming Damage Reduction.
+		[i:DestroyerTest/ShadeHeart]You Emit Light.
+		[i:DestroyerTest/ShadeHeart][i:CalamityMod/TheAmalgam] Taking damage confuses nearby enemies, spawns a dank creeper, and releases 4 Rotten Stars that inflict several debuffs.
+		
+		[i:CalamityMod/TheAmalgam] The dank creeper flies above you, exploding into several shaderain clouds
+		[i:CalamityMod/TheAmalgam] All attacks inflict a variety of debuffs, 225% increased elemental debuff damage.
+		[i:CalamityMod/TheAmalgam] Most buffs last twice as long, and persist after dying.
+		[i:CalamityMod/TheAmalgam] Grants or improves the ability to dodge attacks
+		[i:CalamityMod/TheAmalgam] After dodging, summon damage and crit chance are boosted by 10%
+
+		'It smells 200 times worse than it looks'
+		'''
+	}
 }
 
 Projectiles: {
@@ -627,6 +610,7 @@ Projectiles: {
 	ProximaThrown.DisplayName: Proxima Thrown
 	DreamDiscMini.DisplayName: Dream Disc Mini
 	AstralScepterThrown.DisplayName: Astral Scepter Thrown
+	RottenStar.DisplayName: Rotten Star
 }
 
 UI.OverlordChargeBar: Overlord Hit Count

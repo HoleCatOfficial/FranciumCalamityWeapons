@@ -5,7 +5,6 @@ using CalamityMod.Tiles.Furniture.CraftingStations;
 using DestroyerTest.Content.MeleeWeapons;
 using DestroyerTest.Content.Resources;
 using FranciumCalamityWeapons.Content.Projectiles;
-using FranciumCalamityWeapons.Content.Resources;
 using GlowmaskHelper.Content;
 using Microsoft.Xna.Framework;
 using Terraria;

@@ -36,6 +36,8 @@ using DestroyerTest.Content.Equips;
 using CalamityMod.Items.Accessories;
 using DestroyerTest.Rarity.Scepter;
 using Terraria.GameContent;
+using BreadLibrary.Core.Graphics.Particles;
+using OpusLib.Content.Particles;
 
 namespace FranciumCalamityWeapons.Content.Equips.NecroplasmSet
 {
@@ -71,7 +73,7 @@ namespace FranciumCalamityWeapons.Content.Equips.NecroplasmSet
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = Language.GetTextValue("Mods.FranciumCalamityWeapons.Items.NecrokidHead.SetBonus");
-            ScepterClassStats.ThrowSpeedModifier += 4f;
+            player.ScepterClass().ThrowSpeedModifier += 4f;
             player.Calamity().dodgeScarf = true;
             if (player.TryGetModPlayer<NecrokidPlayer>(out var Necro))
             {
@@ -129,7 +131,7 @@ namespace FranciumCalamityWeapons.Content.Equips.NecroplasmSet
                     if (!Sound1)
                     {
                         SoundEngine.PlaySound(new SoundStyle("FranciumCalamityWeapons/Audio/NecrokidCharge") with { PitchVariance = 0.5f }, Player.Center);
-                        Opus.RingDustOutward(DustID.FireworksRGB, 12, Player.Center, 20, 0, new Color(254, 80, 128), 1f, 3, RandomOffset: true);
+                        Opus.RingSpreadDust(DustID.FireworksRGB, 12, Player.Center, 20, 0, new Color(254, 80, 128), 1f, 3, offset: Main.rand.NextFloat(MathHelper.TwoPi));
                         Sound1 = true;
                     }
                 }
@@ -170,8 +172,16 @@ namespace FranciumCalamityWeapons.Content.Equips.NecroplasmSet
 
         public void Burst()
         {
-            Opus.RadialParticleRandomDir(PRTLoader.GetParticleID<SimpleParticle>(), 22, Player.Center, 1, new Color(254, 80, 128), 2f, 4);
-            Opus.NewParticleFloatAI(PRTLoader.GetParticleID<BloomRingSharp>(), Player.Center, Vector2.Zero, new Color(254, 80, 128), 0.01f, 1.5f);
+            for (int i = 0; i < 22; i++)
+            {
+                PointGlowPreMultiplied Part = new();
+                Part.Initialize(Player.MountedCenter, Main.rand.NextVector2Circular(4, 4), new Color(254, 80, 128), 2f);
+                ParticleEngine.ShaderParticles.Add(Part);
+            }
+
+            BloomRingSharp Ring = new();
+            Ring.Prepare(Player.MountedCenter, Vector2.Zero, new Color(254, 80, 128), 0.3f, 0.02f, 3f, BlendState.Additive);
+            ParticleEngine.ShaderParticles.Add(Ring);
         }
 
         public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource)

@@ -103,7 +103,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
                 {
                     SoundEngine.PlaySound(Shoot, Projectile.Center);
 
-                    Opus.RadialSpreadProjectile(ModContent.ProjectileType<ProximaCrescent>(), 4, player.MountedCenter, Projectile.damage / 4, 8, 8, RandomOffset: true);
+                    Opus.RadialSpreadProjectile(ModContent.ProjectileType<ProximaCrescent>(), 4, player.MountedCenter, Projectile.damage / 4, 8, 8, offset: Main.rand.NextFloat(MathHelper.TwoPi));
                 }
             }
             else
