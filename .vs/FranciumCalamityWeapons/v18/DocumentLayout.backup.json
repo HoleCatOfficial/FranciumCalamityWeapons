@@ -3,20 +3,68 @@
   "WorkspaceRootPath": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\rottenstar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\projectiles\\rottenstar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\build.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:build.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\equips\\unfathomableconglomeration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\equips\\unfathomableconglomeration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\equips\\charmofego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\equips\\charmofego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\melee\\overlord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\melee\\overlord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\overlordswing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\projectiles\\overlordswing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\localization\\en-us_mods.franciumcalamityweapons.hjson||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:localization\\en-us_mods.franciumcalamityweapons.hjson||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\charmofegoexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\projectiles\\charmofegoexplosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\common\\dtutilscalamity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:common\\dtutilscalamity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\cosmicstarpink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\projectiles\\cosmicstarpink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\cosmicstarblue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\projectiles\\cosmicstarblue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\causticshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\projectiles\\causticshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\causticblob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\projectiles\\causticblob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\causticaoe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\projectiles\\causticaoe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\common\\items\\craftingglobalitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:common\\items\\craftingglobalitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\common\\crossmod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:common\\crossmod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\rottenstar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\projectiles\\rottenstar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\equips\\unfathomableconglomeration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\equips\\unfathomableconglomeration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\common\\items\\elementalsceptermodificationglobalitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -49,16 +97,8 @@
       "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\melee\\deuxi\u00E8me.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\common\\items\\craftingglobalitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:common\\items\\craftingglobalitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\common\\items\\assetreplaceglobalitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:common\\items\\assetreplaceglobalitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\build.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:build.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\sulfurscepterholdout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -85,14 +125,6 @@
       "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\equips\\silvacrown.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\melee\\overlord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\melee\\overlord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\overlordswing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\projectiles\\overlordswing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\godslayerscepterholdout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\projectiles\\godslayerscepterholdout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -103,14 +135,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\calloreitems\\nightmareroselore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\calloreitems\\nightmareroselore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\cosmicstarpink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\projectiles\\cosmicstarpink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\cosmicstarblue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|solutionrelative:content\\projectiles\\cosmicstarblue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E5453F3-B408-405F-B9C2-2C4E7BC6D628}|FranciumCalamityWeapons.csproj|c:\\users\\franc\\documents\\my games\\terraria\\tmodloader\\modsources\\franciumcalamityweapons\\content\\projectiles\\deuxi\u00E8meswing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -158,17 +182,53 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 34,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{34c7837f-3b3a-449c-bdf0-bdad86cbaf4a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "en-US_Mods.FranciumCalamityWeapons.hjson",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Localization\\en-US_Mods.FranciumCalamityWeapons.hjson",
               "RelativeDocumentMoniker": "Localization\\en-US_Mods.FranciumCalamityWeapons.hjson",
               "ToolTip": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Localization\\en-US_Mods.FranciumCalamityWeapons.hjson",
               "RelativeToolTip": "Localization\\en-US_Mods.FranciumCalamityWeapons.hjson",
-              "ViewState": "AgIAANoBAAAAAAAAAAAAAPEBAAArAAAAAAAAAA==",
+              "ViewState": "AgIAANoBAAAAAAAAAAAAAPoBAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2026-08-24T05:54:00.896Z",
               "IsPinned": true,
@@ -176,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 15,
               "Title": "UnfathomableConglomeration.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Equips\\UnfathomableConglomeration.cs",
               "RelativeDocumentMoniker": "Content\\Equips\\UnfathomableConglomeration.cs",
@@ -190,20 +250,98 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
+              "Title": "CausticAoE.cs",
+              "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\CausticAoE.cs",
+              "RelativeDocumentMoniker": "Content\\Projectiles\\CausticAoE.cs",
+              "ToolTip": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\CausticAoE.cs",
+              "RelativeToolTip": "Content\\Projectiles\\CausticAoE.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T18:01:23.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CausticShot.cs",
+              "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\CausticShot.cs",
+              "RelativeDocumentMoniker": "Content\\Projectiles\\CausticShot.cs",
+              "ToolTip": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\CausticShot.cs",
+              "RelativeToolTip": "Content\\Projectiles\\CausticShot.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T17:57:31.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CausticBlob.cs",
+              "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\CausticBlob.cs",
+              "RelativeDocumentMoniker": "Content\\Projectiles\\CausticBlob.cs",
+              "ToolTip": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\CausticBlob.cs",
+              "RelativeToolTip": "Content\\Projectiles\\CausticBlob.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T17:57:25.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CharmOfEgoExplosion.cs",
+              "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\CharmOfEgoExplosion.cs",
+              "RelativeDocumentMoniker": "Content\\Projectiles\\CharmOfEgoExplosion.cs",
+              "ToolTip": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\CharmOfEgoExplosion.cs",
+              "RelativeToolTip": "Content\\Projectiles\\CharmOfEgoExplosion.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAzwCUAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T17:51:43.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CrossMod.cs",
+              "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Common\\CrossMod.cs",
+              "RelativeDocumentMoniker": "Common\\CrossMod.cs",
+              "ToolTip": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Common\\CrossMod.cs",
+              "RelativeToolTip": "Common\\CrossMod.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T17:40:17.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CharmOfEgo.cs",
+              "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Equips\\CharmOfEgo.cs",
+              "RelativeDocumentMoniker": "Content\\Equips\\CharmOfEgo.cs",
+              "ToolTip": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Equips\\CharmOfEgo.cs",
+              "RelativeToolTip": "Content\\Equips\\CharmOfEgo.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAEwFgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T17:21:02.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "RottenStar.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\RottenStar.cs",
               "RelativeDocumentMoniker": "Content\\Projectiles\\RottenStar.cs",
               "ToolTip": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\RottenStar.cs",
               "RelativeToolTip": "Content\\Projectiles\\RottenStar.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAUwGUAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAiwHcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-24T05:19:09.991Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 20,
               "Title": "PixelationSystem.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\AppData\\Local\\SourceServer\\e682a8565c80a40727f82b2fd237e81d8ec97ff804f798592942c778bb1a4e15\\Core\\Graphics\\Pixelation\\PixelationSystem.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\AppData\\Local\\SourceServer\\e682a8565c80a40727f82b2fd237e81d8ec97ff804f798592942c778bb1a4e15\\Core\\Graphics\\Pixelation\\PixelationSystem.cs",
@@ -216,7 +354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 21,
               "Title": "SpecialBossHealthBar.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\DestroyerTest\\Content\\UI\\SpecialBossHealthBar.cs",
               "RelativeDocumentMoniker": "..\\DestroyerTest\\Content\\UI\\SpecialBossHealthBar.cs",
@@ -229,7 +367,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 23,
               "Title": "Deuxi\u00E8me.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Melee\\Deuxi\u00E8me.cs",
               "RelativeDocumentMoniker": "Content\\Melee\\Deuxi\u00E8me.cs",
@@ -242,7 +380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 17,
               "Title": "CosmicWrathEnchantment.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Equips\\CosmicWrathEnchantment.cs",
               "RelativeDocumentMoniker": "Content\\Equips\\CosmicWrathEnchantment.cs",
@@ -255,7 +393,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 16,
               "Title": "ElementalScepterModificationGlobalItem.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Common\\Items\\ElementalScepterModificationGlobalItem.cs",
               "RelativeDocumentMoniker": "Common\\Items\\ElementalScepterModificationGlobalItem.cs",
@@ -274,14 +412,14 @@
               "RelativeDocumentMoniker": "Common\\Items\\CraftingGlobalItem.cs",
               "ToolTip": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Common\\Items\\CraftingGlobalItem.cs",
               "RelativeToolTip": "Common\\Items\\CraftingGlobalItem.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAiwBsAAABTAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAiwCAAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-23T23:49:39.311Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 24,
               "Title": "AssetReplaceGlobalItem.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Common\\Items\\AssetReplaceGlobalItem.cs",
               "RelativeDocumentMoniker": "Common\\Items\\AssetReplaceGlobalItem.cs",
@@ -294,7 +432,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 22,
               "Title": "RogueCompatibilityGlobalItem.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Common\\Items\\RogueCompatibilityGlobalItem.cs",
               "RelativeDocumentMoniker": "Common\\Items\\RogueCompatibilityGlobalItem.cs",
@@ -307,7 +445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 26,
               "Title": "ScepterImbuesCalamity.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Common\\ScepterImbuesCalamity.cs",
               "RelativeDocumentMoniker": "Common\\ScepterImbuesCalamity.cs",
@@ -319,7 +457,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 19,
               "Title": "FranciumCalamityWeapons.csproj",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\FranciumCalamityWeapons.csproj",
               "RelativeDocumentMoniker": "FranciumCalamityWeapons.csproj",
@@ -332,7 +470,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 32,
               "Title": "CalLoreDrops.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\CalLoreItems\\CalLoreDrops.cs",
               "RelativeDocumentMoniker": "Content\\CalLoreItems\\CalLoreDrops.cs",
@@ -344,7 +482,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 33,
               "Title": "NightmareRoseLore.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\CalLoreItems\\NightmareRoseLore.cs",
               "RelativeDocumentMoniker": "Content\\CalLoreItems\\NightmareRoseLore.cs",
@@ -356,7 +494,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 25,
               "Title": "SulfurScepterHoldout.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\SulfurScepterHoldout.cs",
               "RelativeDocumentMoniker": "Content\\Projectiles\\SulfurScepterHoldout.cs",
@@ -369,7 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 29,
               "Title": "Equivocator.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\FalseVacuumSet\\Equivocator.cs",
               "RelativeDocumentMoniker": "Content\\FalseVacuumSet\\Equivocator.cs",
@@ -381,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 28,
               "Title": "LuminousPartisan.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\FalseVacuumSet\\LuminousPartisan.cs",
               "RelativeDocumentMoniker": "Content\\FalseVacuumSet\\LuminousPartisan.cs",
@@ -393,19 +531,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 2,
               "Title": "Overlord.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Melee\\Overlord.cs",
               "RelativeDocumentMoniker": "Content\\Melee\\Overlord.cs",
               "ToolTip": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Melee\\Overlord.cs",
               "RelativeToolTip": "Content\\Melee\\Overlord.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowDMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-02T20:56:19.106Z"
+              "WhenOpened": "2026-08-02T20:56:19.106Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 0,
               "Title": "build.txt",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\build.txt",
               "RelativeDocumentMoniker": "build.txt",
@@ -418,7 +557,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 35,
               "Title": "GodSlayerScepterThrown.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\GodSlayerScepterThrown.cs",
               "RelativeDocumentMoniker": "Content\\Projectiles\\GodSlayerScepterThrown.cs",
@@ -430,7 +569,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 31,
               "Title": "GodSlayerScepterHoldout.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\GodSlayerScepterHoldout.cs",
               "RelativeDocumentMoniker": "Content\\Projectiles\\GodSlayerScepterHoldout.cs",
@@ -442,7 +581,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 37,
               "Title": "NightFlameProjectile.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\NightFlameProjectile.cs",
               "RelativeDocumentMoniker": "Content\\Projectiles\\NightFlameProjectile.cs",
@@ -454,7 +593,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 36,
               "Title": "OverlordSwing_Legacy.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\OverlordSwing_Legacy.cs",
               "RelativeDocumentMoniker": "Content\\Projectiles\\OverlordSwing_Legacy.cs",
@@ -466,43 +605,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 3,
               "Title": "OverlordSwing.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\OverlordSwing.cs",
               "RelativeDocumentMoniker": "Content\\Projectiles\\OverlordSwing.cs",
               "ToolTip": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\OverlordSwing.cs",
               "RelativeToolTip": "Content\\Projectiles\\OverlordSwing.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAwCMAAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAwFEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T17:12:32.96Z"
+              "WhenOpened": "2026-07-30T17:12:32.96Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 7,
               "Title": "CosmicStarPink.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\CosmicStarPink.cs",
               "RelativeDocumentMoniker": "Content\\Projectiles\\CosmicStarPink.cs",
               "ToolTip": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\CosmicStarPink.cs",
               "RelativeToolTip": "Content\\Projectiles\\CosmicStarPink.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAswEIAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAmwEIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T17:11:29.909Z"
+              "WhenOpened": "2026-07-30T17:11:29.909Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 8,
               "Title": "CosmicStarBlue.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\CosmicStarBlue.cs",
               "RelativeDocumentMoniker": "Content\\Projectiles\\CosmicStarBlue.cs",
               "ToolTip": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\CosmicStarBlue.cs",
               "RelativeToolTip": "Content\\Projectiles\\CosmicStarBlue.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAqwDIAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAmwDIAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T17:11:13.653Z"
+              "WhenOpened": "2026-07-30T17:11:13.653Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 34,
               "Title": "Deuxi\u00E8meSwing.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\Deuxi\u00E8meSwing.cs",
               "RelativeDocumentMoniker": "Content\\Projectiles\\Deuxi\u00E8meSwing.cs",
@@ -514,7 +656,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 18,
               "Title": "FranciumCalamityWeapons.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\FranciumCalamityWeapons.cs",
               "RelativeDocumentMoniker": "FranciumCalamityWeapons.cs",
@@ -527,7 +669,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 41,
               "Title": "VictideHeaddress.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Equips\\VictideHeaddress.cs",
               "RelativeDocumentMoniker": "Content\\Equips\\VictideHeaddress.cs",
@@ -539,7 +681,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 40,
               "Title": "SulfurEmpowerment.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Buffs\\SulfurEmpowerment.cs",
               "RelativeDocumentMoniker": "Content\\Buffs\\SulfurEmpowerment.cs",
@@ -551,7 +693,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 30,
               "Title": "SilvaCrown.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Equips\\SilvaCrown.cs",
               "RelativeDocumentMoniker": "Content\\Equips\\SilvaCrown.cs",
@@ -563,7 +705,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 27,
               "Title": "SilvaHeart.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\SilvaHeart.cs",
               "RelativeDocumentMoniker": "Content\\Projectiles\\SilvaHeart.cs",
@@ -575,7 +717,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 38,
               "Title": "SulfurScepterThrown.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Content\\Projectiles\\SulfurScepterThrown.cs",
               "RelativeDocumentMoniker": "Content\\Projectiles\\SulfurScepterThrown.cs",
@@ -587,7 +729,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 42,
               "Title": "ColossusProjectile.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\DestroyerTest\\Content\\Projectiles\\Weapon\\Melee\\ColossusProjectile.cs",
               "RelativeDocumentMoniker": "..\\DestroyerTest\\Content\\Projectiles\\Weapon\\Melee\\ColossusProjectile.cs",
@@ -599,7 +741,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 43,
               "Title": "TrueMeleeGlobalItem.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Common\\Items\\TrueMeleeGlobalItem.cs",
               "RelativeDocumentMoniker": "Common\\Items\\TrueMeleeGlobalItem.cs",
@@ -611,20 +753,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "DTUtilsCalamity.cs",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Common\\DTUtilsCalamity.cs",
               "RelativeDocumentMoniker": "Common\\DTUtilsCalamity.cs",
               "ToolTip": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\FranciumCalamityWeapons\\Common\\DTUtilsCalamity.cs",
               "RelativeToolTip": "Common\\DTUtilsCalamity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAC6AAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-16T03:24:12.852Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 39,
               "Title": "DestroyerTest.csproj",
               "DocumentMoniker": "C:\\Users\\Franc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\DestroyerTest\\DestroyerTest.csproj",
               "RelativeDocumentMoniker": "..\\DestroyerTest\\DestroyerTest.csproj",

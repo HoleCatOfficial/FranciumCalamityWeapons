@@ -64,7 +64,7 @@ namespace FranciumCalamityWeapons.Content.Projectiles
 			Projectile.tileCollide = false;
 		}
 
-		public Color CosmicPink = new Color(217, 46, 223);
+        public Color CosmicPink = new Color(217, 46, 223);
 
 
         public float trailOffset = 0f;

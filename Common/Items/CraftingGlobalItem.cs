@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using CalamityMod.Items.Accessories;
 using CalamityMod.Items.Materials;
 using CalamityMod.Items.Weapons.Melee;
+using DestroyerTest.Content.Equips;
 using DestroyerTest.Content.Tiles.Riftplate;
 using Terraria;
 using Terraria.Audio;
@@ -26,6 +28,12 @@ namespace FranciumCalamityWeapons.Common.Items
                 if (recipe.HasResult<LifeAlloy>())
                 {
                     recipe.AddIngredient(ModContent.ItemType<Item_Riftplate>(), 1);
+                }
+
+                if (recipe.HasResult<ElementalGauntlet>())
+                {
+                    recipe.RemoveIngredient(ItemID.FireGauntlet);
+                    recipe.AddIngredient<ShimmeringGauntlet>();
                 }
             }
         }

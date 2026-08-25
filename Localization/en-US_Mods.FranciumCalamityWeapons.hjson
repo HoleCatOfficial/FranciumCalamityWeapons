@@ -479,24 +479,33 @@ Items: {
 	UnfathomableConglomeration: {
 		DisplayName: Unfathomable Conglomeration
 		Tooltip:
-		'''
-		Combines the effects of [i:CalamityMod/TheAmalgam] The Amalgam and the [i:DestroyerTest/ShadeHeart] Shade Heart.
-		
-		[i:DestroyerTest/ShadeHeart]Grants immunity to Shimmering Flames, God Slayer Inferno, and Defilement.
-		[i:DestroyerTest/ShadeHeart]26% increased all-class damage.
-		[i:DestroyerTest/ShadeHeart]All classes ignore 37 points of enemy defense.
-		[i:DestroyerTest/ShadeHeart]21% Incoming Damage Reduction.
-		[i:DestroyerTest/ShadeHeart]You Emit Light.
-		[i:DestroyerTest/ShadeHeart][i:CalamityMod/TheAmalgam] Taking damage confuses nearby enemies, spawns a dank creeper, and releases 4 Rotten Stars that inflict several debuffs.
-		
-		[i:CalamityMod/TheAmalgam] The dank creeper flies above you, exploding into several shaderain clouds
-		[i:CalamityMod/TheAmalgam] All attacks inflict a variety of debuffs, 225% increased elemental debuff damage.
-		[i:CalamityMod/TheAmalgam] Most buffs last twice as long, and persist after dying.
-		[i:CalamityMod/TheAmalgam] Grants or improves the ability to dodge attacks
-		[i:CalamityMod/TheAmalgam] After dodging, summon damage and crit chance are boosted by 10%
+			'''
+			Combines the effects of [i:CalamityMod/TheAmalgam] The Amalgam and the [i:DestroyerTest/ShadeHeart] Shade Heart.
 
-		'It smells 200 times worse than it looks'
-		'''
+			[i:DestroyerTest/ShadeHeart]Grants immunity to Shimmering Flames, God Slayer Inferno, and Defilement.
+			[i:DestroyerTest/ShadeHeart]26% increased all-class damage.
+			[i:DestroyerTest/ShadeHeart]All classes ignore 37 points of enemy defense.
+			[i:DestroyerTest/ShadeHeart]21% Incoming Damage Reduction.
+			[i:DestroyerTest/ShadeHeart]You Emit Light.
+			[i:DestroyerTest/ShadeHeart][i:CalamityMod/TheAmalgam] Taking damage confuses nearby enemies, spawns a dank creeper, and releases 4 Rotten Stars that inflict several debuffs.
+
+			[i:CalamityMod/TheAmalgam] The dank creeper flies above you, exploding into several shaderain clouds
+			[i:CalamityMod/TheAmalgam] All attacks inflict a variety of debuffs, 225% increased elemental debuff damage.
+			[i:CalamityMod/TheAmalgam] Most buffs last twice as long, and persist after dying.
+			[i:CalamityMod/TheAmalgam] Grants or improves the ability to dodge attacks
+			[i:CalamityMod/TheAmalgam] After dodging, summon damage and crit chance are boosted by 10%
+
+			'It smells 200 times worse than it looks'
+			'''
+	}
+
+	CharmOfEgo: {
+		DisplayName: Charm Of Ego
+		Tooltip:
+			'''
+			Scepter Class and Thrower Class critical strikes have a 1 in 3 chance to create a burst of God Slayer Fire.
+			Bursts inflict God Slayer Inferno for 10 seconds and Galvanic Corrosion for 5 seconds.
+			'''
 	}
 }
 
@@ -611,6 +620,7 @@ Projectiles: {
 	DreamDiscMini.DisplayName: Dream Disc Mini
 	AstralScepterThrown.DisplayName: Astral Scepter Thrown
 	RottenStar.DisplayName: Rotten Star
+	CharmOfEgoExplosion.DisplayName: Charm Of Ego Explosion
 }
 
 UI.OverlordChargeBar: Overlord Hit Count
